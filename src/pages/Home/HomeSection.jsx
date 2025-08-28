@@ -34,7 +34,7 @@ export default function HomeSection() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-snug text-gray-900"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold leading-snug text-gray-900"
           >
             PIONEER IN <br /> INTRODUCING ADVANCED <br /> TECHNOLOGIES FOR <br /> 
             THE CONSTRUCTION INDUSTRY
@@ -48,7 +48,7 @@ export default function HomeSection() {
             transition={{ delay: 0.6, duration: 0.8 }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="mt-6 inline-block px-6 py-3 bg-sky-600 text-white text-sm sm:text-base md:text-lg rounded-xl shadow-lg hover:bg-sky-700 transition"
+            className="mt-6 inline-block  px-2 bg-white text-blue-700 text-xl sm:text-xl md:text-lg  shadow-lg  transition"
           >
             Learn More →
           </motion.a>

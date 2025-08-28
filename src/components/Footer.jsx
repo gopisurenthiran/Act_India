@@ -4,17 +4,15 @@ import { Facebook, Instagram, X } from "lucide-react";
 export default function Footer() {
   return (
     <footer className="bg-gradient-to-r from-blue-500 to-blue-700 text-white py-10 px-6 md:px-12">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-8">
-        {/* Logo */}
         <div>
+           {/* Logo */}
           <img
-            src="/assets/logo.webp"
+            src="/assets/logo.png"
             alt="ACT Logo"
-            className="h-12 mb-4"
+            className="h-12 mb-4 bg-white"
           />
-          <p className="text-xs">Concrete Solution Providers</p>
         </div>
-
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-8">
         {/* Dealership */}
         <div>
           <h3 className="font-bold mb-3">Dealership</h3>
@@ -43,7 +41,10 @@ export default function Footer() {
               <li key={item} className="hover:text-gray-300 cursor-pointer">{item}</li>
             ))}
           </ul>
-          <h3 className="font-bold mb-3">News</h3>
+      
+        </div>
+        <div>
+              <h3 className="font-bold mb-3">News</h3>
           <ul className="space-y-2 text-sm">
             {[
               "ACT Newsletter Oct-2018",

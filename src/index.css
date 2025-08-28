@@ -6,3 +6,11 @@
 body {
   font-family: 'Inter', sans-serif;
 }
+/* Add this in your global.css or index.css */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  scroll-behavior: smooth;
+}
+

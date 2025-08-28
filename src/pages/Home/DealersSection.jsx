@@ -138,35 +138,6 @@ export default function DealersSection() {
         </div>
       
 
-      {/* Bottom Section */}
-      <div className="bg-white text-center mt-14 py-12 px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-2xl md:text-4xl font-bold text-black"
-        >
-          Sustainable Demolition & Waste <br /> Recycling Solutions
-        </motion.h2>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-          className="mt-3 text-gray-700 text-sm md:text-base max-w-2xl mx-auto"
-        >
-          ACT offers end-to-end consultancy for eco-friendly C&D waste <br /> recycling
-          and demolition using advanced high-reach <br /> equipment up to 26m.
-        </motion.p>
-
-        <motion.a
-          href="#"
-          whileHover={{ scale: 1.1 }}
-          className="text-blue-600 font-semibold mt-6 inline-block"
-        >
-          Learn More
-        </motion.a>
-      </div>
     </section>
   );
 }

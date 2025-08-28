@@ -8,13 +8,11 @@ export default function Header() {
       {/* Logo */}
       <div className="flex items-center space-x-2">
         <img
-          src="/assets/logo.webp"
+          src="/assets/logo.png"
           alt="ACT Logo"
-          className="h-10 md:h-12 object-contain"
+          className="h-10 w-full md:h-12 object-contain"
         />
-        <span className="text-xs md:text-sm tracking-wide">
-          Concrete Solutions Providers
-        </span>
+        
       </div>
 
       {/* Navigation Menu */}

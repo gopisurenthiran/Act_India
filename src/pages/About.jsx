@@ -1,8 +1,23 @@
+import AboutSection from "./About/AboutSection";
+import ClientSection from "./Home/ClientSection";
+import ContactSection from "./Home/ContactSection";
+import CompaniesCarousel from  "./Home/CompaniesCarousel";
+import ActSection from "./About/ActSection";
+import VolvoSection from "./About/VolvoSection";
+import WhyChooseACT from "./About/WhyChooseAct";
+import TestimonialSlider from "./About/TestimonialSlider";
+
 export default function About() {
   return (
-    <div>
-      <h2 className="text-3xl font-bold mb-4">About Me</h2>
-      <p className="text-gray-700">I am a passionate web developer with experience in building modern web applications using React, Tailwind CSS, and more. I love solving problems and creating beautiful interfaces.</p>
-    </div>
+   <>
+   <AboutSection />
+   <ClientSection />
+   <ActSection />
+   <VolvoSection />
+   <WhyChooseACT />
+   <TestimonialSlider />
+   <ContactSection />
+   <CompaniesCarousel />
+   </>
   )
 }

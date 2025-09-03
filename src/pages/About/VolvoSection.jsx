@@ -68,6 +68,7 @@ export default function VolvoSection() {
           <div className="text-sm text-gray-500">
             You're Just a Click Away from Visiting
           </div>
+          <span className="block w-10 sm:w-64 md:w-[380px] border-b-2 border-[#0071BB] mt-1"></span>
 
           {/* CTA Button */}
           <a

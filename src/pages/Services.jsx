@@ -5,6 +5,7 @@ import DemolitionSection from "./Services/DemolitionSection";
 import ProductSection from "./Services/ProductSection";
 import ServiceBanner from "./Services/ServiceBanner";
 import ExcavatorSlider from "./Services/ExcavatorSlider";
+import ServicesSlider from "./Services/ServicesSlider";
 
 
 
@@ -15,6 +16,7 @@ export default function Service() {
     <ClientSection />
     <DemolitionSection />
     <ProductSection />
+    <ServicesSlider />
     <ExcavatorSlider />
     <TestimonialSlider />
     <ContactSection />

@@ -16,48 +16,52 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full px-6 md:px-12 py-4 flex items-center justify-between z-20 text-white bg-transparent backdrop-blur-sm">
-      
-      {/* Logo */}
-      <div className="flex items-center space-x-2">
-        <img
-          src="/assets/logo.png"
-          alt="ACT Logo"
-          className="h-10 md:h-12 object-contain"
-        />
-      </div>
+    <header className="fixed top-0 w-full z-20 bg-transparent backdrop-blur-sm">
+      <section className="section py-3 md:py-4"> 
+        <div className="container flex items-center justify-between text-white">
+          
+          {/* Logo */}
+          <div className="flex items-center space-x-2">
+            <img
+              src="/assets/logo.png"
+              alt="ACT Logo"
+              className="h-10 md:h-12 object-contain"
+            />
+          </div>
 
-      {/* Desktop Navigation */}
-      <nav className="hidden md:flex space-x-8 text-sm font-medium">
-        {navLinks.map((link) => (
-          <NavLink
-            key={link.name}
-            to={link.path}
-            className={({ isActive }) =>
-              `transition-colors ${
-                isActive ? "text-blue-400" : "hover:text-blue-400"
-              }`
-            }
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.name}
+                to={link.path}
+                className={({ isActive }) =>
+                  `transition-colors ${
+                    isActive ? "text-blue-400" : "hover:text-blue-400"
+                  }`
+                }
+              >
+                {link.name}
+              </NavLink>
+            ))}
+
+            {/* Search Button */}
+            <button className="flex items-center space-x-1 bg-white/20 border border-white rounded-full px-3 py-1 hover:bg-white/30 transition">
+              <Search size={16} />
+              <span>Search</span>
+            </button>
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden p-2"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle Menu"
           >
-            {link.name}
-          </NavLink>
-        ))}
-
-        {/* Search Button */}
-        <button className="flex items-center space-x-1 bg-white/20 border border-white rounded-full px-3 py-1 hover:bg-white/30 transition">
-          <Search size={16} />
-          <span>Search</span>
-        </button>
-      </nav>
-
-      {/* Mobile Menu Button */}
-      <button
-        className="md:hidden p-2"
-        onClick={() => setIsOpen(!isOpen)}
-        aria-label="Toggle Menu"
-      >
-        {isOpen ? <X size={24} /> : <Menu size={24} />}
-      </button>
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </section>
 
       {/* Mobile Menu */}
       {isOpen && (

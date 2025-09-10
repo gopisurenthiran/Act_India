@@ -25,15 +25,15 @@ export default function ContactSection() {
           viewport={{ once: true }}
           className="space-y-5"
         >
-          <p className="text-gray-500 text-sm tracking-wide uppercase">
+          <p className="text-gray-500 text-sm tracking-wide uppercase font-primary">
             We’ re here to help you
           </p>
-          <h2 className="text-4xl font-bold leading-tight">
-            LET’S <span className="text-black">TALK</span> <br />
+          <h2 className="text-4xl font-semibold leading-tight font-primary">
+            LET’S <span className="text-black font-primary">TALK</span> <br />
             ABOUT <br />
             YOUR NEEDS
           </h2>
-          <p className="text-gray-500 max-w-md">
+          <p className="text-gray-400 max-w-md font-primary font-semibold">
             Looking for top-quality services and trusted dealership solutions?
             Reach out to us today.
           </p>
@@ -68,12 +68,12 @@ export default function ContactSection() {
         >
           {/* Name */}
           <div>
-            <label className="block text-sm font-semibold">Name</label>
+            <label className="block text-sm font-semibold font-primary">Name</label>
             <input
               type="text"
               placeholder="Enter Your Name"
               {...register("name", { required: "Name is required" })}
-              className="w-full mt-1 px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full mt-1 px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 font-secondary"
             />
             {errors.name && (
               <p className="text-red-500 text-xs mt-1">
@@ -84,7 +84,7 @@ export default function ContactSection() {
 
           {/* Email */}
           <div>
-            <label className="block text-sm font-semibold">E-mail</label>
+            <label className="block text-sm font-semibold font-primary">E-mail</label>
             <input
               type="email"
               placeholder="Enter Your Mail"
@@ -95,7 +95,7 @@ export default function ContactSection() {
                   message: "Enter a valid email",
                 },
               })}
-              className="w-full mt-1 px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full mt-1 px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 font-secondary"
             />
             {errors.email && (
               <p className="text-red-500 text-xs mt-1">
@@ -106,7 +106,7 @@ export default function ContactSection() {
 
           {/* Phone Number */}
           <div>
-            <label className="block text-sm font-semibold">Phone Number</label>
+            <label className="block text-sm font-semibold font-primary">Phone Number</label>
             <input
               type="text"
               placeholder="Enter Your Phone Number"
@@ -117,7 +117,7 @@ export default function ContactSection() {
                   message: "Enter a valid 10-digit number",
                 },
               })}
-              className="w-full mt-1 px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full mt-1 px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 font-secondary"
             />
             {errors.phone && (
               <p className="text-red-500 text-xs mt-1">
@@ -128,12 +128,12 @@ export default function ContactSection() {
 
           {/* Message */}
           <div>
-            <label className="block text-sm font-semibold">Message</label>
+            <label className="block text-sm font-semibold font-primary">Message</label>
             <textarea
               placeholder="Enter Your Message"
               rows="4"
               {...register("message", { required: "Message is required" })}
-              className="w-full mt-1 px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full mt-1 px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 font-secondary"
             ></textarea>
             {errors.message && (
               <p className="text-red-500 text-xs mt-1">

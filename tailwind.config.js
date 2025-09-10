@@ -4,24 +4,26 @@ export default {
     "./index.html",
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
-  darkMode: "class", // Enable dark mode via class strategy
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        primary: "#1d4ed8",     // blue-700
-        secondary: "#64748b",   // slate-500
-        accent: "#f59e0b",      // amber-500
-        muted: "#f3f4f6",       // gray-100
-        danger: "#ef4444",      // red-500
-        success: "#10b981",     // emerald-500
-        info: "#3b82f6",        // blue-500
-        dark: "#0f172a",        // slate-900
+        primary: "#0071BB",
+        secondary: "#100FBC",
+        accent: "#f59e0b",
+        muted: "#f3f4f6",
+        danger: "#ef4444",
+        success: "#10b981",
+        info: "#3b82f6",
+        dark: "#0f172a",
         light: "#ffffff",
       },
       fontFamily: {
-        sans: ["Inter", "ui-sans-serif", "system-ui"],
-        heading: ["Poppins", "ui-sans-serif", "system-ui"],
-        mono: ["Fira Code", "monospace"],
+        primary: ["NeueHaasDisplay", "sans-serif"],
+        secondary: ["ProximaNova", "sans-serif"],
+      },
+      backgroundImage: {
+        "gradient-primary": "linear-gradient(to right, #0071BB, #100FBC)", // 🔥 reusable gradient
       },
     },
   },

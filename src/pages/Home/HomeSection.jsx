@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function HomeSection() {
   return (
-    <div className="relative h-screen w-full overflow-hidden">
+    <div className="relative h-screen w-full h-[500px] overflow-hidden h-full">
       {/* Background Image */}
       <img
         src="/assets/Banner.png"
@@ -23,7 +23,7 @@ export default function HomeSection() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-gray-700 mb-3 text-sm sm:text-base md:text-lg"
+            className="text-gray-700 mb-3 text-sm sm:text-base md:text-lg font-secondary"
           >
             Welcome to Advanced Construction Technologies
             <span className="block w-40 sm:w-64 md:w-[380px] border-b-2 border-sky-600 mt-1"></span>
@@ -34,10 +34,10 @@ export default function HomeSection() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold leading-snug text-gray-900"
+            className="text-2xl font-bold font-primary leading-snug text-gray-900 pr-[520px]"
           >
-            PIONEER IN <br /> INTRODUCING ADVANCED <br /> TECHNOLOGIES FOR <br /> 
-            THE CONSTRUCTION INDUSTRY
+            PIONEER IN <br /> INTRODUCING <br /> ADVANCED <br /> TECHNOLOGIES FOR <br />
+            THE CONSTRUCTION <br /> INDUSTRY
           </motion.h1>
 
           {/* CTA Button */}
@@ -48,7 +48,7 @@ export default function HomeSection() {
             transition={{ delay: 0.6, duration: 0.8 }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="mt-6 inline-block  px-2 bg-white text-blue-700 text-xl sm:text-xl md:text-lg  shadow-lg  transition"
+            className="mt-6 inline-block  px-4 bg-white text-blue-700 text-xl sm:text-xl md:text-lg  shadow-lg  transition font-primary"
           >
             Learn More →
           </motion.a>
@@ -62,8 +62,8 @@ export default function HomeSection() {
         transition={{ delay: 1, duration: 1 }}
         className="absolute bottom-6 sm:bottom-12 left-2 sm:left-4 p-0 w-64 sm:w-72"
       >
-        <h3 className="font-bold text-gray-900 text-base sm:text-lg">📍 Chennai</h3>
-        <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
+        <h3 className="font-bold text-gray-900 text-base sm:text-lg font-primary">📍 Chennai</h3>
+        <p className="text-gray-700 text-xs sm:text-sm leading-relaxed font-secondary">
           No.5/55, Forest Range Road, <br />
           Kuthambakkam Post & Village, <br />
           Poonamalle Taluk, <br /> Thiruvallur Dist, <br />

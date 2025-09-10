@@ -5,28 +5,35 @@ import { motion, AnimatePresence } from "framer-motion";
 const dealers = [
   {
     id: 1,
-    name: "/logos/volvo.png",
+    name: "/assets/slider/1.png",
     product: "HYDRAULIC EXCAVATOR",
     img: "/assets/img-01.png",
   },
   {
     id: 2,
-    name: "/logos/epiroc.png",
+      name: "/assets/slider/2.png",
     product: "COMBI CUTTER",
     img: "/assets/img-02.png",
   },
   {
     id: 3,
-    name: "/logos/sdlg.png",
+      name: "/assets/slider/3.png",
     product: "TRACKED PAVER",
     img: "/assets/img-03.png",
   },
   {
     id: 4,
-    name: "/logos/franna.png",
-    product: "DOZER",
+    name: "/assets/slider/4.png",
+    product: "SOIL COMPACTORS",
     img: "/assets/img-04.png",
   },
+   {
+    id: 5,
+    name: "/assets/slider/6.png",
+    product: "FR17 Pick & Carry Crane",
+    img: "/assets/red-img.png",
+  },
+
 ];
 
 export default function DealersSection() {
@@ -42,8 +49,8 @@ export default function DealersSection() {
 
   return (
     <section className="w-full  text-white ">
-        <div className="bg-blue-600 py-12">
-<div className="max-w-7xl mx-auto px-4">
+        <div className="bg-gradient-primary py-12">
+<div className="max-w-6xl mx-auto px-4">
         {/* Top Row: Header Left + Navigation Right */}
         <div className="flex flex-col md:flex-row justify-between items-center md:items-end">
           {/* Header Left */}
@@ -52,7 +59,7 @@ export default function DealersSection() {
               initial={{ opacity: 0, y: -30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-3xl md:text-4xl font-bold"
+              className="text-3xl md:text-4xl font-bold font-primary"
             >
               Dealers
             </motion.h2>
@@ -61,7 +68,7 @@ export default function DealersSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="mt-2 text-lg md:text-xl"
+              className="mt-2 text-lg md:text-xl font-secondary"
             >
               ACT India delivers sustainable <br /> C&D solutions nationwide.
             </motion.p>
@@ -117,7 +124,7 @@ export default function DealersSection() {
                   </div>
 
                   {/* Product Title */}
-                  <span className="bg-blue-600 text-white px-4 py-1 rounded-md text-lg font-bold mt-3 text-center">
+                  <span className="bg-gradient-primary font-primary text-white px-4 py-1 rounded-md text-lg font-bold mt-3 text-center">
                     {dealer.product}
                   </span>
 
@@ -125,7 +132,7 @@ export default function DealersSection() {
                   <motion.a
                     href="#"
                     whileHover={{ x: 5 }}
-                    className="text-blue-600 font-semibold mt-4 flex items-center gap-1"
+                    className="text-primary font-primary font-semibold mt-4 flex items-center gap-1"
                   >
                     Learn More →
                   </motion.a>

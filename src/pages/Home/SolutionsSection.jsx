@@ -14,17 +14,17 @@ export default function SolutionsSection() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-black">
+          <h2 className="text-3xl md:text-4xl font-bold text-black font-primary">
             Sustainable Demolition & Waste <br /> Recycling Solutions
           </h2>
-          <p className="mt-4 text-gray-700 max-w-3xl mx-auto">
+          <p className="mt-4 text-gray-700 max-w-3xl mx-auto font-secondary">
             ACT offers end-to-end consultancy for eco-friendly C&D waste
             recycling and demolition using advanced high-reach equipment up to
             26m.
           </p>
           <a
             href="#"
-            className="mt-4 inline-block text-blue-600 font-semibold hover:underline"
+            className="mt-4 inline-block text-primary font-semibold hover:underline font-primary"
           >
             Learn More
           </a>
@@ -42,10 +42,10 @@ export default function SolutionsSection() {
           >
             {/* Text */}
             <div className="flex-1 text-center md:text-left">
-              <h3 className="text-xl font-bold border-b-2 border-blue-600 inline-block pb-1">
+              <h3 className="text-xl font-bold border-b-2 border-blue-600 inline-block pb-1 font-primary">
                 Silent Demolition
               </h3>
-              <p className="mt-3 text-gray-700 text-sm md:text-base leading-relaxed">
+              <p className="mt-3 text-gray-700 text-sm md:text-base leading-relaxed font-secondary">
                 High Reach demolition excavators reaching up to 26M height with
                 various eco-friendly hydraulic attachments create new dimensions
                 to urban demolition.
@@ -62,7 +62,7 @@ export default function SolutionsSection() {
               {/* Learn More */}
               <a
                 href="#"
-                className="mt-4 inline-flex items-center gap-1 text-blue-600 font-semibold hover:gap-2 transition-all"
+                className="mt-4 inline-flex items-center font-primary gap-1 text-blue-600 font-semibold hover:gap-2 transition-all"
               >
                 Learn More →
               </a>
@@ -88,10 +88,10 @@ export default function SolutionsSection() {
           >
             {/* Text */}
             <div className="flex-1 text-center md:text-left">
-              <h3 className="text-xl font-bold border-b-2 border-blue-600 inline-block pb-1">
+              <h3 className="text-xl font-bold border-b-2 border-blue-600 inline-block pb-1 font-primary">
                 Recycling
               </h3>
-              <p className="mt-3 text-gray-700 text-sm md:text-base leading-relaxed">
+              <p className="mt-3 text-gray-700 text-sm md:text-base leading-relaxed font-secondary">
                 ACT offers end-to-end consultancy solutions for sustainable
                 Construction & Demolition (C&D) waste recycling to conserve
                 resources and reduce landfill burden.
@@ -108,7 +108,7 @@ export default function SolutionsSection() {
               {/* Learn More */}
               <a
                 href="#"
-                className="mt-4 inline-flex items-center gap-1 text-blue-600 font-semibold hover:gap-2 transition-all"
+                className="mt-4 inline-flex items-center gap-1 text-blue-600 font-semibold hover:gap-2 transition-all font-primary"
               >
                 Learn More →
               </a>
@@ -120,7 +120,7 @@ export default function SolutionsSection() {
               transition={{ duration: 0.3 }}
               src="/assets/img-06.png"
               alt="Recycling"
-              className="h-56 object-contain drop-shadow-lg"
+              className="h-[12rem] object-contain drop-shadow-lg"
             />
           </motion.div>
         </div>

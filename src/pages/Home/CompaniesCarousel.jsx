@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 
 const companies = [
-  { id: 1, name: "Pact Machines Ltd", description: "Authorised Dealer for VOLVO construction equipment in Kerala", logo: "/assets/img-07.png", link: "#" },
-  { id: 2, name: "Bomacrete LLP", description: "Authorised Dealer for VOLVO construction equipment in Kerala", logo: "/assets/img-08.png", link: "#" },
-  { id: 3, name: "PACT Power Solutions LLP", description: "Authorised Dealer for VOLVO PENTA / LINDE / KARCHER / COMPAIR / KELLEY in Tamil Nadu", logo: "/assets/img-09.png", link: "#" },
+  { id: 1, name: "Pact Machines Ltd", description: "Authorised Dealer for VOLVO construction equipment in Kerala", logo: "/assets/img-09.png", link: "#" },
+  { id: 2, name: "Bomacrete LLP", description: "Authorised Dealer for VOLVO construction equipment in Kerala", logo: "/assets/img-07.png", link: "#" },
+  { id: 3, name: "PACT Power Solutions LLP", description: "Authorised Dealer for VOLVO PENTA / LINDE / KARCHER / COMPAIR / KELLEY in Tamil Nadu", logo: "/assets/img-08.png", link: "#" },
 ];
 
 export default function CompaniesCarousel() {

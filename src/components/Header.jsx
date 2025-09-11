@@ -1,30 +1,44 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { Search, Menu, X, ChevronDown } from "lucide-react";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false); // mobile menu
   const [openDropdown, setOpenDropdown] = useState(null); // mobile accordion
 
+  // HASH DROPDOWN DATA
   const dropdowns = {
     Services: [
-      { name: "Silent Demolition", path: "/services/silent-demolition" },
-      { name: "Recycling", path: "/services/recycling" },
+      { name: "Precare", path: "#precare" },
+      { name: "Auxillary Services", path: "#auxillary-services" },
+      { name: "EAAS", path: "#eaas" },
+      { name: "Operator Training", path: "#training" },
     ],
-    Dealership: [
-      { name: "Volvo", path: "/dealership/volvo" },
-      { name: "Epiroc", path: "/dealership/epiroc" },
-      { name: "SDLG", path: "/dealership/sdlg" },
-      { name: "Franna", path: "/dealership/franna" },
-      { name: "Ammann", path: "/dealership/ammann" },
-      { name: "Husqvarna", path: "/dealership/husqvarna" },
+    Dealers: [
+      { name: "Volvo", path: "#volvo" },
+      { name: "Epiroc", path: "#epiroc" },
+      { name: "SDLG", path: "#sdlg" },
+      { name: "Ammann", path: "#ammann" },
+      { name: "Husqvarna", path: "#husqvarna" },
+    ],
+    Infrastructure: [
+      { name: "Warehouse & Stockyard", path: "#warehouse" },
+      { name: "Machine Stockyard", path: "#machine-stockyard" },
+      { name: "Training", path: "#training" },
+      { name: "Workshop Chennai", path: "#workshop" },
+      { name: "Support Vehicles", path: "#support-vehicles" },
     ],
   };
 
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Services", path: "/services", dropdown: dropdowns.Services },
-    { name: "Dealership", path: "/dealership", dropdown: dropdowns.Dealership },
+    { name: "Dealers", path: "/dealership", dropdown: dropdowns.Dealers },
+    {
+      name: "Infrastructure",
+      path: "#infrastructure",
+      dropdown: dropdowns.Infrastructure,
+    },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];
@@ -35,11 +49,13 @@ export default function Header() {
         <div className="container mx-auto flex items-center justify-between px-4">
           {/* Logo */}
           <div className="flex items-center">
-            <img
-              src="/assets/logo.png"
-              alt="ACT Logo"
-              className="h-10 md:h-12 object-contain"
-            />
+            <Link to="/">
+              <img
+                src="/assets/logo.png"
+                alt="ACT Logo"
+                className="h-10 md:h-12 object-contain"
+              />
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -47,24 +63,24 @@ export default function Header() {
             {navLinks.map((link) =>
               link.dropdown ? (
                 <div key={link.name} className="relative group">
-                  <NavLink
-                    to={link.path}
+                  <a
+                    href={link.path}
                     className="hover:text-blue-600 flex items-center"
                   >
                     {link.name}
                     <ChevronDown className="w-4 h-4 ml-1" />
-                  </NavLink>
+                  </a>
                   {/* Dropdown */}
-                  <div className="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 w-48">
+                  <div className="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 w-56">
                     <ul className="py-2">
                       {link.dropdown.map((item, idx) => (
                         <li key={idx}>
-                          <NavLink
-                            to={item.path}
+                          <a
+                            href={item.path}
                             className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-blue-600"
                           >
                             {item.name}
-                          </NavLink>
+                          </a>
                         </li>
                       ))}
                     </ul>
@@ -83,10 +99,9 @@ export default function Header() {
 
             {/* Search Button */}
             <button className="flex items-center font-primary text-gradient-primary border border-primary rounded-full px-3 py-1 hover:opacity-90 transition">
-  <Search size={16} />
-  <span className="ml-1">Search</span>
-</button>
-
+              <Search size={16} />
+              <span className="ml-1">Search</span>
+            </button>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -109,7 +124,9 @@ export default function Header() {
                 <button
                   className="w-full flex justify-between items-center py-2 text-sm font-medium hover:text-blue-600 font-primary"
                   onClick={() =>
-                    setOpenDropdown(openDropdown === link.name ? null : link.name)
+                    setOpenDropdown(
+                      openDropdown === link.name ? null : link.name
+                    )
                   }
                 >
                   {link.name}
@@ -122,14 +139,14 @@ export default function Header() {
                 {openDropdown === link.name && (
                   <div className="pl-4 space-y-1">
                     {link.dropdown.map((item, idx) => (
-                      <NavLink
+                      <a
                         key={idx}
-                        to={item.path}
+                        href={item.path}
                         onClick={() => setIsOpen(false)}
-                        className="block py-1 text-sm hover:text-blue-600"
+                        className="block py-1 text-sm"
                       >
                         {item.name}
-                      </NavLink>
+                      </a>
                     ))}
                   </div>
                 )}
@@ -139,7 +156,7 @@ export default function Header() {
                 key={link.name}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className="py-2 text-sm font-medium hover:text-blue-600"
+                className="py-2 text-sm font-medium "
               >
                 {link.name}
               </NavLink>

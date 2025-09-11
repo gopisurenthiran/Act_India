@@ -36,9 +36,11 @@ export default function CompaniesCarousel() {
     return () => clearInterval(interval);
   }, []);
 
+  const wrap = (i) => (i + companies.length) % companies.length;
+
   return (
     <section className="py-12">
-      <div className="max-w-5xl mx-auto text-left">
+      <div className="max-w-6xl mx-auto text-left px-4">
         {/* Title */}
         <h2 className="text-2xl font-bold mb-12 inline-block relative">
           Group of Companies
@@ -46,24 +48,23 @@ export default function CompaniesCarousel() {
         </h2>
 
         {/* Carousel */}
-        <div className="relative flex items-center justify-center h-[280px] md:h-[320px]">
+        <div className="relative flex items-center justify-center h-[320px] md:h-[420px] overflow-hidden">
           {companies.map((company, index) => {
             const isActive = index === activeIndex;
-            const isPrev =
-              index === (activeIndex - 1 + companies.length) % companies.length;
-            const isNext = index === (activeIndex + 1) % companies.length;
+            const isPrev = index === wrap(activeIndex - 1);
+            const isNext = index === wrap(activeIndex + 1);
 
             return (
               <div
                 key={company.id}
-                className={`absolute transition-all duration-700 ease-in-out p-6 rounded-xl shadow-lg bg-white flex items-center gap-6
+                className={`absolute transition-all duration-700 ease-in-out rounded-xl bg-white shadow-xl flex items-center gap-6 p-6
                   ${
                     isActive
-                      ? "w-[480px] md:w-[500px] scale-100 opacity-100 z-20 left-1/2 -translate-x-1/2"
+                      ? "w-[90%] sm:w-[500px] md:w-[600px] h-[280px] sm:h-[340px] md:h-[300px] scale-100 opacity-100 z-20 left-1/2 -translate-x-1/2"
                       : isPrev
-                      ? "w-[350px] md:w-[380px] opacity-40 scale-90 blur-[1px] z-10 left-[5%]"
+                      ? "w-[180px] sm:w-[260px] md:w-[300px] h-[180px] sm:h-[220px] md:h-[240px] scale-90 opacity-30 blur-xs z-10 left-[6%]"
                       : isNext
-                      ? "w-[350px] md:w-[380px] opacity-40 scale-90 blur-[1px] z-10 right-[5%]"
+                      ? "w-[180px] sm:w-[260px] md:w-[300px] h-[180px] sm:h-[220px] md:h-[240px] scale-90 opacity-30 blur-xs z-10 right-[6%]"
                       : "hidden"
                   }`}
               >
@@ -73,13 +74,18 @@ export default function CompaniesCarousel() {
                     src={company.logo}
                     alt={company.name}
                     className="w-20 h-20 md:w-24 md:h-24 object-contain"
+                    loading="lazy"
                   />
                 </div>
 
                 {/* Right side - Content */}
                 <div className="text-left">
-                  <h3 className="text-lg font-bold">{company.name}</h3>
-                  <p className="text-gray-600 text-sm mt-2">{company.description}</p>
+                  <h3 className="text-lg md:text-xl font-bold">
+                    {company.name}
+                  </h3>
+                  <p className="text-gray-600 text-sm mt-2">
+                    {company.description}
+                  </p>
                   <a
                     href={company.link}
                     className="text-blue-600 font-semibold mt-4 inline-flex items-center gap-1"

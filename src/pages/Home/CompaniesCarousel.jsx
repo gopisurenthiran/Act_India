@@ -57,7 +57,7 @@ export default function CompaniesCarousel() {
             return (
               <div
                 key={company.id}
-                className={`absolute transition-all duration-700 ease-in-out rounded-xl bg-white shadow-xl flex items-center gap-6 p-6
+                className={`absolute transition-all duration-700 ease-in-out bg-white shadow-xl flex items-center gap-6 p-6
                   ${
                     isActive
                       ? "w-[90%] sm:w-[500px] md:w-[600px] h-[280px] sm:h-[340px] md:h-[300px] scale-100 opacity-100 z-20 left-1/2 -translate-x-1/2"

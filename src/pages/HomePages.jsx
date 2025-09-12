@@ -5,6 +5,7 @@ import ContactSection from "./Home/ContactSection";
 import DealersSection from "./Home/DealersSection";
 import HomeSection from "./Home/HomeSection";
 import SolutionsSection from "./Home/SolutionsSection";
+import StatsSlider from "./Home/StatsSlidder";
 import VideoSection from "./Home/VideoSection";
 
 
@@ -13,6 +14,7 @@ export default function HomePage() {
     <>
     <HomeSection />
     <ClientSection />
+    <StatsSlider />
     <AboutACT />
     <VideoSection />
     <DealersSection />

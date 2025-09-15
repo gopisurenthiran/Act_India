@@ -1,6 +1,4 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 
 const stats = [
   { value: "2500+", label: "SATISFIED CUSTOMERS" },
@@ -11,38 +9,29 @@ const stats = [
   { value: "20+", label: "REGIONAL BRAND DOMINANCE" },
 ];
 
-export default function StatsSlider() {
+export default function StatsSection() {
   return (
     <>
-     <section className="bg-gradient-primary from-blue-600 to-blue-800 py-10">
-      <div className="max-w-7xl mx-auto px-4">
-        <Swiper
-          spaceBetween={30}
-          breakpoints={{
-            320: { slidesPerView: 1 },
-            640: { slidesPerView: 2 },
-            768: { slidesPerView: 3 },
-            1024: { slidesPerView: 4 },
-            1280: { slidesPerView: 6 },
-          }}
-          loop={true}
-          autoplay={{ delay: 2000 }}
-        >
-          {stats.map((item, index) => (
-            <SwiperSlide key={index}>
-              <div className="text-center text-white">
+      <section className="bg-gradient-to-r from-blue-600 to-blue-800 py-10">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex flex-wrap justify-center text-center text-white">
+            {stats.map((item, index) => (
+              <div
+                key={index}
+                className="w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 px-4 mb-6"
+              >
                 <h2 className="text-3xl md:text-4xl font-bold">{item.value}</h2>
                 <p className="text-sm md:text-base mt-2">{item.label}</p>
               </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-    </section>
-    <section>
-    <div className="bg-white h-16"></div>
-    </section>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Spacer Section */}
+      <section>
+        <div className="bg-white h-16"></div>
+      </section>
     </>
-   
   );
 }

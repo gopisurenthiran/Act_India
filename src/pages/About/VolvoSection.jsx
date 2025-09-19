@@ -31,15 +31,7 @@ export default function VolvoSection() {
               className="w-full"
             />
 
-            {/* Navigation Arrows */}
-            <div className="flex justify-start gap-6 mt-4">
-              <button className="text-blue-600 hover:text-blue-800 transition">
-                <ArrowLeft size={28} />
-              </button>
-              <button className="text-blue-600 hover:text-blue-800 transition">
-                <ArrowRight size={28} />
-              </button>
-            </div>
+            
           </div>
         </div>
 

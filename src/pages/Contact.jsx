@@ -1,3 +1,4 @@
+import ContactStamp from "./Contact/ContactStamp"
 import FirstSection from "./Contact/FirstSection"
 import OfficeLocations from "./Contact/OfficeLocations"
 import ClientSection from "./Home/ClientSection"
@@ -10,6 +11,7 @@ export default function Contact() {
 <>
   <FirstSection />
   <ClientSection />
+  <ContactStamp />
   <ContactSection />
   <OfficeLocations />
   

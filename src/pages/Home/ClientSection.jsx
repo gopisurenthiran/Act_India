@@ -19,7 +19,7 @@ const logos = [
 export default function ClientSection() {
   return (
     <section className="py-8 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 place-items-center">
           {logos.map((logo, index) => (
             <div

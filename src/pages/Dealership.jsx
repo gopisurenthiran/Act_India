@@ -1,20 +1,18 @@
 import VolvoSection from "./About/VolvoSection";
-import Demolition from "./Dealership/Demolition";
+import Products from "./Dealership/Products";
 import HeroSection from "./Dealership/HeroSection";
-import ProductsGrid from "./Dealership/ProductsGrid";
 import ClientSection from "./Home/ClientSection";
 import ContactSection from "./Home/ContactSection";
 
 
 
-export default function HomePage() {
+export default function Dealership() {
   return (
     <>
        <HeroSection />
        <ClientSection />
        <VolvoSection />
-       <Demolition />
-       <ProductsGrid />
+       <Products />
        <ContactSection />
     </>
   );

@@ -6,6 +6,10 @@ import Contact from '@/pages/Contact'
 import Dealership from '@/pages/Dealership'
 import Service from '../pages/Services'
 import HomePage from '../pages/HomePages'
+import Epiroc from '../pages/Epiroc'
+import Sdlg from '../pages/Sdlg'
+import Ammann from '../pages/Ammann'
+import Husqvarna from '../pages/Husqvarna'
 
 const router = createBrowserRouter([
   {
@@ -15,6 +19,10 @@ const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       { path: 'about', element: <About /> },
       { path: 'dealership', element: <Dealership /> },
+      { path: 'epiroc', element: <Epiroc /> },
+       { path: 'sdlg', element: <Sdlg /> },
+      { path: 'ammann', element: <Ammann /> },
+      { path: 'husqvarna', element: <Husqvarna /> },
       { path: 'services', element: <Service /> },
       { path: 'contact', element: <Contact /> },
     ],

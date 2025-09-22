@@ -6,18 +6,21 @@ import ActSection from "./About/ActSection";
 import VolvoSection from "./About/VolvoSection";
 import WhyChooseACT from "./About/WhyChooseAct";
 import TestimonialSlider from "./About/TestimonialSlider";
+import CountSection from "./About/CountSection";
+import MissionVision from "./About/MissionVission";
+import ValuesSection from "./About/ValuesSection";
 
 export default function About() {
   return (
    <>
    <AboutSection />
    <ClientSection />
-   <ActSection />
-   <VolvoSection />
-   <WhyChooseACT />
+   <CountSection />
+   <MissionVision />
+   <ValuesSection />
    <TestimonialSlider />
    <ContactSection />
-   <CompaniesCarousel />
+
    </>
   )
 }

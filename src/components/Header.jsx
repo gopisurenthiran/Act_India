@@ -5,6 +5,8 @@ import { Search, Menu, X, ChevronDown } from "lucide-react";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false); // mobile menu
   const [openDropdown, setOpenDropdown] = useState(null); // mobile accordion
+  const [activeDropdown, setActiveDropdown] = useState(null); // desktop dropdown
+  const [timer, setTimer] = useState(null);
 
   // HASH DROPDOWN DATA
   const dropdowns = {
@@ -24,8 +26,8 @@ export default function Header() {
     Infrastructure: [
       { name: "Warehouse & Stockyard", path: "#warehouse" },
       { name: "Machine Stockyard", path: "#machine-stockyard" },
-      { name: "Training", path: "#training" },
-      { name: "Workshop Chennai", path: "#workshop" },
+      { name: "Trainings facilities", path: "#training" },
+      { name: "Workshop-Chennai", path: "#workshop" },
       { name: "Support Vehicles", path: "#support-vehicles" },
     ],
   };
@@ -36,12 +38,23 @@ export default function Header() {
     { name: "Dealers", path: "/dealership", dropdown: dropdowns.Dealers },
     {
       name: "Infrastructure",
-      path: "#infrastructure",
+      path: "/infrastructure",
       dropdown: dropdowns.Infrastructure,
     },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];
+
+  // handle desktop dropdown hover delay
+  const handleEnter = (name) => {
+    if (timer) clearTimeout(timer);
+    setActiveDropdown(name);
+  };
+
+  const handleLeave = () => {
+    const newTimer = setTimeout(() => setActiveDropdown(null), 3000); // 3 sec hold
+    setTimer(newTimer);
+  };
 
   return (
     <header className="fixed top-0 w-full z-20 bg-white shadow-sm">
@@ -62,7 +75,12 @@ export default function Header() {
           <nav className="hidden md:flex items-center space-x-8 text-sm text-primary font-primary">
             {navLinks.map((link) =>
               link.dropdown ? (
-                <div key={link.name} className="relative group">
+                <div
+                  key={link.name}
+                  className="relative"
+                  onMouseEnter={() => handleEnter(link.name)}
+                  onMouseLeave={handleLeave}
+                >
                   <a
                     href={link.path}
                     className="hover:text-blue-600 flex items-center"
@@ -71,20 +89,22 @@ export default function Header() {
                     <ChevronDown className="w-4 h-4 ml-1" />
                   </a>
                   {/* Dropdown */}
-                  <div className="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 w-56">
-                    <ul className="py-2">
-                      {link.dropdown.map((item, idx) => (
-                        <li key={idx}>
-                          <a
-                            href={item.path}
-                            className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-blue-600"
-                          >
-                            {item.name}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  {activeDropdown === link.name && (
+                    <div className="absolute bg-white shadow-lg rounded-md mt-2 w-56">
+                      <ul className="py-2">
+                        {link.dropdown.map((item, idx) => (
+                          <li key={idx}>
+                            <a
+                              href={item.path}
+                              className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-blue-600"
+                            >
+                              {item.name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
               ) : (
                 <NavLink

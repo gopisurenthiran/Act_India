@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export default function AboutSection() {
+export default function HeroSection() {
   return (
     <div className="relative h-screen w-full overflow-hidden">
       {/* Background Image - Desktop */}

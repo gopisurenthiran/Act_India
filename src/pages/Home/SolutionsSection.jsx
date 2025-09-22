@@ -24,7 +24,7 @@ export default function SolutionsSection() {
           </p>
           <a
             href="#"
-            className="mt-4 inline-block text-primary font-semibold hover:underline font-primary"
+            className="mt-4 inline-block text-primary font-semibold  font-primary"
           >
             Learn More
           </a>

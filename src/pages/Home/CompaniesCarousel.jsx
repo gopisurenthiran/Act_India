@@ -127,7 +127,7 @@ export default function GroupOfCompaniesSlider() {
 
             {/* Center divider */}
             <div className="hidden md:block h-full w-px mx-auto">
-              <div className="h-full w-px bg-gradient-to-b from-transparent via-gray-200 to-transparent" />
+              <div className="h-full w-px bg-gradient-to-b border border-dashed from-transparent via-gray-200 to-transparent" />
             </div>
 
             {/* Right partners */}

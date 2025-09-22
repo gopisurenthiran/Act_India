@@ -10,6 +10,7 @@ import Epiroc from '../pages/Epiroc'
 import Sdlg from '../pages/Sdlg'
 import Ammann from '../pages/Ammann'
 import Husqvarna from '../pages/Husqvarna'
+import Infrastructure from '../pages/Infrastructure'
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
        { path: 'sdlg', element: <Sdlg /> },
       { path: 'ammann', element: <Ammann /> },
       { path: 'husqvarna', element: <Husqvarna /> },
+       { path: 'infrastructure', element: <Infrastructure /> },
       { path: 'services', element: <Service /> },
       { path: 'contact', element: <Contact /> },
     ],

@@ -11,23 +11,21 @@ import SolutionsSection from "./Home/SolutionsSection";
 import StatsSlider from "./Home/StatsSlidder";
 import VideoSection from "./Home/VideoSection";
 
-
 export default function HomePage() {
   return (
     <>
-    <HomeSection />
-    <ClientSection />
-    <StatsSlider />
-    <AboutACT />
-    <VideoSection />
-    <DealersSection />
-    <SolutionsSection />
-       <ServiceSlider />
-       <Infrastructure />
-       <OurNetwork />
-        <CompaniesCarousel />
-    <ContactSection />
-   
+      <HomeSection />
+      <ClientSection />
+      <StatsSlider />
+      <AboutACT />
+      <VideoSection />
+      <DealersSection />
+      <SolutionsSection />
+      <ServiceSlider />
+      <Infrastructure />
+      <OurNetwork />
+      <CompaniesCarousel />
+      <ContactSection />
     </>
   );
 }

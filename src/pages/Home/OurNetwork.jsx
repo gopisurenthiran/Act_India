@@ -11,7 +11,7 @@ export default function OurNetwork() {
         <img
           src="/assets/our-network.png"
           alt="Our Network Map"
-          className="w-full max-w-6xl rounded-lg shadow-lg"
+          className="w-full max-w-6xl rounded-lg"
         />
       </div>
     </section>

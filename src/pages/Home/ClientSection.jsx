@@ -2,7 +2,6 @@ import React from "react";
 
 import volvoLogo from "/assets/v.png";
 import epirocLogo from "/assets/epiroc.png";
-import frannaLogo from "/assets/franna.png";
 import ammannLogo from "/assets/amman.png";
 import husqvarnaLogo from "/assets/hus.png";
 import sdlgLogo from "/assets/sdlg.png";
@@ -10,7 +9,6 @@ import sdlgLogo from "/assets/sdlg.png";
 const logos = [
   { name: "Volvo", image: volvoLogo },
   { name: "Epiroc", image: epirocLogo },
-  { name: "Franna", image: frannaLogo },
   { name: "Ammann", image: ammannLogo },
   { name: "Husqvarna", image: husqvarnaLogo },
   { name: "SDLG", image: sdlgLogo },
@@ -18,9 +16,9 @@ const logos = [
 
 export default function ClientSection() {
   return (
-    <section className="py-8 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 place-items-center">
+    <section className="py-12 bg-white mt-10 mb-10">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {logos.map((logo, index) => (
             <div
               key={index}
@@ -29,7 +27,7 @@ export default function ClientSection() {
               <img
                 src={logo.image}
                 alt={logo.name}
-                className="max-h-full max-w-full object-contain"
+                className="max-h-full max-w-full object-cover"
               />
             </div>
           ))}

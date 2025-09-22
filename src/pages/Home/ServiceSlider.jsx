@@ -100,7 +100,7 @@ export default function ServiceSlider() {
                 </div>
                 <a
                   href="#"
-                  className="text-blue-600 font-semibold text-sm flex items-center gap-2 hover:underline"
+                  className="text-blue-600 font-semibold text-sm flex items-center gap-2"
                 >
                   LEARN MORE →
                 </a>

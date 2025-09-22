@@ -111,7 +111,7 @@ export default function FooterACT() {
                       className="group flex items-center gap-3 text-[14px] text-white/95 hover:text-white transition-colors"
                     >
                       <PdfDocIcon />
-                      <span className="underline decoration-transparent group-hover:decoration-white/70 underline-offset-2">
+                      <span className=" decoration-transparent group-hover:decoration-white/70 underline-offset-2">
                         {title}
                       </span>
                     </a>

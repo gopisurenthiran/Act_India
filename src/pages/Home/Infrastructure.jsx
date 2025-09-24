@@ -1,31 +1,37 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const infraData = [
   {
     title: "warehouses & stockyards",
     desc: "PRECARE is a thoughtfully curated bouquet of support solutions aimed at ensuring 'CUSTOMER SUCCESS' in their respective businesses using our products and services.",
     image: "/assets/infra-1.png",
+    link: "/infrastructure",
   },
   {
     title: "Machine stockyard",
     desc: "PRECARE is a thoughtfully curated bouquet of support solutions aimed at ensuring 'CUSTOMER SUCCESS' in their respective businesses using our products and services.",
     image: "/assets/infra-2.png",
+    link: "/infrastructure",
   },
   {
     title: "Trainings facilities",
     desc: "PRECARE is a thoughtfully curated bouquet of support solutions aimed at ensuring 'CUSTOMER SUCCESS' in their respective businesses using our products and services.",
     image: "/assets/infra-3.png",
+    link: "/infrastructure",
   },
   {
     title: "Workshop - Chennai",
     desc: "PRECARE is a thoughtfully curated bouquet of support solutions aimed at ensuring 'CUSTOMER SUCCESS' in their respective businesses using our products and services.",
     image: "/assets/infra-4.png",
+    link: "/infrastructure",
   },
   {
     title: "Support vehicle",
     desc: "PRECARE is a thoughtfully curated bouquet of support solutions aimed at ensuring 'CUSTOMER SUCCESS' in their respective businesses using our products and services.",
     image: "/assets/infra-5.png",
+    link: "/infrastructure",
   },
 ];
 
@@ -106,12 +112,12 @@ export default function Infrastructure() {
                 <span className="block w-16 border-b-2 border-secondary mx-auto lg:mx-0 mb-2 mt-1"></span>
 
                 <p className="text-gray-600 text-sm mb-2">{item.desc}</p>
-                <a
-                  href="#"
-                  className="text-secondary font-medium text-sm flex items-center gap-1"
-                >
-                  LEARN MORE →
-                </a>
+                <Link
+  to={item.link}
+  className="text-secondary font-medium text-sm flex items-center gap-1"
+>
+  LEARN MORE →
+</Link>
               </div>
 
               {/* Right Thumbnail */}

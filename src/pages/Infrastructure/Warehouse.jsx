@@ -8,6 +8,14 @@ const SLIDES = [
   { src: "/assets/tirunelveli.png", alt: "Inventory scanning", label: "Tirunelveli" },
 ];
 
+// 🔁 Replace these with your actual icon image files
+const FEATURE_ICONS = [
+  { src: "/assets/ico-1.png", alt: "Multi-city hubs" },
+  { src: "/assets/ico-2.png",  alt: "Material handling" },
+  { src: "/assets/ico-3.png",     alt: "In/Out logistics" },
+  { src: "/assets/ico-4.png",    alt: "Secure storage" },
+];
+
 export default function Warehouse() {
   const [idx, setIdx] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -48,7 +56,7 @@ export default function Warehouse() {
 
           {/* Floating pill (dynamic city name) */}
           <div className="absolute left-4 top-4">
-            <span className="select-none rounded-full bg-gradient-to-b from-blue-500 to-indigo-600 px-3 py-1.5 text-xs font-semibold text-white shadow-lg shadow-blue-500/20 transition-all duration-500">
+            <span className="select-none rounded-md bg-gradient-to-b from-blue-500 to-indigo-600 px-3 py-1.5 text-xs font-semibold text-white shadow-lg shadow-blue-500/20 transition-all duration-500">
               {SLIDES[idx].label}
             </span>
           </div>
@@ -86,55 +94,30 @@ export default function Warehouse() {
               operations.
             </p>
 
+            {/* ✅ 4 different icon images */}
             <ul className="mt-6 flex flex-wrap gap-5">
-              {Array.from({ length: 4 }).map((_, i) => (
+              {FEATURE_ICONS.map(({ src, alt }, i) => (
                 <li
                   key={i}
                   className="flex h-10 w-10 items-center justify-center rounded-md border border-blue-600/30 bg-blue-50"
+                  title={alt}
+                  aria-label={alt}
                 >
-                  <NetworkMiniIcon className="h-5 w-5 text-blue-700" />
+                  <img
+                    src={src}
+                    alt={alt}
+                    className="h-5 w-5 object-contain"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </li>
               ))}
             </ul>
 
-            <a
-              href="#"
-              className="group mt-6 inline-flex items-center gap-2 text-sm font-semibold text-blue-700"
-            >
-              LEARN MORE
-              <svg
-                className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M5 12h14" />
-                <path d="m13 5 7 7-7 7" />
-              </svg>
-            </a>
+           
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function NetworkMiniIcon({ className = "" }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
-      <g
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <rect x="9" y="4" width="6" height="6" rx="1.2" />
-        <rect x="4" y="14" width="6" height="6" rx="1.2" />
-        <rect x="14" y="14" width="6" height="6" rx="1.2" />
-        <path d="M12 10v2M7 14v-1a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v1" />
-      </g>
-    </svg>
   );
 }

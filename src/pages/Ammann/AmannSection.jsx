@@ -52,19 +52,7 @@ export default function AmannSection() {
             Ammann is a global leader in mixing plants, road construction equipment, and services, with a legacy of excellence since 1869. With 150+ years of innovation, the sixth-generation family-run business continues to drive productivity and performance in transportation infrastructure worldwide. Despite its global reach and evolving technology, Ammann’s core commitment remains unchanged delivering customer-centric, forward-thinking solutions built to last. 
           </p>
 
-          {/* Extra Note */}
-          <div className="text-sm text-gray-500">
-            You're Just a Click Away from Visiting
-          </div>
-          <span className="block w-10 sm:w-64 md:w-[380px] border-b-2 border-[#0071BB] mt-1"></span>
-
-          {/* CTA Button */}
-          <a
-            href="#"
-            className="inline-flex items-center gap-2 text-blue-600 font-bold text-lg hover:underline transition"
-          >
-            Volvo CE India <ArrowRight size={18} />
-          </a>
+         
         </div>
       </div>
     </section>

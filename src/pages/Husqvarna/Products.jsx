@@ -107,7 +107,7 @@ function ProductCard({ img, title, subtitle, className = "" }) {
           <img
             src={img}
             alt={title}
-            className="h-44 md:h-52 w-full object-contain p-6 transition-transform duration-300 hover:scale-[1.03]"
+            className=" object-contain p-6 transition-transform duration-300 hover:scale-[1.03]"
             loading="lazy"
           />
         </div>
@@ -137,7 +137,7 @@ function SoilCard({ img, title, specs, className = "" }) {
           <img
             src={img}
             alt={title}
-            className="h-52 md:h-56 w-full object-contain bg-white"
+            className=" object-contain bg-white"
             loading="lazy"
           />
         </div>
@@ -165,7 +165,7 @@ function AccessoryCard({ img, title, className = "" }) {
           <img
             src={img}
             alt={title}
-            className="h-52 md:h-56 w-full object-contain bg-white"
+            className=" object-contain bg-white"
             loading="lazy"
           />
         </div>
@@ -196,12 +196,12 @@ export default function ProductsShowcase() {
                   key={tab}
                   onClick={() => setActive(tab)}
                   className={`relative py-3 -mb-px transition-colors ${
-                    isActive ? "text-neutral-900" : "text-neutral-400 hover:text-neutral-700"
+                    isActive ? "text-primary" : " hover:text-primary"
                   }`}
                 >
                   {tab}
                   {isActive && (
-                    <span className="absolute left-0 right-0 -bottom-px h-[2px] bg-neutral-900 rounded-full" />
+                    <span className="absolute left-0 right-0 -bottom-px h-[2px] bg-gradient-primary rounded-full" />
                   )}
                 </button>
               );

@@ -23,7 +23,7 @@ export default function Products() {
   const current = ITEMS.filter((i) => i.category === active);
 
   return (
-    <section className="bg-white text-primary py-10 md:py-16">
+    <section className="bg-white text-black py-10 md:py-16">
       <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
         {/* Tabs */}
         <div className="mb-8 flex justify-center">
@@ -35,7 +35,7 @@ export default function Products() {
                   key={c}
                   onClick={() => setActive(c)}
                   className={`relative py-3 -mb-px transition-colors ${
-                    isActive ? "text-primary" : "text-primary hover:text-primary"
+                    isActive ? "text-black" : "text-primary hover:text-primary"
                   }`}
                 >
                   {c}
@@ -84,7 +84,7 @@ function ProductCard({ img, title, subtitle }) {
           <img
             src={img}
             alt={title}
-            className="h-44 pt-10 md:h-52 w-full transition-transform duration-300 hover:scale-[1.03]"
+            className=" pt-10 transition-transform duration-300 hover:scale-[1.03]"
           />
         </div>
       </div>

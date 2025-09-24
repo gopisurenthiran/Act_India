@@ -4,6 +4,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 
 // Sample data (replace with yours)
@@ -13,24 +14,28 @@ const data = [
     desc: "PRECARE is a thoughtfully curated bouquet of support solutions aimed at ensuring 'CUSTOMER SUCCESS' in their respective businesses using our products and services.",
     icons: ["/assets/icon-1.png", "/assets/icon-2.png", "/assets/icon-3.png", "/assets/icon-4.png"],
     image: "/assets/image-1.png", // ✅ add image here
+    link: "/services",
   },
   {
     title: "Auxillary service solutions",
     desc: "Comprehensive heavy equipment refurbishment — from hard-facing and bush replacements to structural welding, bucket rebuilds, and track link reconditioning.",
     icons: ["/assets/icon-5.png", "/assets/icon-6.png", "/assets/icon-7.png", "/assets/icon-8.png"],
     image: "/assets/image-2.png",
+    link: "/services",
   },
   {
     title: "Equipment-as-a-Service",
     desc: "Equipment-as-a-Service (EaaS) provides flexible access to VOLVO machines, ensuring optimum efficiency and performance without long-term commitments.",
     icons: ["/assets/icon-9.png", "/assets/icon-10.png", "/assets/icon-11.png", "/assets/icon-12.png"],
     image: "/assets/image-3.png",
+    link: "/services",
   },
   {
     title: "Operator training & certification",
     desc: "We conduct annual ESC certification programs to gain participants in safe and efficient equipment operation.",
     icons: ["/assets/icon-3.png", "/assets/icon-11.png", "/assets/icon-2.png", "/assets/icon-9.png"],
     image: "/assets/image-4.png",
+    link: "/services",
   },
 ];
 
@@ -125,11 +130,14 @@ export default function ServiceSlider() {
                   ))}
                 </div>
 
-                <div className="mt-auto">
-                  <a href="#" className="text-secondary font-semibold text-sm inline-flex items-center gap-2">
-                    LEARN MORE →
-                  </a>
-                </div>
+            <div className="mt-auto">
+  <Link
+    to={item.link}   // 👈 e.g., "/services/eaas"
+    className="text-secondary font-semibold text-sm inline-flex items-center gap-2"
+  >
+    LEARN MORE →
+  </Link>
+</div>
               </div>
 
              {/* Right side image */}

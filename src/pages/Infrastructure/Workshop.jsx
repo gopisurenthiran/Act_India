@@ -83,7 +83,7 @@ function LeftSlider({ slides, autoplayMs = 4000, pillText }) {
       ))}
 
       {/* pill */}
-      <span className="absolute left-4 top-4 select-none rounded-full bg-gradient-to-b from-blue-500 to-indigo-600 px-3 py-1.5 text-xs font-semibold text-white shadow-lg shadow-blue-500/20">
+      <span className="absolute left-4 top-4 select-none rounded-md bg-gradient-to-b from-blue-500 to-indigo-600 px-3 py-1.5 text-xs font-semibold text-white shadow-lg shadow-blue-500/20">
         {pillText}
       </span>
     </div>

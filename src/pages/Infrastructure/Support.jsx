@@ -43,9 +43,9 @@ export default function Support({
             "
             style={{ maxWidth }}
           >
-            {/* Card: aspect ratio + safe min height */}
+            {/* Card (keeps a safe min-height; no forced image size) */}
             <div
-              className="relative w-full aspect-[470/299] min-h-[240px] sm:min-h-[280px] overflow-hidden shadow-sm isolate"
+              className="relative sm:min-h-[260px] overflow-hidden  isolate"
               style={{ width: maxWidth }}
             >
               <ImageSlider
@@ -113,7 +113,7 @@ function ImageSlider({ slides, pillText, autoplayMs = 4000 }) {
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
-      {/* Slides: full-bleed cross-fade */}
+      {/* Slides (intrinsic size, centered) */}
       {slides.map((s, i) => (
         <img
           key={s.src + i}
@@ -122,19 +122,24 @@ function ImageSlider({ slides, pillText, autoplayMs = 4000 }) {
           role="img"
           loading="lazy"
           draggable={false}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-out ${
-            i === idx ? "opacity-100" : "opacity-0"
-          }`}
+          className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                      transition-opacity duration-700 ease-out
+                      ${i === idx ? "opacity-100" : "opacity-0"}`}
+          style={{
+            maxWidth: "100%",
+            maxHeight: "100%",
+            objectFit: "contain",
+          }}
         />
       ))}
 
-      {/* Pill — reduced z-index and inside isolated container */}
-      <div className="absolute left-3 top-3 sm:left-4 sm:top-4 z-10 max-w-[70%] select-none rounded-full bg-gradient-to-b from-blue-500 to-indigo-600 px-2.5 py-[6px] sm:px-3 sm:py-1 text-[10px] sm:text-[11px] font-semibold text-white shadow-lg shadow-blue-500/25">
+      {/* Pill (overlay, on top) */}
+      <div className="absolute left-3 top-3 sm:left-4 sm:top-4 z-20 max-w-[70%] select-none rounded-md bg-gradient-to-b from-blue-500 to-indigo-600 px-2.5 py-[6px] sm:px-3 sm:py-1 text-[10px] sm:text-[11px] font-semibold text-white">
         <span className="block truncate">{pillText}</span>
       </div>
 
-      {/* Dots */}
-      <div className="absolute bottom-3 sm:bottom-4 inset-x-0 z-10 flex justify-center gap-1.5">
+      {/* Dots (inside image area, above slides) */}
+      <div className="absolute bottom-3 sm:bottom-4 inset-x-0 z-20 flex justify-center gap-1.5">
         {slides.map((_, i) => (
           <button
             key={i}
@@ -142,14 +147,11 @@ function ImageSlider({ slides, pillText, autoplayMs = 4000 }) {
             aria-label={`Go to slide ${i + 1}`}
             aria-current={i === idx}
             className={`h-1.5 w-1.5 rounded-full transition-all ${
-              i === idx ? "bg-white/90" : "bg-white/55 hover:bg-white/75"
+              i === idx ? "bg-white/90" : "bg-white/60 hover:bg-white/80"
             }`}
           />
         ))}
       </div>
-
-      {/* Soft fade */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-black/15 to-transparent" />
     </div>
   );
 }

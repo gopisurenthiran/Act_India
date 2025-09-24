@@ -56,19 +56,9 @@ export default function VolvoSection() {
             values: Quality, Safety, and Environmental Care.
           </p>
 
-          {/* Extra Note */}
-          <div className="text-sm text-gray-500">
-            You're Just a Click Away from Visiting
-          </div>
-          <span className="block w-10 sm:w-64 md:w-[380px] border-b-2 border-[#0071BB] mt-1"></span>
+         
 
-          {/* CTA Button */}
-          <a
-            href="#"
-            className="inline-flex items-center gap-2 text-blue-600 font-bold text-lg hover:underline transition"
-          >
-            Volvo CE India <ArrowRight size={18} />
-          </a>
+          
         </div>
       </div>
     </section>

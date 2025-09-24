@@ -52,19 +52,7 @@ export default function SdlgSection() {
             SDLG (Shandong Lingong Construction Machinery) is a trusted global brand known for delivering reliable and cost-effective construction machinery since 1972. Backed by Volvo CE since 2007, SDLG combines robust engineering with global standards to serve infrastructure and construction needs worldwide. Its value-driven machines are designed for performance, durability, and easy maintenance making them ideal for high-demand environments. 
           </p>
 
-          {/* Extra Note */}
-          <div className="text-sm text-gray-500">
-            You're Just a Click Away from Visiting
-          </div>
-          <span className="block w-10 sm:w-64 md:w-[380px] border-b-2 border-[#0071BB] mt-1"></span>
-
-          {/* CTA Button */}
-          <a
-            href="#"
-            className="inline-flex items-center gap-2 text-blue-600 font-bold text-lg hover:underline transition"
-          >
-            Volvo CE India <ArrowRight size={18} />
-          </a>
+         
         </div>
       </div>
     </section>

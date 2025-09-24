@@ -36,12 +36,12 @@ export default function Products() {
                   key={c}
                   onClick={() => setActive(c)}
                   className={`relative py-3 -mb-px transition-colors ${
-                    isActive ? "text-neutral-900" : "text-neutral-400 hover:text-neutral-700"
+                    isActive ? "text-primary" : " hover:text-primary"
                   }`}
                 >
                   {c}
                   {isActive && (
-                    <span className="absolute left-0 right-0 -bottom-px h-[2px] bg-neutral-900 rounded-full" />
+                    <span className="absolute left-0 right-0 -bottom-px h-[2px] bg-gradient-primary rounded-full" />
                   )}
                 </button>
               );
@@ -83,7 +83,7 @@ function ProductCard({ img, title, subtitle }) {
           <img
             src={img}
             alt={title}
-            className="h-44 pt-10 md:h-52 w-full transition-transform duration-300 hover:scale-[1.03]"
+            className=" pt-10 transition-transform duration-300 hover:scale-[1.03]"
           />
         </div>
       </div>

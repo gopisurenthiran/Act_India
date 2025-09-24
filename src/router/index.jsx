@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import MainLayout from '@/layouts/MainLayout'
 import About from '@/pages/About'
 import Contact from '@/pages/Contact'
-import Dealership from '@/pages/Dealership'
+import Volvo from '@/pages/Volvo'
 import Service from '../pages/Services'
 import HomePage from '../pages/HomePages'
 import Epiroc from '../pages/Epiroc'
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: 'about', element: <About /> },
-      { path: 'dealership', element: <Dealership /> },
+      { path: 'volvo', element: <Volvo /> },
       { path: 'epiroc', element: <Epiroc /> },
        { path: 'sdlg', element: <Sdlg /> },
       { path: 'ammann', element: <Ammann /> },

@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function HomeSection() {
   return (
@@ -42,28 +43,26 @@ export default function HomeSection() {
             transition={{ duration: 1, delay: 0.3 }}
             className="text-2xl font-bold font-primary leading-snug md:text-gray-900 text-white md:pr-[520px] pr-0"
           >
-            PIONEER IN <br className="hidden md:block" /> INTRODUCING <br className="hidden md:block" /> ADVANCED <br className="hidden md:block" />
-            TECHNOLOGIES FOR <br className="hidden md:block" /> THE CONSTRUCTION <br className="hidden md:block" /> INDUSTRY
+            PIONEER IN <br className="hidden md:block" /> INTRODUCING{" "}
+            <br className="hidden md:block" /> ADVANCED{" "}
+            <br className="hidden md:block" />
+            TECHNOLOGIES FOR <br className="hidden md:block" /> THE CONSTRUCTION{" "}
+            <br className="hidden md:block" /> INDUSTRY
           </motion.h1>
 
           {/* CTA Button */}
-          <motion.a
-            href="#"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className="mt-6 inline-block px-4 bg-white text-secondary text-lg shadow-lg transition font-primary"
+          <motion.div
+           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.8 }} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}
           >
-            Learn More →
-          </motion.a>
+            <Link
+              to="/contact"
+              className="mt-6 inline-block px-4 bg-white text-secondary text-lg shadow-lg transition font-primary"
+            >
+              Learn More →
+            </Link>
+          </motion.div>
         </div>
       </div>
-
-   
-
-
     </div>
   );
 }

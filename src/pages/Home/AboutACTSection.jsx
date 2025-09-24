@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { FaCogs, FaUsers, FaBoxOpen } from "react-icons/fa";
 
 export default function AboutACT() {
@@ -30,7 +31,19 @@ export default function AboutACT() {
               in providing solutions in the forms of equipment and services to
               the construction and infrastructure segments.
             </p>
+                   {/* CTA Button */}
+          <motion.div
+           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.8 }} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}
+          >
+            <Link
+              to="/about"
+              className="mt-6 inline-block px-4 bg-white text-secondary text-lg shadow-lg transition font-primary"
+            >
+              Learn More →
+            </Link>
           </motion.div>
+          </motion.div>
+       
 
           {/* Right Excavator */}
           <motion.div
@@ -46,6 +59,7 @@ export default function AboutACT() {
               className="max-h-[280px] sm:max-h-[350px] md:max-h-[400px] w-auto object-contain"
             />
           </motion.div>
+       
         </div>
       </div>
     </section>

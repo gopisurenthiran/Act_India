@@ -16,13 +16,13 @@ const logos = [
 
 export default function ClientSection() {
   return (
-    <section className="py-12 bg-white mt-10 mb-10">
+    <section className="py-10 bg-white mt-5 mb-5">
       <div className="max-w-5xl mx-auto px-6">
         <div className="flex flex-wrap justify-center gap-6">
           {logos.map((logo, index) => (
             <div
               key={index}
-              className="bg-white shadow-md flex items-center justify-center w-28 h-16 sm:w-32 sm:h-20 md:w-36 md:h-20 lg:w-40 lg:h-20 hover:shadow-lg transition"
+              className="bg-white shadow-md flex items-center justify-center w-28 h-16 sm:w-32 sm:h-20 md:w-36 md:h-20 lg:w-[8rem] lg:h-[3rem] hover:shadow-lg transition"
             >
               <img
                 src={logo.image}

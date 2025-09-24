@@ -10,7 +10,7 @@ export default function Header() {
 
   const dropdowns = {
     Dealers: [
-      { name: "Volvo", path: "/dealership" },
+      { name: "Volvo", path: "/volvo" },
       { name: "Epiroc", path: "/epiroc" },
       { name: "SDLG", path: "/sdlg" },
       { name: "Ammann", path: "/ammann" },
@@ -21,7 +21,7 @@ export default function Header() {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
-    { name: "Dealers", path: "/dealership", dropdown: dropdowns.Dealers },
+    { name: "Dealers", path: "/volvo", dropdown: dropdowns.Dealers },
     { name: "Infrastructure", path: "/infrastructure" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
@@ -53,7 +53,7 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8 text-sm font-primary text-secondary">
+          <nav className="hidden md:flex items-center space-x-8 text-sm font-primary text-black">
             {navLinks.map((link) =>
               link.dropdown ? (
                 <div
@@ -68,7 +68,7 @@ export default function Header() {
                       `relative flex items-center py-1 hover:text-primary
                        after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full 
                        after:bg-gradient-primary after:origin-left after:scale-x-0 after:transition-transform after:duration-300
-                       ${isActive ? "text-primary after:scale-x-100" : ""}`
+                       ${isActive ? "text-secondary after:scale-x-100" : ""}`
                     }
                   >
                     {link.name}
@@ -105,7 +105,7 @@ export default function Header() {
                     `relative py-1 hover:text-primary
                      after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full 
                      after:bg-gradient-primary after:origin-left after:scale-x-0 after:transition-transform after:duration-300
-                     ${isActive ? "text-primary after:scale-x-100" : ""}`
+                     ${isActive ? "text-secondary after:scale-x-100" : ""}`
                   }
                 >
                   {link.name}

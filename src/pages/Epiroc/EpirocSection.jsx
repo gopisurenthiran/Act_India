@@ -52,19 +52,7 @@ export default function EpirocSection() {
             Epiroc is a global technology leader and trusted productivity partner for the mining and infrastructure industries. With a legacy dating back to 1873, Epiroc delivers cutting-edge equipment, consumables, and services for surface and underground mining, civil construction, and well drilling. Born from the legacy of Atlas Copco, Epiroc has been driving progress as a stand-alone brand since 2018 delivering innovation where it matters most.
           </p>
 
-          {/* Extra Note */}
-          <div className="text-sm text-gray-500">
-            You're Just a Click Away from Visiting
-          </div>
-          <span className="block w-10 sm:w-64 md:w-[380px] border-b-2 border-[#0071BB] mt-1"></span>
-
-          {/* CTA Button */}
-          <a
-            href="#"
-            className="inline-flex items-center gap-2 text-blue-600 font-bold text-lg hover:underline transition"
-          >
-            Volvo CE India <ArrowRight size={18} />
-          </a>
+         
         </div>
       </div>
     </section>

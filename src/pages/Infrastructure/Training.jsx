@@ -8,6 +8,14 @@ const SLIDES = [
   { src: "/assets/train-4.png", alt: "Inventory scanning", label: "Practical Training on Machine" },
 ];
 
+/** 👇 Replace these with your real icon image paths */
+const FEATURE_ICONS = [
+  { src: "/assets/icon-12.png",  alt: "Classroom sessions" },
+  { src: "/assets/icon-6.png",   alt: "Component assembly" },
+  { src: "/assets/icon-9.png",alt: "Cut section demos" },
+  { src: "/assets/icon-4.png",  alt: "Hands-on practice" },
+];
+
 export default function Training() {
   const [idx, setIdx] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -25,10 +33,10 @@ export default function Training() {
   return (
     <section className="w-full bg-white text-neutral-900" id="training">
       <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-12 min-h-[420px]">
-              {/* RIGHT: COPY */}
+        {/* RIGHT: COPY */}
         <div className="lg:col-span-7 px-6 sm:px-10 py-10">
           <div className="max-w-3xl">
-           <h1 className="text-[28px] sm:text-[36px] leading-tight tracking-wide">
+            <h1 className="text-[28px] sm:text-[36px] leading-tight tracking-wide">
               Advanced <span className="font-extrabold">Facilities</span>
               <br />
               Empowering Future
@@ -36,42 +44,35 @@ export default function Training() {
               Leaders
             </h1>
 
-               <p className="mt-5 max-w-2xl text-sm leading-6 text-neutral-600">
+            <p className="mt-5 max-w-2xl text-sm leading-6 text-neutral-600">
               We provide secure warehouses and well-managed stockyards designed to streamline
               storage, handling, and distribution. With modern facilities and efficient processes,
               we help businesses optimize inventory, reduce costs, and ensure smooth supply chain
               operations.
             </p>
 
+            {/* ✅ 4 different icon images */}
             <ul className="mt-6 flex flex-wrap gap-5">
-              {Array.from({ length: 4 }).map((_, i) => (
+              {FEATURE_ICONS.map(({ src, alt }, i) => (
                 <li
                   key={i}
                   className="flex h-10 w-10 items-center justify-center rounded-md border border-blue-600/30 bg-blue-50"
+                  title={alt}
+                  aria-label={alt}
                 >
-                  <NetworkMiniIcon className="h-5 w-5 text-blue-700" />
+                  <img
+                    src={src}
+                    alt={alt}
+                    className="h-5 w-5 object-contain"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </li>
               ))}
             </ul>
-
-            <a
-              href="#"
-              className="group mt-6 inline-flex items-center gap-2 text-sm font-semibold text-blue-700"
-            >
-              LEARN MORE
-              <svg
-                className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M5 12h14" />
-                <path d="m13 5 7 7-7 7" />
-              </svg>
-            </a>
           </div>
         </div>
+
         {/* LEFT: SLIDER */}
         <aside
           className="relative lg:col-span-5 bg-neutral-100 border-b lg:border-b-0 lg:border-r border-neutral-200 overflow-hidden"
@@ -93,9 +94,9 @@ export default function Training() {
             ))}
           </div>
 
-          {/* Floating pill (dynamic city name) */}
+          {/* Floating pill (dynamic label) */}
           <div className="absolute left-4 top-4">
-            <span className="select-none rounded-full bg-gradient-to-b from-blue-500 to-indigo-600 px-3 py-1.5 text-xs font-semibold text-white shadow-lg shadow-blue-500/20 transition-all duration-500">
+            <span className="select-none rounded-md bg-gradient-to-b from-blue-500 to-indigo-600 px-3 py-1.5 text-xs font-semibold text-white shadow-lg shadow-blue-500/20 transition-all duration-500">
               {SLIDES[idx].label}
             </span>
           </div>
@@ -115,28 +116,7 @@ export default function Training() {
             ))}
           </div>
         </aside>
-
-  
       </div>
     </section>
-  );
-}
-
-function NetworkMiniIcon({ className = "" }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
-      <g
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <rect x="9" y="4" width="6" height="6" rx="1.2" />
-        <rect x="4" y="14" width="6" height="6" rx="1.2" />
-        <rect x="14" y="14" width="6" height="6" rx="1.2" />
-        <path d="M12 10v2M7 14v-1a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v1" />
-      </g>
-    </svg>
   );
 }

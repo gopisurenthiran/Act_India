@@ -52,19 +52,7 @@ export default function HusqvarnaSection() {
          Husqvarna Construction, a part of the renowned Husqvarna Group, is a global leader in equipment and diamond tools for the light construction industry. Built for professionals shaping concrete, stone, and urban landscapes, our solutions combine cutting-edge technology with uncompromising performance. With a focus on precision and partnership, Husqvarna keeps you ahead of every project, every time. 
           </p>
 
-          {/* Extra Note */}
-          <div className="text-sm text-gray-500">
-            You're Just a Click Away from Visiting
-          </div>
-          <span className="block w-10 sm:w-64 md:w-[380px] border-b-2 border-[#0071BB] mt-1"></span>
-
-          {/* CTA Button */}
-          <a
-            href="#"
-            className="inline-flex items-center gap-2 text-blue-600 font-bold text-lg hover:underline transition"
-          >
-            Volvo CE India <ArrowRight size={18} />
-          </a>
+          
         </div>
       </div>
     </section>

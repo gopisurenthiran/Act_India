@@ -13,9 +13,9 @@ const stats = [
 export default function StatsSection() {
   return (
     <>
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 py-10">
+      <section className="bg-white py-10">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-wrap justify-center text-center text-white">
+          <div className="flex flex-wrap justify-center text-left text-secondary border rounded-md border-secondary focus:border-blue-200 py-4">
             {stats.map((item, index) => (
               <div
                 key={index}
@@ -29,7 +29,7 @@ export default function StatsSection() {
                     suffix={item.suffix}
                   />
                 </h2>
-                <p className="text-sm md:text-base mt-2 leading-snug whitespace-pre-line">
+                <p className="text-sm md:text-base mt-2 leading-snug whitespace-pre-line text-left">
                   {item.label}
                 </p>
               </div>

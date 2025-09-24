@@ -56,12 +56,12 @@ export default function DealersSection() {
               >
                 Dealers
               </motion.h2>
-
+                <span className="block w-16 border-b-2 border-white mx-auto lg:mx-0 mb-4 mt-4"></span>
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
-                className="mt-2 text-lg md:text-xl font-secondary"
+                className="mt-2 text-lg md:text-xl font-secondary font-bold"
               >
                 ACT India delivers sustainable <br /> C&D solutions nationwide.
               </motion.p>
@@ -125,7 +125,7 @@ export default function DealersSection() {
                     <motion.a
                       href="#"
                       whileHover={{ x: 5 }}
-                      className="text-primary font-primary font-semibold mt-4 flex items-center gap-1"
+                      className="text-secondary font-primary font-semibold mt-4 flex items-center gap-1"
                     >
                       Learn More →
                     </motion.a>

@@ -19,11 +19,11 @@ export default {
         light: "#ffffff",
       },
       fontFamily: {
-        primary: ["NeueHaasDisplay", "sans-serif"],
-        secondary: ["ProximaNova", "sans-serif"],
+        primary: ["Poppins", "sans-serif"], // 🔹 Primary
+        secondary: ["Inter", "sans-serif"], // 🔹 Secondary
       },
       backgroundImage: {
-        "gradient-primary": "linear-gradient(to right, #0071BB, #100FBC)", // 🔥 reusable gradient
+        "gradient-primary": "linear-gradient(to right, #0071BB, #100FBC)",
       },
     },
   },

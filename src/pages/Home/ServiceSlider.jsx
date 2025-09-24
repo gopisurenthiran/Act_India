@@ -5,65 +5,80 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
-// Sample data
+
+// Sample data (replace with yours)
 const data = [
   {
     title: "precare",
     desc: "PRECARE is a thoughtfully curated bouquet of support solutions aimed at ensuring 'CUSTOMER SUCCESS' in their respective businesses using our products and services.",
-    icons: ["📋", "⚙️", "✔️", "🛡️"],
-    image: "https://via.placeholder.com/250x180/cccccc/000000?text=Image+1",
+    icons: ["/assets/icon-1.png", "/assets/icon-2.png", "/assets/icon-3.png", "/assets/icon-4.png"],
+    image: "/assets/image-1.png", // ✅ add image here
   },
   {
     title: "Auxillary service solutions",
     desc: "Comprehensive heavy equipment refurbishment — from hard-facing and bush replacements to structural welding, bucket rebuilds, and track link reconditioning.",
-    icons: ["🔧", "🔄", "🔩", "🖼️"],
-    image: "https://via.placeholder.com/250x180/cccccc/000000?text=Image+2",
+    icons: ["/assets/icon-5.png", "/assets/icon-6.png", "/assets/icon-7.png", "/assets/icon-8.png"],
+    image: "/assets/image-2.png",
   },
   {
     title: "Equipment-as-a-Service",
     desc: "Equipment-as-a-Service (EaaS) provides flexible access to VOLVO machines, ensuring optimum efficiency and performance without long-term commitments.",
-    icons: ["🏗️", "📊", "💻", "⚡"],
-    image: "https://via.placeholder.com/250x180/cccccc/000000?text=Image+3",
+    icons: ["/assets/icon-9.png", "/assets/icon-10.png", "/assets/icon-11.png", "/assets/icon-12.png"],
+    image: "/assets/image-3.png",
   },
   {
     title: "Operator training & certification",
     desc: "We conduct annual ESC certification programs to gain participants in safe and efficient equipment operation.",
-    icons: ["🎓", "✔️", "⚙️", "🛠️"],
-    image: "https://via.placeholder.com/250x180/cccccc/000000?text=Image+4",
+    icons: ["/assets/icon-3.png", "/assets/icon-11.png", "/assets/icon-2.png", "/assets/icon-9.png"],
+    image: "/assets/image-4.png",
   },
 ];
+
 
 export default function ServiceSlider() {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+  const swiperRef = useRef(null);
 
+  // Bind custom nav after refs are mounted
   useEffect(() => {
-    // Ensure refs exist before Swiper tries to attach
-    console.log("Prev Button:", prevRef.current);
-    console.log("Next Button:", nextRef.current);
+    if (!swiperRef.current || !prevRef.current || !nextRef.current) return;
+    const swiper = swiperRef.current;
+
+    swiper.params.navigation.prevEl = prevRef.current;
+    swiper.params.navigation.nextEl = nextRef.current;
+
+    if (swiper.navigation) {
+      swiper.navigation.destroy();
+      swiper.navigation.init();
+      swiper.navigation.update();
+    }
   }, []);
 
   return (
     <div className="max-w-7xl mx-auto py-10 relative px-4">
-      {/* Custom Prev Button */}
+      {/* Custom Prev */}
       <button
         ref={prevRef}
-        className="absolute top-1/2 left-4 -translate-y-1/2 z-50 bg-white shadow-md rounded-full p-3"
+        className="absolute top-1/2 left-2 md:left-4 -translate-y-1/2 z-50 bg-white shadow-md rounded-full p-3 focus:outline-none focus:ring"
+        aria-label="Previous"
       >
-        <FaArrowLeft className="text-2xl text-blue-600" />
+        <FaArrowLeft className="text-2xl" />
       </button>
 
-      {/* Custom Next Button */}
+      {/* Custom Next */}
       <button
         ref={nextRef}
-        className="absolute top-1/2 right-4 -translate-y-1/2 z-50 bg-white shadow-md rounded-full p-3"
+        className="absolute top-1/2 right-2 md:right-4 -translate-y-1/2 z-50 bg-white shadow-md rounded-full p-3 focus:outline-none focus:ring"
+        aria-label="Next"
       >
-        <FaArrowRight className="text-2xl text-blue-600" />
+        <FaArrowRight className="text-2xl" />
       </button>
 
       <Swiper
         modules={[Navigation]}
         onBeforeInit={(swiper) => {
+          swiperRef.current = swiper;
           swiper.params.navigation.prevEl = prevRef.current;
           swiper.params.navigation.nextEl = nextRef.current;
         }}
@@ -76,44 +91,57 @@ export default function ServiceSlider() {
         slidesPerGroup={2}
         loop={true}
         breakpoints={{
-          0: { slidesPerView: 1, slidesPerGroup: 1 },
-          768: { slidesPerView: 2, slidesPerGroup: 2 },
+          0: { slidesPerView: 1, slidesPerGroup: 1, spaceBetween: 20 },
+          768: { slidesPerView: 2, slidesPerGroup: 2, spaceBetween: 30 },
         }}
+        className="!pb-2"
       >
         {data.map((item, i) => (
-          <SwiperSlide key={i}>
-            <div className="bg-white shadow-md rounded-lg overflow-hidden flex border">
-              {/* Left Content */}
-              <div className="w-1/2 p-6 flex flex-col justify-between">
-                <div>
-                  <h3 className="font-bold text-lg mb-2 border-b-2 border-blue-600 inline-block">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                    {item.desc}
-                  </p>
-                  <div className="flex gap-4 text-blue-600 text-2xl mb-4">
-                    {item.icons.map((icon, idx) => (
-                      <span key={idx}>{icon}</span>
-                    ))}
-                  </div>
+          <SwiperSlide key={i} className="!h-auto">
+            {/* Equal-height card */}
+            <div className="h-[300px] bg-white shadow-md rounded-lg overflow-hidden flex border">
+              {/* Left */}
+              <div className="w-[60%] p-6 flex flex-col">
+                <h3 className="font-bold text-lg mb-2  inline-block capitalize">
+                  {item.title}
+                </h3>
+                  <span className="block w-16 border-b-2 border-secondary mx-auto lg:mx-0 mb-2 mt-1"></span>
+
+                <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-4">
+                  {item.desc}
+                </p>
+
+                {/* Icons */}
+                <div className="flex gap-4">
+                  {item.icons.map((icon, idx) => (
+                    <img
+                      key={idx}
+                      src={icon}
+                      alt={`icon-${idx}`}
+                      className="w-9 h-9 object-contain shrink-0"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ))}
                 </div>
-                <a
-                  href="#"
-                  className="text-blue-600 font-semibold text-sm flex items-center gap-2"
-                >
-                  LEARN MORE →
-                </a>
+
+                <div className="mt-auto">
+                  <a href="#" className="text-secondary font-semibold text-sm inline-flex items-center gap-2">
+                    LEARN MORE →
+                  </a>
+                </div>
               </div>
 
-              {/* Right Image */}
-              <div className="w-1/2 bg-gray-200 flex items-center justify-center">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+             {/* Right side image */}
+<div className="w-[40%]">
+  <img
+    src={item.image}
+    alt={item.title}
+    className="w-full h-full object-cover"
+    loading="lazy"
+    decoding="async"
+  />
+</div>
             </div>
           </SwiperSlide>
         ))}

@@ -53,12 +53,12 @@ export default function OperatorTrainingCertSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           {/* LEFT: title, bullets, caption */}
           <div className="lg:col-span-7">
-            <h2 className="text-[30px] md:text-[42px] leading-tight font-semibold tracking-tight">
-              Comprehensive <span className="font-black">Operator</span>
+            <h2 className="text-[30px] md:text-[42px] leading-tight font-light tracking-tight">
+              Comprehensive <span className="font-bold">Operator</span>
               <br />
-              Training and Certification
+             <span className="font-bold">Training and Certification</span>
               <br />
-              for Safer, Skilled Workforce
+              <span className="font-light">for Safer, Skilled Workforce</span>
             </h2>
 
             {/* dot-separated bullets */}
@@ -137,7 +137,7 @@ export default function OperatorTrainingCertSection() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 8 }}
                       transition={{ duration: 0.3 }}
-                      className="inline-block bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs md:text-sm font-medium px-4 py-2 rounded-md shadow-[0_12px_20px_rgba(0,0,0,0.18)]"
+                      className="inline-block bg-gradient-primary text-white text-xs md:text-sm font-medium px-4 py-2 rounded-md shadow-[0_12px_20px_rgba(0,0,0,0.18)]"
                     >
                       {s.label}
                     </motion.span>

@@ -76,10 +76,10 @@ export default function GroupOfCompaniesSlider() {
     <section className="w-full py-12">
       {/* Title */}
       <div className="mx-auto max-w-5xl px-4">
-        <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">
-          Group of Companies
+        <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 text-center">
+          Group of Companies 
         </h2>
-        <div className="mt-2 h-1 w-16 rounded bg-blue-600" />
+        <div className="mt-2 h-1 w-16 mx-auto align-left bg-secondary" />
       </div>
 
       {/* Slider Frame */}
@@ -115,7 +115,7 @@ export default function GroupOfCompaniesSlider() {
           <div className="grid grid-cols-1 md:grid-cols-[1fr_1px_360px] gap-6 md:gap-8 items-center">
             {/* Left company card */}
             <div className="flex flex-col items-center">
-              <div className="relative w-64 max-w-full  bg-white ring-1 ring-gray-200 shadow-md">
+              <div className="relative w-64 max-w-full  ">
                 <img
                   src={group.company.logo}
                   alt={group.company.name}
@@ -131,18 +131,18 @@ export default function GroupOfCompaniesSlider() {
             </div>
 
             {/* Right partners */}
-            <div className="mx-auto w-full max-w-sm rounded-xl ring-1 ring-gray-200 bg-white/90 p-4 md:p-5 ">
+            <div className="mx-auto w-full max-w-sm p-4 md:p-5 ">
               <ul className={`grid ${partnerCols} gap-4`}>
                 {group.partners.map((p) => (
                   <li
                     key={p.name}
-                    className="rounded-lg shadow-sm transition hover:shadow-md"
+                    className=" "
                   >
                     <div className="flex h-16 items-center justify-center px-4">
                       <img
                         src={p.logo}
                         alt={p.name}
-                        className="max-h-10 w-auto object-contain"
+                        className=" w-auto object-contain"
                       />
                     </div>
                   </li>

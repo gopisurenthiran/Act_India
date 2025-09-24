@@ -32,7 +32,7 @@ export default function HomeSection() {
             className="text-gray-700 md:text-gray-700 text-white mb-3 text-sm sm:text-base md:text-lg font-secondary"
           >
             Welcome to Advanced Construction Technologies
-            <span className="block w-40 sm:w-64 md:w-[380px] border-b-2 border-sky-600 mt-1 mx-auto md:mx-0"></span>
+            <span className="block w-40 sm:w-64 md:w-[380px] border-b-2 border-primary mt-1 mx-auto md:mx-0"></span>
           </motion.p>
 
           {/* Main Heading */}
@@ -54,30 +54,16 @@ export default function HomeSection() {
             transition={{ delay: 0.6, duration: 0.8 }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="mt-6 inline-block px-4 bg-white text-blue-700 text-lg shadow-lg transition font-primary"
+            className="mt-6 inline-block px-4 bg-white text-secondary text-lg shadow-lg transition font-primary"
           >
             Learn More →
           </motion.a>
         </div>
       </div>
 
-      {/* Location Box (Bottom Left) */}
-      <motion.div
-        initial={{ opacity: 0, x: -40 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-6 sm:bottom-12 left-1/2 md:left-4 transform md:transform-none -translate-x-1/2 md:translate-x-0 p-0 w-64 sm:w-72 text-left md:text-left"
-      >
-        <h3 className="font-bold md:text-gray-900 text-white text-base sm:text-lg font-primary">
-          📍 Chennai
-        </h3>
-        <p className="md:text-gray-700 text-white text-xs sm:text-sm leading-relaxed font-secondary">
-          No.5/55, Forest Range Road, <br />
-          Kuthambakkam Post & Village, <br />
-          Poonamalle Taluk, <br /> Thiruvallur Dist, <br />
-          Chennai, Tamil Nadu - 600124
-        </p>
-      </motion.div>
+   
+
+
     </div>
   );
 }

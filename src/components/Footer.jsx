@@ -35,9 +35,9 @@ export default function FooterACT() {
           {/* Logo */}
           <div className="mb-8">
             <img
-              src="/assets/logo.png"
+              src="/assets/footer-logo.svg"
               alt="ACT Logo"
-              className="h-12 w-auto rounded bg-white p-2 shadow-sm"
+              className="h-12 w-auto  bg-white p-2 shadow-sm"
             />
           </div>
 

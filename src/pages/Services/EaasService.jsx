@@ -49,9 +49,9 @@ export default function EaasService() {
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight">
               Equipment as a Service:
               <br />
-              <span className="font-semibold">
+              <span className="font-light">
                 Powering Progress Through
-                <br className="hidden sm:block" /> On-Demand Equipment
+                <br className="hidden sm:block font-light" /> On-Demand Equipment
               </span>
             </h2>
 

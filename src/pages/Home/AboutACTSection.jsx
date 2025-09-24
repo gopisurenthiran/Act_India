@@ -1,16 +1,20 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { FaCogs, FaUsers, FaBoxOpen } from "react-icons/fa";
 
 export default function AboutACT() {
   return (
     <section className="relative text-white">
-     
-
       <div className="bg-gradient-primary">
-        {/* About + Excavator */}
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center px-4 sm:px-6 py-10 gap-10">
           {/* Left Content */}
-          <div className="lg:w-1/2 text-center lg:text-left">
+          <motion.div
+            className="lg:w-1/2 text-center lg:text-left"
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 font-primary">
               About ACT
             </h3>
@@ -26,20 +30,23 @@ export default function AboutACT() {
               in providing solutions in the forms of equipment and services to
               the construction and infrastructure segments.
             </p>
-          </div>
+          </motion.div>
 
           {/* Right Excavator */}
-          <div className="lg:w-1/2 flex justify-center">
+          <motion.div
+            className="lg:w-1/2 flex justify-center"
+            initial={{ opacity: 0, scale: 0.9, y: 40 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <img
               src="/assets/excavator.png"
               alt="Excavator"
               className="max-h-[280px] sm:max-h-[350px] md:max-h-[400px] w-auto object-contain"
             />
-          </div>
+          </motion.div>
         </div>
-
-
-
       </div>
     </section>
   );

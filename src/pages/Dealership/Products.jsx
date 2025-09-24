@@ -37,7 +37,7 @@ export default function Products() {
   const current = ITEMS.filter((i) => i.category === active);
 
   return (
-    <section className="bg-white text-neutral-900 py-10 md:py-16">
+    <section className="bg-white text-primary py-10 md:py-16">
       <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
         {/* Tabs */}
         <div className="mb-8 flex justify-center">
@@ -49,12 +49,12 @@ export default function Products() {
                   key={c}
                   onClick={() => setActive(c)}
                   className={`relative py-3 -mb-px transition-colors ${
-                    isActive ? "text-neutral-900" : "text-neutral-400 hover:text-neutral-700"
+                    isActive ? "text-primary" : "text-primary hover:text-primary"
                   }`}
                 >
                   {c}
                   {isActive && (
-                    <span className="absolute left-0 right-0 -bottom-px h-[2px] bg-neutral-900 rounded-full" />
+                    <span className="absolute left-0 right-0 -bottom-px h-[2px] bg-gradient-primary rounded-full" />
                   )}
                 </button>
               );

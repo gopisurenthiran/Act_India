@@ -17,9 +17,9 @@ export default function AuxServicesSection() {
   return (
     <section className="bg-white text-neutral-900 py-12 md:py-16" id="auxillary-services">
       <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
-        <h2 className="text-[28px] md:text-[40px] leading-tight font-semibold tracking-tight">
-          Comprehensive <span className="font-black">Auxiliary</span>
-          <br className="hidden sm:block" /> Service Solutions Hub
+        <h2 className="text-[28px] md:text-[40px] leading-tight font-light tracking-tight">
+          Comprehensive <span className="font-bold">Auxiliary</span>
+          <br className="hidden sm:block font-light" /> Service Solutions Hub
         </h2>
         <p className="mt-5 text-sm font-semibold text-neutral-500">Services Offered</p>
 
@@ -86,7 +86,7 @@ function Marquee({ items, speed = 60, gap = 20 }) {
 
   return (
     <div
-      className="mt-4 rounded-2xl border border-gray-200 shadow-lg bg-white overflow-hidden"
+      className="mt-4"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -117,17 +117,20 @@ function Card({ id, title }) {
   return (
     <article
       className="
-        relative w-[240px] md:w-[260px] h-[160px]
-        shrink-0 rounded-xl bg-white
+        relative w-[240px] md:w-[260px] h-[140px]
+        shrink-0 bg-white
         ring-1 ring-gray-200
-        shadow-[0_6px_20px_rgba(0,0,0,0.10)]
-        px-4 py-3
+        shadow-lg       
+        px-4 py-3 border border-gray-200
       "
+      style={{ marginBottom: "12px" }}  // ⬅ spacing below card
     >
-      <div className="text-[13px] font-extrabold tracking-wide text-[#1e5ad7]">{id}</div>
-      <p className="mt-2 text-[14px] md:text-[15px] leading-relaxed text-neutral-800">{title}</p>
-      {/* individual soft platform shadow */}
-      <span className="pointer-events-none absolute -z-10 left-3 right-3 -bottom-3 h-5 rounded-full bg-neutral-300/40 blur-lg" />
+      <div className="text-[13px] font-extrabold tracking-wide text-[#1e5ad7]">
+        {id}
+      </div>
+      <p className="mt-2 text-[14px] md:text-[15px] leading-relaxed text-neutral-800">
+        {title}
+      </p>
     </article>
   );
 }

@@ -55,7 +55,7 @@ export default function PrecareSection() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           {/* ===== LEFT: image + label, both slide; no dots ===== */}
           <div className="md:col-span-3">
-            <div className="relative h-[280px] md:h-[360px] lg:h-[420px] w-full overflow-hidden ">
+            <div className="relative h-[280px] md:h-[360px] lg:h-[380px] w-full overflow-hidden ">
               {/* image slider */}
               <div className="absolute inset-0">
                 <AnimatePresence mode="wait">
@@ -81,7 +81,7 @@ export default function PrecareSection() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 8 }}
                     transition={{ duration: 0.35, ease: "easeOut" }}
-                    className="inline-block bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs md:text-sm font-medium px-4 py-2 rounded-md shadow-[0_10px_18px_rgba(0,0,0,0.14)]"
+                    className="inline-block bg-gradient-primary text-white text-xs md:text-sm font-medium px-4 py-2 rounded-md shadow-[0_10px_18px_rgba(0,0,0,0.14)]"
                   >
                     {current.label}
                   </motion.span>
@@ -102,20 +102,13 @@ export default function PrecareSection() {
               viewport={{ once: true }}
               className="text-[28px] md:text-[34px] font-extrabold tracking-tight"
             >
-              <span className="mr-1">PRECARE:</span>
-              <span className="inline-flex flex-wrap gap-x-2">
-                {words.map((w, i) => (
-                  <motion.span
-                    key={w}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.25 + i * 0.15, duration: 0.5 }}
-                    className="font-semibold"
-                  >
-                    {w}
-                  </motion.span>
-                ))}
+              <span className="mr-1 font-medium text-6xl">PRECARE:</span>
+              <span className="inline-flex flex-wrap gap-x-2 font-thin text-5xl">
+               Protect, Prepare,
+              </span>
+
+              <span className="inline-flex flex-wrap gap-x-2 font-thin text-5xl">
+             Prevent, Prosper™
               </span>
             </motion.h2>
 
@@ -156,7 +149,7 @@ export default function PrecareSection() {
                   {active === i && (
                     <motion.div
                       layoutId="precare-highlight"
-                      className="absolute inset-0 rounded-xl ring-2 ring-blue-500/80 bg-blue-50"
+                      className="absolute inset-0 rounded-xl border-outline-secondary"
                       style={{ boxShadow: "0 6px 18px rgba(59,130,246,0.25)" }}
                       transition={{ type: "spring", stiffness: 420, damping: 32 }}
                     />

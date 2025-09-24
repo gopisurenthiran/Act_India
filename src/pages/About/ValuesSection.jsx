@@ -48,10 +48,10 @@ export default function ValuesSection() {
         <div className="grid grid-cols-12 gap-8 lg:gap-10">
           {/* Left copy */}
           <div className="col-span-12 lg:col-span-4">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl leading-tight font-semibold">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl leading-tight">
               Guided by <br />
-              <span className="font-extrabold">Integrity,</span> <br />
-              Driven <span className="font-extrabold">Forward</span>
+              <span className="">Integrity,</span> <br />
+              Driven <span className="">Forward</span>
             </h2>
 
             <p className="mt-6 max-w-[28rem] text-sm md:text-base text-neutral-600 leading-relaxed">

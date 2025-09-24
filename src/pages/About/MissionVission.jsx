@@ -13,10 +13,10 @@ export default function MissionVision({
     <section className="bg-white text-neutral-900 py-12 md:py-16">
       <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
         {/* Section Heading */}
-        <header className="mb-8 md:mb-12">
-          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
-            Our <span className="font-extrabold">MISSION</span> &{" "}
-            <span className="font-extrabold">VISION</span>
+        <header className="">
+          <h2 className="text-2xl md:text-3xl  tracking-tight">
+            Our <span className="font-bold">MISSION</span> &{" "}<br/>
+            <span className="font-bold">VISION</span>
           </h2>
         </header>
 
@@ -33,10 +33,12 @@ export default function MissionVision({
           </div>
 
           {/* Vertical dotted indicator */}
-          <div className="col-span-12 lg:col-span-1 hidden lg:flex items-center justify-center">
+          <div className="col-span-12 lg:col-span-1 hidden lg:flex items-center justify-center rounded-full">
             <div className="flex flex-col items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-neutral-300" />
               <span className="w-1.5 h-1.5 rounded-full bg-neutral-300" />
               <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+              <span className="w-1.5 h-1.5 rounded-full bg-neutral-300" />
               <span className="w-1.5 h-1.5 rounded-full bg-neutral-300" />
             </div>
           </div>
@@ -66,7 +68,7 @@ export default function MissionVision({
 
           {/* Vision text card */}
           <div className="col-span-12 lg:col-span-7">
-            <div className="mb-3 text-lg font-semibold">Vision</div>
+            <div className="mb-3 text-lg font-bold">Vision</div>
             <div className="bg-white rounded-xl shadow-[0_25px_60px_-30px_rgba(0,0,0,0.35)] ring-1 ring-gray-100">
               <p className="p-5 md:p-6 text-sm md:text-base text-neutral-700 leading-relaxed">
                 {visionText}
@@ -87,7 +89,7 @@ function YearsBadge({ years }) {
   <img
     src="/assets/mission.png"   // ← replace with your image path
     alt="Years Badge"
-    className="absolute inset-0 w-full h-full rounded-full object-cover shadow-[0_25px_60px_-30px_rgba(0,0,0,0.35)]"
+    className="absolute inset-0 w-full h-full object-contain "
   />
 
   {/* Overlapping Text */}

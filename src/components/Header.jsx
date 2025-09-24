@@ -3,19 +3,12 @@ import { NavLink, Link } from "react-router-dom";
 import { Search, Menu, X, ChevronDown } from "lucide-react";
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false); // mobile menu
-  const [openDropdown, setOpenDropdown] = useState(null); // mobile accordion
-  const [activeDropdown, setActiveDropdown] = useState(null); // desktop dropdown
+  const [isOpen, setIsOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const [activeDropdown, setActiveDropdown] = useState(null);
   const [timer, setTimer] = useState(null);
 
-  // HASH DROPDOWN DATA
   const dropdowns = {
-    Services: [
-      { name: "Precare", path: "#precare" },
-      { name: "Auxillary Services", path: "#auxillary-services" },
-      { name: "EAAS", path: "#eaas" },
-      { name: "Operator Training", path: "#training" },
-    ],
     Dealers: [
       { name: "Volvo", path: "/dealership" },
       { name: "Epiroc", path: "/epiroc" },
@@ -23,56 +16,44 @@ export default function Header() {
       { name: "Ammann", path: "/ammann" },
       { name: "Husqvarna", path: "/husqvarna" },
     ],
-    Infrastructure: [
-      { name: "Warehouse & Stockyard", path: "#warehouse" },
-      { name: "Machine Stockyard", path: "#machine-stockyard" },
-      { name: "Trainings facilities", path: "#training" },
-      { name: "Workshop-Chennai", path: "#workshop" },
-      { name: "Support Vehicles", path: "#support-vehicles" },
-    ],
   };
 
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "Services", path: "/services", dropdown: dropdowns.Services },
+    { name: "Services", path: "/services" },
     { name: "Dealers", path: "/dealership", dropdown: dropdowns.Dealers },
-    {
-      name: "Infrastructure",
-      path: "/infrastructure",
-      dropdown: dropdowns.Infrastructure,
-    },
+    { name: "Infrastructure", path: "/infrastructure" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];
 
-  // handle desktop dropdown hover delay
   const handleEnter = (name) => {
     if (timer) clearTimeout(timer);
     setActiveDropdown(name);
   };
 
   const handleLeave = () => {
-    const newTimer = setTimeout(() => setActiveDropdown(null), 3000); // 3 sec hold
+    const newTimer = setTimeout(() => setActiveDropdown(null), 1000);
     setTimer(newTimer);
   };
 
   return (
     <header className="fixed top-0 w-full z-20 bg-white shadow-sm">
-      <section className="py-4">
+      <section className="py-2">
         <div className="container mx-auto flex items-center justify-between px-4">
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/">
               <img
-                src="/assets/logo.png"
+                src="/assets/logo.svg"
                 alt="ACT Logo"
-                className="h-10 md:h-12 object-contain"
+                className="h-[2rem] object-contain"
               />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8 text-sm text-primary font-primary">
+          <nav className="hidden md:flex items-center space-x-8 text-sm font-primary text-secondary">
             {navLinks.map((link) =>
               link.dropdown ? (
                 <div
@@ -81,25 +62,35 @@ export default function Header() {
                   onMouseEnter={() => handleEnter(link.name)}
                   onMouseLeave={handleLeave}
                 >
-                  <a
-                    href={link.path}
-                    className="hover:text-blue-600 flex items-center"
+                  <NavLink
+                    to={link.path}
+                    className={({ isActive }) =>
+                      `relative flex items-center py-1 hover:text-primary
+                       after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full 
+                       after:bg-gradient-primary after:origin-left after:scale-x-0 after:transition-transform after:duration-300
+                       ${isActive ? "text-primary after:scale-x-100" : ""}`
+                    }
                   >
                     {link.name}
                     <ChevronDown className="w-4 h-4 ml-1" />
-                  </a>
-                  {/* Dropdown */}
+                  </NavLink>
+
                   {activeDropdown === link.name && (
                     <div className="absolute bg-white shadow-lg rounded-md mt-2 w-56">
                       <ul className="py-2">
                         {link.dropdown.map((item, idx) => (
                           <li key={idx}>
-                            <a
-                              href={item.path}
-                              className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-blue-600"
+                            <NavLink
+                              to={item.path}
+                              className={({ isActive }) =>
+                                `relative block px-4 py-2 text-sm hover:text-primary
+                                 after:content-[''] after:absolute after:left-4 after:bottom-0 after:h-[2px] after:w-[calc(100%-2rem)] 
+                                 after:bg-gradient-primary after:origin-left after:scale-x-0 after:transition-transform after:duration-300
+                                 ${isActive ? "text-primary font-semibold after:scale-x-100" : ""}`
+                              }
                             >
                               {item.name}
-                            </a>
+                            </NavLink>
                           </li>
                         ))}
                       </ul>
@@ -110,7 +101,12 @@ export default function Header() {
                 <NavLink
                   key={link.name}
                   to={link.path}
-                  className="hover:text-blue-600"
+                  className={({ isActive }) =>
+                    `relative py-1 hover:text-primary
+                     after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full 
+                     after:bg-gradient-primary after:origin-left after:scale-x-0 after:transition-transform after:duration-300
+                     ${isActive ? "text-primary after:scale-x-100" : ""}`
+                  }
                 >
                   {link.name}
                 </NavLink>
@@ -118,17 +114,16 @@ export default function Header() {
             )}
 
             {/* Search Button */}
-            <button className="flex items-center font-primary text-gradient-primary border border-primary rounded-full px-3 py-1 hover:opacity-90 transition">
+            <button className="flex items-center font-primary border border-blue-600 rounded-full px-3 py-1 hover:bg-gradient-primary hover:text-white transition">
               <Search size={16} />
               <span className="ml-1">Search</span>
             </button>
           </nav>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Toggle */}
           <button
             className="md:hidden p-2"
             onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle Menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -137,12 +132,12 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="absolute top-16 left-0 w-full bg-white shadow-lg flex flex-col items-start space-y-2 py-6 px-6 md:hidden transition-all duration-300">
+        <div className="absolute top-16 left-0 w-full bg-white shadow-lg flex flex-col items-start space-y-2 py-6 px-6 md:hidden">
           {navLinks.map((link) =>
             link.dropdown ? (
               <div key={link.name} className="w-full">
                 <button
-                  className="w-full flex justify-between items-center py-2 text-sm font-medium hover:text-blue-600 font-primary"
+                  className="w-full flex justify-between items-center py-2 text-sm font-medium hover:text-primary"
                   onClick={() =>
                     setOpenDropdown(
                       openDropdown === link.name ? null : link.name
@@ -159,14 +154,19 @@ export default function Header() {
                 {openDropdown === link.name && (
                   <div className="pl-4 space-y-1">
                     {link.dropdown.map((item, idx) => (
-                      <a
+                      <NavLink
                         key={idx}
-                        href={item.path}
+                        to={item.path}
                         onClick={() => setIsOpen(false)}
-                        className="block py-1 text-sm"
+                        className={({ isActive }) =>
+                          `relative block py-1 text-sm
+                           after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full 
+                           after:bg-gradient-primary after:origin-left after:scale-x-0 after:transition-transform after:duration-300
+                           ${isActive ? "text-primary after:scale-x-100" : ""}`
+                        }
                       >
                         {item.name}
-                      </a>
+                      </NavLink>
                     ))}
                   </div>
                 )}
@@ -176,7 +176,12 @@ export default function Header() {
                 key={link.name}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className="py-2 text-sm font-medium "
+                className={({ isActive }) =>
+                  `relative py-2 text-sm font-medium
+                   after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full 
+                   after:bg-gradient-primary after:origin-left after:scale-x-0 after:transition-transform after:duration-300
+                   ${isActive ? "text-primary after:scale-x-100" : ""}`
+                }
               >
                 {link.name}
               </NavLink>
@@ -184,7 +189,7 @@ export default function Header() {
           )}
 
           {/* Mobile Search */}
-          <button className="flex items-center border border-blue-600 text-blue-600 rounded-full px-4 py-2 mt-2 hover:bg-blue-600 hover:text-white transition font-primary">
+          <button className="flex items-center border border-blue-600 text-primary rounded-full px-4 py-2 mt-2 hover:bg-gradient-primary hover:text-white transition">
             <Search size={18} />
             <span className="ml-1">Search</span>
           </button>

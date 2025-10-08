@@ -58,7 +58,7 @@ export default function Infrastructure() {
       </motion.h2>
 
       <motion.span
-        className="block w-16 border-b-4 border-black mx-auto lg:mx-0 mb-4 mt-4"
+        className="block w-16 border-b-4 border-black sm:text-left lg:mx-0 mb-4 mt-4"
         initial={{ scaleX: 0 }}
         whileInView={{ scaleX: 1 }}
         transition={{ duration: 0.6, delay: 0.2 }}
@@ -109,7 +109,7 @@ export default function Infrastructure() {
                 <h3 className="font-semibold text-gray-900 mb-1 capitalize">
                   {item.title}
                 </h3>
-                <span className="block w-16 border-b-2 border-secondary mx-auto lg:mx-0 mb-2 mt-1"></span>
+                <span className="block w-16 border-b-2 border-secondary text-left lg:mx-0 mb-2 mt-1"></span>
 
                 <p className="text-gray-600 text-sm mb-2">{item.desc}</p>
                 <Link

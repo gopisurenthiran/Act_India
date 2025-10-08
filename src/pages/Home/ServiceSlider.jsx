@@ -6,14 +6,12 @@ import "swiper/css/navigation";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-
-// Sample data (replace with yours)
 const data = [
   {
     title: "precare",
     desc: "PRECARE is a thoughtfully curated bouquet of support solutions aimed at ensuring 'CUSTOMER SUCCESS' in their respective businesses using our products and services.",
     icons: ["/assets/icon-1.png", "/assets/icon-2.png", "/assets/icon-3.png", "/assets/icon-4.png"],
-    image: "/assets/image-1.png", // ✅ add image here
+    image: "/assets/image-1.png",
     link: "/services",
   },
   {
@@ -39,13 +37,11 @@ const data = [
   },
 ];
 
-
 export default function ServiceSlider() {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const swiperRef = useRef(null);
 
-  // Bind custom nav after refs are mounted
   useEffect(() => {
     if (!swiperRef.current || !prevRef.current || !nextRef.current) return;
     const swiper = swiperRef.current;
@@ -62,24 +58,30 @@ export default function ServiceSlider() {
 
   return (
     <div className="max-w-7xl mx-auto py-10 relative px-4">
-      {/* Custom Prev */}
-      <button
-        ref={prevRef}
-        className="absolute top-1/2 left-2 md:left-4 -translate-y-1/2 z-50 bg-white shadow-md rounded-full p-3 focus:outline-none focus:ring"
-        aria-label="Previous"
-      >
-        <FaArrowLeft className="text-2xl" />
-      </button>
+      {/* Header + Nav Arrows (like Dealer) */}
+      <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-6">
+        
 
-      {/* Custom Next */}
-      <button
-        ref={nextRef}
-        className="absolute top-1/2 right-2 md:right-4 -translate-y-1/2 z-50 bg-white shadow-md rounded-full p-3 focus:outline-none focus:ring"
-        aria-label="Next"
-      >
-        <FaArrowRight className="text-2xl" />
-      </button>
+        {/* Arrows same as Dealer section */}
+        <div className="flex gap-6 mt-6 md:mt-0">
+          <button
+            ref={prevRef}
+            className="p-3 rounded-full bg-white shadow-md hover:bg-gray-100 transition"
+            aria-label="Previous"
+          >
+            <FaArrowLeft className="text-lg text-secondary" />
+          </button>
+          <button
+            ref={nextRef}
+            className="p-3 rounded-full bg-white shadow-md hover:bg-gray-100 transition"
+            aria-label="Next"
+          >
+            <FaArrowRight className="text-lg text-secondary" />
+          </button>
+        </div>
+      </div>
 
+      {/* Swiper */}
       <Swiper
         modules={[Navigation]}
         onBeforeInit={(swiper) => {
@@ -91,6 +93,7 @@ export default function ServiceSlider() {
           prevEl: prevRef.current,
           nextEl: nextRef.current,
         }}
+        allowTouchMove={false} // no swipe
         spaceBetween={30}
         slidesPerView={2}
         slidesPerGroup={2}
@@ -103,20 +106,18 @@ export default function ServiceSlider() {
       >
         {data.map((item, i) => (
           <SwiperSlide key={i} className="!h-auto">
-            {/* Equal-height card */}
             <div className="h-[300px] bg-white shadow-md rounded-lg overflow-hidden flex border">
               {/* Left */}
               <div className="w-[60%] p-6 flex flex-col">
-                <h3 className="font-bold text-lg mb-2  inline-block capitalize">
+                <h3 className="font-bold text-lg mb-2 capitalize">
                   {item.title}
                 </h3>
-                  <span className="block w-16 border-b-2 border-secondary mx-auto lg:mx-0 mb-2 mt-1"></span>
+                <span className="block w-16 border-b-2 border-secondary mb-2 mt-1"></span>
 
                 <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-4">
                   {item.desc}
                 </p>
 
-                {/* Icons */}
                 <div className="flex gap-4">
                   {item.icons.map((icon, idx) => (
                     <img
@@ -130,26 +131,26 @@ export default function ServiceSlider() {
                   ))}
                 </div>
 
-            <div className="mt-auto">
-  <Link
-    to={item.link}   // 👈 e.g., "/services/eaas"
-    className="text-secondary font-semibold text-sm inline-flex items-center gap-2"
-  >
-    LEARN MORE →
-  </Link>
-</div>
+                <div className="mt-auto">
+                  <Link
+                    to={item.link}
+                    className="text-secondary font-semibold text-sm inline-flex items-center gap-2"
+                  >
+                    LEARN MORE →
+                  </Link>
+                </div>
               </div>
 
-             {/* Right side image */}
-<div className="w-[40%]">
-  <img
-    src={item.image}
-    alt={item.title}
-    className="w-full h-full object-cover"
-    loading="lazy"
-    decoding="async"
-  />
-</div>
+              {/* Right */}
+              <div className="w-[40%]">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             </div>
           </SwiperSlide>
         ))}

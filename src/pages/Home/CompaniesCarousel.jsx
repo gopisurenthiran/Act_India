@@ -94,7 +94,7 @@ export default function GroupOfCompaniesSlider() {
             transition transform
           "
         >
-          <ArrowLeft className="h-6 w-6 md:h-7 md:w-7" />
+          <ArrowLeft className="h-6 w-6 md:h-7 md:w-7 text-secondary rounded-full bg-white shadow-md hover:bg-gray-100 transition" />
         </button>
 
         {/* Right arrow – slim blue, no circle */}
@@ -107,7 +107,7 @@ export default function GroupOfCompaniesSlider() {
             transition transform
           "
         >
-          <ArrowRight className="h-6 w-6 md:h-7 md:w-7" />
+          <ArrowRight className="h-6 w-6 md:h-7 md:w-7 text-secondary rounded-full bg-white shadow-md hover:bg-gray-100 transition" />
         </button>
 
         {/* Panel */}
@@ -138,7 +138,7 @@ export default function GroupOfCompaniesSlider() {
                     key={p.name}
                     className=" "
                   >
-                    <div className="flex h-16 items-center justify-center px-4">
+                    <div className="flex  items-center justify-center px-4">
                       <img
                         src={p.logo}
                         alt={p.name}
@@ -150,8 +150,6 @@ export default function GroupOfCompaniesSlider() {
               </ul>
             </div>
           </div>
-
-          {/* (Removed mobile arrows-in-panel + pagination dots as requested) */}
         </div>
       </div>
     </section>

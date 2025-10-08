@@ -9,8 +9,8 @@ export default function AmannSection() {
         <div className="flex flex-col items-start space-y-6">
           {/* Logo */}
           <img
-            src="/assets/sdlg.png"
-            alt="Epiroc Logo"
+            src="/assets/amman.png"
+            alt="Ammann Logo"
             className="w-32 mb-4"
           />
 
@@ -21,12 +21,12 @@ export default function AmannSection() {
           </h3>
 
           {/* Divider */}
-          <div className="h-0.5 w-20 bg-gradient-to-r from-blue-500 to-purple-500"></div>
+          <div className="h-0.5 w-20 bg-gradient-primary"></div>
 
           {/* Image with Left-aligned Arrows */}
           <div className="relative w-[400px] justify-start">
             <img
-              src="/assets/sdlg-img.png"
+              src="/assets/img.png"
               alt="Volvo Excavator"
               className="w-full"
             />
@@ -45,7 +45,7 @@ export default function AmannSection() {
           </h2>
 
           {/* Divider */}
-          <div className="h-0.5 w-20 bg-gradient-to-r from-blue-500 to-purple-500"></div>
+          <div className="h-0.5 w-20 bg-gradient-primary"></div>
 
           {/* Description */}
           <p className="text-gray-700 text-base leading-relaxed">

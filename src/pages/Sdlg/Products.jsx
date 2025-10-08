@@ -1,26 +1,47 @@
-// ProductsShowcase.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
-/* ---- Replace these with your real images/titles/subtitles ---- */
-const CATEGORIES = ["Products","Supplies"];
+const CATEGORIES = ["Products", "Supplies"];
 
 const ITEMS = [
-  // Products
-{ category: "Products", title: "Crawler Excavator", subtitle: "Operating Weight: 8T - 14T", img: "/assets/sdlg-1.png" },
-{ category: "Products", title: "Wheel Loaders", subtitle: "Rated Load (kg)1.6T - 8T", img: "/assets/sdlg-2.png" },
-{ category: "Products", title: "Motor Grader", subtitle: "Rated Power (kw)105 - 211", img: "/assets/sdlg-3.png" },
-{ category: "Products", title: "Hydraulic Breakers", subtitle: "Suitable carrier 7T - 34T", img: "/assets/sdlg-4.png" },
-
-
-
-
-  // Supplies (use your hero image for the big showcase)
-  { category: "Supplies",  img: "/assets/supplies-3.png" },
-
+  {
+    category: "Products",
+    title: "Crawler Excavator",
+    subtitle: "Operating Weight: 8T - 14T",
+    img: "/assets/sdlg-1.png",
+    gallery: ["/assets/popup-15.png"],
+    link: "https://sdlgindia.com/products/#excavators",
+  },
+  {
+    category: "Products",
+    title: "Wheel Loaders",
+    subtitle: "Rated Load (kg) 1.6T - 8T",
+    img: "/assets/sdlg-2.png",
+    gallery: ["/assets/popup-16.png"],
+    link: "https://sdlgindia.com/products/#wheel-loaders",
+  },
+  {
+    category: "Products",
+    title: "Motor Grader",
+    subtitle: "Rated Power (kw) 105 - 211",
+    img: "/assets/sdlg-3.png",
+    gallery: ["/assets/popup-17.png"],
+    link: "https://sdlgindia.com/products/#graders",
+  },
+  {
+    category: "Products",
+    title: "Hydraulic Breakers",
+    subtitle: "Suitable carrier 7T - 34T",
+    img: "/assets/sdlg-4.png",
+    gallery: ["/assets/popup-18.png"],
+    link: "https://www.sdlg.com/product/hydraulic-breakers",
+  },
+  { category: "Supplies", img: "/assets/supplies-3.png" },
 ];
 
-export default function Products() {
+export default function ProductsShowcase() {
   const [active, setActive] = useState("Products");
+  const [selected, setSelected] = useState(null);
+
   const current = ITEMS.filter((i) => i.category === active);
 
   return (
@@ -36,7 +57,7 @@ export default function Products() {
                   key={c}
                   onClick={() => setActive(c)}
                   className={`relative py-3 -mb-px transition-colors ${
-                    isActive ? "text-primary" : " hover:text-primary"
+                    isActive ? "text-secondary" : "hover:text-secondary"
                   }`}
                 >
                   {c}
@@ -49,45 +70,49 @@ export default function Products() {
           </nav>
         </div>
 
-        {/* Supplies: big showcase with dotted blue frame */}
+        {/* Supplies big image */}
         {active === "Supplies" ? (
-          <div className="mx-auto">
-            <div className=" p-2">
-              <div className="">
-                <img
-                  src={current[0]?.img}
-                  alt={current[0]?.title || "Supplies"}
-                  className="w-[300px] h-[300px] object-contain bg-white align-middle mx-auto"
-                />
-              </div>
-            </div>
+          <div className="mx-auto p-2">
+            <img
+              src={current[0]?.img}
+              alt="Supplies"
+              className="w-[300px] h-[300px] object-contain bg-white mx-auto"
+            />
           </div>
         ) : (
-          // Default grid for other tabs
+          // Product grid
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {current.map((p, i) => (
-              <ProductCard key={`${p.title}-${i}`} {...p} />
+              <ProductCard
+                key={`${p.title}-${i}`}
+                {...p}
+                onClick={() => setSelected(p)}
+              />
             ))}
           </div>
         )}
       </div>
+
+      {/* Popup Modal */}
+      {selected && <ProductModal item={selected} onClose={() => setSelected(null)} />}
     </section>
   );
 }
 
-function ProductCard({ img, title, subtitle }) {
+/* ---------------- Product Card ---------------- */
+function ProductCard({ img, title, subtitle, link, onClick }) {
   return (
     <article className="bg-white ring-1 ring-gray-100 shadow-[0_20px_55px_-25px_rgba(0,0,0,0.35)] overflow-hidden transition hover:shadow-[0_28px_70px_-30px_rgba(0,0,0,0.35)]">
-      <div className="p-4">
+      <div className="p-4 cursor-pointer" onClick={onClick}>
         <div className="overflow-hidden">
           <img
             src={img}
             alt={title}
-            className=" pt-10 transition-transform duration-300 hover:scale-[1.03]"
+            className="pt-10 transition-transform duration-300 hover:scale-[1.03]"
           />
         </div>
       </div>
-      <div className="px-5 pb-5">
+      <div className="px-5 pb-5 text-center">
         <h3 className="uppercase tracking-wide font-extrabold text-[15px] md:text-[16px] text-blue-800">
           {title}
         </h3>
@@ -96,7 +121,135 @@ function ProductCard({ img, title, subtitle }) {
             {subtitle}
           </p>
         )}
+
+        {/* 🔗 Link button */}
+        {link && (
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-4 px-4 py-2 text-sm font-medium bg-blue-700 text-white rounded-full hover:bg-blue-800 transition"
+          >
+            View Details →
+          </a>
+        )}
       </div>
     </article>
+  );
+}
+
+/* ---------------- Popup Modal with Slider ---------------- */
+function ProductModal({ item, onClose }) {
+  const images = item.gallery?.length ? item.gallery : [item.img];
+  const [index, setIndex] = useState(0);
+
+  const clamp = useCallback(
+    (n) => (n + images.length) % images.length,
+    [images.length]
+  );
+
+  const goPrev = useCallback(() => setIndex((i) => clamp(i - 1)), [clamp]);
+  const goNext = useCallback(() => setIndex((i) => clamp(i + 1)), [clamp]);
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === "Escape") onClose?.();
+      if (e.key === "ArrowLeft") goPrev();
+      if (e.key === "ArrowRight") goNext();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [goPrev, goNext, onClose]);
+
+  const [startX, setStartX] = useState(null);
+  const onTouchStart = (e) => setStartX(e.touches?.[0]?.clientX ?? null);
+  const onTouchEnd = (e) => {
+    if (startX == null) return;
+    const endX = e.changedTouches?.[0]?.clientX ?? startX;
+    const dx = endX - startX;
+    if (Math.abs(dx) > 40) {
+      dx > 0 ? goPrev() : goNext();
+    }
+    setStartX(null);
+  };
+
+  return (
+    <div
+      className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 px-4"
+      onClick={onClose}
+    >
+      <div
+        className="bg-white rounded-xl w-full max-w-4xl overflow-hidden shadow-2xl relative"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Close Button */}
+        <button
+          onClick={onClose}
+          className="absolute top-3 right-3 h-9 w-9 flex items-center justify-center rounded-full bg-black/80 text-white text-xl hover:bg-black"
+        >
+          ×
+        </button>
+
+        {/* Image Slider */}
+        <div
+          className="relative bg-neutral-50"
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
+        >
+          <div className="aspect-[16/9] flex items-center justify-center">
+            <img
+              key={images[index]}
+              src={images[index]}
+              alt={`${item.title} ${index + 1}`}
+              className="max-h-[70vh] w-auto object-contain mx-auto"
+            />
+          </div>
+
+          {images.length > 1 && (
+            <>
+              <button
+                onClick={goPrev}
+                className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/70 text-white h-10 w-10 rounded-full hover:bg-black"
+              >
+                ‹
+              </button>
+              <button
+                onClick={goNext}
+                className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/70 text-white h-10 w-10 rounded-full hover:bg-black"
+              >
+                ›
+              </button>
+            </>
+          )}
+        </div>
+
+        {item.link && (
+          <div className="text-center mt-4 mb-6">
+            <a
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-6 py-2 bg-blue-700 text-white text-sm font-medium rounded-full hover:bg-blue-800 transition"
+            >
+              View More Details →
+            </a>
+          </div>
+        )}
+
+        {images.length > 1 && (
+          <div className="px-4 pb-5 flex justify-center gap-2">
+            {images.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setIndex(i)}
+                className={`h-2.5 w-2.5 rounded-full ${
+                  i === index ? "bg-blue-600 scale-110" : "bg-gray-300 hover:bg-gray-400"
+                }`}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
   );
 }

@@ -10,10 +10,10 @@ const SLIDES = [
 
 // 🔁 Replace these with your actual icon image files
 const FEATURE_ICONS = [
-  { src: "/assets/ico-1.png", alt: "Multi-city hubs" },
-  { src: "/assets/ico-2.png",  alt: "Material handling" },
-  { src: "/assets/ico-3.png",     alt: "In/Out logistics" },
-  { src: "/assets/ico-4.png",    alt: "Secure storage" },
+  { src: "/assets/infra-icon1.png", alt: "Multi-city hubs" },
+  { src: "/assets/infra-icon2.png",  alt: "Material handling" },
+  { src: "/assets/infra-icon3.png",     alt: "In/Out logistics" },
+  { src: "/assets/infra-icon4.png",    alt: "Secure storage" },
 ];
 
 export default function Warehouse() {

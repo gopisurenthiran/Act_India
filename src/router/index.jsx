@@ -10,6 +10,7 @@ import Sdlg from '../pages/Sdlg'
 import Ammann from '../pages/Ammann'
 import Husqvarna from '../pages/Husqvarna'
 import Infrastructure from '../pages/Infrastructure'
+import SearchResults from '../pages/SearchResults'
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
        { path: 'infrastructure', element: <Infrastructure /> },
       { path: 'services', element: <Service /> },
       { path: 'contact', element: <Contact /> },
+      { path: "/search", element: <SearchResults /> },
     ],
   },
 ])

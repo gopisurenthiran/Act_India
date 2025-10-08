@@ -12,7 +12,7 @@ const fadeUp = (delay = 0) => ({
   },
 });
 
-const words = ["Protect,", "Prepare,", "Prevent,", "Prosper™"];
+
 
 /* LEFT panel: slide image + label that changes per slide */
 const leftSlides = [
@@ -108,7 +108,7 @@ export default function PrecareSection() {
               </span>
 
               <span className="inline-flex flex-wrap gap-x-2 font-thin text-5xl">
-             Prevent, Prosper™
+             Prevent, Prosper
               </span>
             </motion.h2>
 

@@ -21,7 +21,7 @@ export default function EpirocSection() {
           </h3>
 
           {/* Divider */}
-          <div className="h-0.5 w-20 bg-gradient-to-r from-blue-500 to-purple-500"></div>
+          <div className="h-0.5 w-20 bg-gradient-primary"></div>
 
           {/* Image with Left-aligned Arrows */}
           <div className="relative w-[400px] justify-start">
@@ -45,7 +45,7 @@ export default function EpirocSection() {
           </h2>
 
           {/* Divider */}
-          <div className="h-0.5 w-20 bg-gradient-to-r from-blue-500 to-purple-500"></div>
+          <div className="h-0.5 w-20 bg-gradient-primary"></div>
 
           {/* Description */}
           <p className="text-gray-700 text-base leading-relaxed">

@@ -12,7 +12,8 @@ export default function Contact() {
   <FirstSection />
   <ClientSection />
   <ContactStamp />
-  <ContactSection />
+  <ContactSection id="form" />
+
   <OfficeLocations />
   
 </>

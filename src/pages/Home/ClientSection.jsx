@@ -1,10 +1,10 @@
 import React from "react";
 
-import volvoLogo from "/assets/v.png";
-import epirocLogo from "/assets/epiroc.png";
-import ammannLogo from "/assets/amman.png";
-import husqvarnaLogo from "/assets/hus.png";
-import sdlgLogo from "/assets/sdlg.png";
+import volvoLogo from "/assets/volvo.svg";
+import epirocLogo from "/assets/Epiroc.svg";
+import ammannLogo from "/assets/Ammann.svg";
+import husqvarnaLogo from "/assets/Husqvarna.svg";
+import sdlgLogo from "/assets/SDLG.svg";
 
 const logos = [
   { name: "Volvo", image: volvoLogo },

@@ -3,6 +3,7 @@ import ClientSection from "./Home/ClientSection";
 import CompaniesCarousel from "./Home/CompaniesCarousel";
 import ContactSection from "./Home/ContactSection";
 import DealersSection from "./Home/DealersSection";
+import GridPage from "./Home/grid";
 import HomeSection from "./Home/HomeSection";
 import Infrastructure from "./Home/Infrastructure";
 import OurNetwork from "./Home/OurNetwork";
@@ -18,7 +19,7 @@ export default function HomePage() {
       <ClientSection />
       <StatsSlider />
       <AboutACT />
-      <VideoSection />
+      <GridPage />
       <DealersSection />
       <SolutionsSection />
       <ServiceSlider />

@@ -1,3 +1,4 @@
+// ProductsShowcase.jsx
 import React, { useState, useEffect, useCallback } from "react";
 
 const CATEGORIES = ["Products", "Supplies"];
@@ -8,7 +9,7 @@ const ITEMS = [
     title: "Crawler Excavator",
     subtitle: "Operating Weight: 8T - 14T",
     img: "/assets/sdlg-1.png",
-    gallery: ["/assets/popup-15.png"],
+    gallery: ["/assets/sdlg-p-1.jpg", "/assets/sdlg-p-2.jpg", "/assets/sdlg-p-3.jpg"],
     link: "https://sdlgindia.com/products/#excavators",
   },
   {
@@ -16,7 +17,7 @@ const ITEMS = [
     title: "Wheel Loaders",
     subtitle: "Rated Load (kg) 1.6T - 8T",
     img: "/assets/sdlg-2.png",
-    gallery: ["/assets/popup-16.png"],
+    gallery: ["/assets/sdlg-p-4.png", "/assets/sdlg-p-5.png", "/assets/sdlg-p-6.jpg", "/assets/sdlg-p-7.jpg", "/assets/sdlg-p-8.png"],
     link: "https://sdlgindia.com/products/#wheel-loaders",
   },
   {
@@ -24,7 +25,7 @@ const ITEMS = [
     title: "Motor Grader",
     subtitle: "Rated Power (kw) 105 - 211",
     img: "/assets/sdlg-3.png",
-    gallery: ["/assets/popup-17.png"],
+    gallery: ["/assets/sdlg-p-9.jpg", "/assets/sdlg-p-10.jpg", "/assets/sdlg-p-11.jpg"  ],
     link: "https://sdlgindia.com/products/#graders",
   },
   {
@@ -33,7 +34,7 @@ const ITEMS = [
     subtitle: "Suitable carrier 7T - 34T",
     img: "/assets/sdlg-4.png",
     gallery: ["/assets/popup-18.png"],
-    link: "https://www.sdlg.com/product/hydraulic-breakers",
+    link: "#",
   },
   { category: "Supplies", img: "/assets/supplies-3.png" },
 ];
@@ -56,9 +57,7 @@ export default function ProductsShowcase() {
                 <button
                   key={c}
                   onClick={() => setActive(c)}
-                  className={`relative py-3 -mb-px transition-colors ${
-                    isActive ? "text-secondary" : "hover:text-secondary"
-                  }`}
+                  className={`relative py-3 -mb-px transition-colors ${isActive ? "text-secondary" : "hover:text-secondary"}`}
                 >
                   {c}
                   {isActive && (
@@ -143,6 +142,11 @@ function ProductModal({ item, onClose }) {
   const images = item.gallery?.length ? item.gallery : [item.img];
   const [index, setIndex] = useState(0);
 
+  // reset to first image whenever a new item is opened
+  useEffect(() => {
+    setIndex(0);
+  }, [item]);
+
   const clamp = useCallback(
     (n) => (n + images.length) % images.length,
     [images.length]
@@ -176,23 +180,36 @@ function ProductModal({ item, onClose }) {
   return (
     <div
       className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 px-4"
-      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      // only close if the click happened on the overlay itself
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          onClose?.();
+        }
+      }}
     >
       <div
-        className="bg-white rounded-xl w-full max-w-4xl overflow-hidden shadow-2xl relative"
+        className="rounded-xl w-full max-w-4xl overflow-hidden shadow-2xl relative"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close Button */}
+        {/* Close Button: stops propagation so overlay doesn't receive the click */}
         <button
-          onClick={onClose}
-          className="absolute top-3 right-3 h-9 w-9 flex items-center justify-center rounded-full bg-black/80 text-white text-xl hover:bg-black"
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            onClose?.();
+          }}
+          aria-label="Close"
+          className="absolute top-3 right-3 h-9 w-9 flex items-center justify-center rounded-full bg-black/80 text-white text-xl hover:bg-black z-50"
         >
           ×
         </button>
 
         {/* Image Slider */}
         <div
-          className="relative bg-neutral-50"
+          className="relative"
           onTouchStart={onTouchStart}
           onTouchEnd={onTouchEnd}
         >
@@ -201,20 +218,30 @@ function ProductModal({ item, onClose }) {
               key={images[index]}
               src={images[index]}
               alt={`${item.title} ${index + 1}`}
-              className="max-h-[70vh] w-auto object-contain mx-auto"
+              className="max-h-[70vh] w-auto object-contain mx-auto select-none"
+              draggable={false}
             />
           </div>
 
+          {/* Navigation Arrows - stop propagation when clicked */}
           {images.length > 1 && (
             <>
               <button
-                onClick={goPrev}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goPrev();
+                }}
+                aria-label="Previous image"
                 className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/70 text-white h-10 w-10 rounded-full hover:bg-black"
               >
                 ‹
               </button>
               <button
-                onClick={goNext}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goNext();
+                }}
+                aria-label="Next image"
                 className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/70 text-white h-10 w-10 rounded-full hover:bg-black"
               >
                 ›
@@ -223,28 +250,18 @@ function ProductModal({ item, onClose }) {
           )}
         </div>
 
-        {item.link && (
-          <div className="text-center mt-4 mb-6">
-            <a
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-6 py-2 bg-blue-700 text-white text-sm font-medium rounded-full hover:bg-blue-800 transition"
-            >
-              View More Details →
-            </a>
-          </div>
-        )}
-
+        {/* Dots */}
         {images.length > 1 && (
           <div className="px-4 pb-5 flex justify-center gap-2">
             {images.map((_, i) => (
               <button
                 key={i}
-                onClick={() => setIndex(i)}
-                className={`h-2.5 w-2.5 rounded-full ${
-                  i === index ? "bg-blue-600 scale-110" : "bg-gray-300 hover:bg-gray-400"
-                }`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIndex(i);
+                }}
+                aria-label={`Go to image ${i + 1}`}
+                className={`h-2.5 w-2.5 rounded-full ${i === index ? "bg-blue-600 scale-110" : "bg-gray-300 hover:bg-gray-400"}`}
               />
             ))}
           </div>

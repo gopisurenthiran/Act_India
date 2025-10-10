@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MoveLeft, MoveRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -6,26 +6,65 @@ import { Link } from "react-router-dom";
 const MotionLink = motion(Link);
 
 const dealers = [
-  { id: 1, name: "/assets/slider/1.png", product: "HYDRAULIC EXCAVATOR", img: "/assets/img-01.png", link: "/volvo" },
-  { id: 2, name: "/assets/slider/2.png", product: "COMBI CUTTER", img: "/assets/img-02.png", link: "/epiroc" },
-  { id: 3, name: "/assets/slider/3.png", product: "TRACKED PAVER", img: "/assets/img-03.png", link: "/ammann" },
-  { id: 4, name: "/assets/slider/4.png", product: "SOIL COMPACTORS", img: "/assets/img-04.png", link: "/sdlg" },
+  {
+    id: 1,
+    logo: "/assets/dealer-1.svg",
+    title: "Mfg of Heavy Construction Equipment & Road Machinery",
+    link: "/volvo",
+  },
+  {
+    id: 2,
+    logo: "/assets/dealer-2.svg",
+    title: "Hydraulic Attachments",  
+    link: "/epiroc",
+  },
+    {
+    id: 3,
+    logo: "/assets/dealer-3.svg",
+    title: "Construction Equipment",
+    link: "/sdlg",
+  },
+    {
+    id: 4,
+    logo: "/assets/dealer-5.svg",
+    title: "Road Machinery",
+    link: "/husqvarna",
+  },
+  {
+    id: 5,
+    logo: "/assets/dealer-4.svg",
+    title: "Mfg of Heavy Construction Equipment",
+    link: "/ammann",
+  },
+
+
 ];
 
 export default function DealersSection() {
   const [index, setIndex] = useState(0);
 
-  const prevSlide = () => setIndex((p) => (p - 1 + dealers.length) % dealers.length);
-  const nextSlide = () => setIndex((p) => (p + 1) % dealers.length);
+  // next/prev handlers
+  const prevSlide = () =>
+    setIndex((p) => (p - 1 + dealers.length) % dealers.length);
+  const nextSlide = () =>
+    setIndex((p) => (p + 1) % dealers.length);
 
-  // wrap-around 3 visible cards
-  const visible = [0, 1, 2].map((i) => dealers[(index + i) % dealers.length]);
+  // orderly wrap-around for 3 visible cards
+  const visible = Array.from({ length: 3 }, (_, i) =>
+    dealers[(index + i) % dealers.length]
+  );
+
+  // optional autoplay every 3s
+  useEffect(() => {
+    const auto = setInterval(nextSlide, 3000);
+    return () => clearInterval(auto);
+  }, []);
 
   return (
     <section className="w-full text-white">
       <div className="bg-gradient-primary py-12">
         <div className="max-w-6xl mx-auto px-4">
-          {/* Header + nav */}
+          {/* ---------- Header ---------- */}
           <div className="flex flex-col md:flex-row justify-between items-center md:items-end">
             <div className="text-left">
               <motion.h2
@@ -36,7 +75,7 @@ export default function DealersSection() {
               >
                 Dealers
               </motion.h2>
-              <span className="block w-16 border-b-2 border-white sm:text-left lg:mx-0 mb-4 mt-4" />
+              <span className="block w-16 border-b-2 border-white mb-4 mt-4" />
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -47,6 +86,7 @@ export default function DealersSection() {
               </motion.p>
             </div>
 
+            {/* Navigation Arrows */}
             <div className="flex gap-6 mt-6 md:mt-0">
               <button
                 onClick={prevSlide}
@@ -65,83 +105,68 @@ export default function DealersSection() {
             </div>
           </div>
 
-          {/* Carousel */}
+          {/* ---------- Carousel ---------- */}
           <div className="mt-10">
             {/* ✅ Mobile (horizontal scroll) */}
             <div className="flex sm:hidden overflow-x-auto snap-x snap-mandatory gap-6 scrollbar-hide">
-              <AnimatePresence mode="wait">
-                {visible.map((dealer) => (
-                  <motion.div
-                    key={`mobile-${dealer.id}-${dealer.product}`}
-                    initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -50, scale: 0.9 }}
-                    transition={{ duration: 0.6 }}
-                    className="bg-white text-black shadow-lg 
-                               flex flex-col items-start justify-between 
-                               hover:shadow-2xl hover:scale-105 transition 
-                               w-72 h-[360px] p-6 text-left 
-                               flex-shrink-0 snap-center"
+              {dealers.map((dealer) => (
+                <motion.div
+                  key={`mobile-${dealer.id}`}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="bg-white text-black shadow-lg 
+                             flex flex-col items-start justify-between 
+                             hover:shadow-2xl hover:scale-105 transition 
+                             w-72 h-[360px] p-6 text-left 
+                             flex-shrink-0 snap-center"
+                >
+                  <img
+                    src={dealer.logo}
+                    alt={dealer.title}
+                    className="h-10 object-contain"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <p className="mt-4 text-sm font-secondary">{dealer.title}</p>
+                  <MotionLink
+                    to={dealer.link}
+                    whileHover={{ x: 5 }}
+                    className="text-secondary font-primary font-semibold flex items-center gap-1 mt-4"
                   >
-                
-
-                    <div>
-                      <img
-                        src={dealer.name}
-                        alt={dealer.product}
-                        className="h-10 object-contain"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </div>
-
-                    
-
-                    <MotionLink
-                      to={dealer.link}
-                      whileHover={{ x: 5 }}
-                      className="text-secondary font-primary font-semibold flex items-center gap-1"
-                    >
-                      Learn More →
-                    </MotionLink>
-                  </motion.div>
-                ))}
-              </AnimatePresence>
+                    Learn More →
+                  </MotionLink>
+                </motion.div>
+              ))}
             </div>
 
-            {/* ✅ Desktop (grid, no scroll) */}
+            {/* ✅ Desktop (animated 3 visible cards) */}
             <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
               <AnimatePresence mode="wait">
                 {visible.map((dealer) => (
                   <motion.div
-                    key={`desktop-${dealer.id}-${dealer.product}`}
-                    initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -50, scale: 0.9 }}
+                    key={`desktop-${dealer.id}`}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -30 }}
                     transition={{ duration: 0.6 }}
                     className="bg-white text-black shadow-lg 
                                flex flex-col items-start justify-between 
                                hover:shadow-2xl hover:scale-105 transition 
                                w-80 h-[185px] p-6 text-left"
                   >
-                    
-
-                    <div>
-                      <img
-                        src={dealer.name}
-                        alt={dealer.product}
-                        className="h-12 object-contain"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </div>
-
-                   
-
+                    <img
+                      src={dealer.logo}
+                      alt={dealer.title}
+                      className="h-12 object-contain"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <p className="mt-2 text-sm font-secondary">{dealer.title}</p>
                     <MotionLink
                       to={dealer.link}
                       whileHover={{ x: 5 }}
-                      className="text-secondary font-primary font-semibold flex items-center gap-1"
+                      className="text-secondary font-primary font-semibold flex items-center gap-1 mt-2"
                     >
                       Learn More →
                     </MotionLink>

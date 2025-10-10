@@ -1,4 +1,3 @@
-// AmmannProducts.jsx
 import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 
@@ -10,7 +9,7 @@ const ITEMS = [
     title: "Tracked Pavers",
     subtitle: "Paving Width, max 4.5m - 13m",
     img: "/assets/amman-1.png",
-    gallery: ["/assets/popup-19.png"],
+    gallery: ["/assets/amman-p-1.webp"],
     link: "https://www.ammann.com/en-IN/machines/asphalt-pavers/asphalt-pavers/?products%5BrefinementList%5D%5Bundercarriage%5D%5B0%5D=Tracked",
   },
   {
@@ -83,11 +82,7 @@ function ProductCard({ img, title, subtitle, link, onImageClick }) {
   return (
     <article className="bg-white ring-1 ring-gray-100 shadow-[0_20px_55px_-25px_rgba(0,0,0,0.35)] overflow-hidden transition hover:shadow-[0_28px_70px_-30px_rgba(0,0,0,0.35)]">
       <div className="p-4">
-        {/* Image (Popup Trigger) */}
-        <div
-          className="overflow-hidden cursor-pointer"
-          onClick={onImageClick}
-        >
+        <div className="overflow-hidden cursor-pointer" onClick={onImageClick}>
           <img
             src={img}
             alt={title}
@@ -106,14 +101,14 @@ function ProductCard({ img, title, subtitle, link, onImageClick }) {
         )}
         {link && (
           <div className="mt-3">
-             <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block mt-4 px-4 py-2 text-sm font-medium bg-blue-700 text-white rounded-full hover:bg-blue-800 transition"
-          >
-            View Details →
-          </a>
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-4 px-4 py-2 text-sm font-medium bg-blue-700 text-white rounded-full hover:bg-blue-800 transition"
+            >
+              View Details →
+            </a>
           </div>
         )}
       </div>
@@ -125,11 +120,14 @@ function ProductModal({ item, onClose }) {
   const images = item.gallery?.length ? item.gallery : [item.img];
   const [index, setIndex] = useState(0);
 
+  // Reset index whenever a new item is opened
+  useEffect(() => setIndex(0), [item]);
+
   const clamp = useCallback((n) => (n + images.length) % images.length, [images.length]);
   const goPrev = useCallback(() => setIndex((i) => clamp(i - 1)), [clamp]);
   const goNext = useCallback(() => setIndex((i) => clamp(i + 1)), [clamp]);
 
-  // Keyboard support
+  // Keyboard navigation
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === "Escape") onClose();
@@ -140,7 +138,6 @@ function ProductModal({ item, onClose }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [goPrev, goNext, onClose]);
 
-  // Swipe support
   const [startX, setStartX] = useState(null);
   const onTouchStart = (e) => setStartX(e.touches?.[0]?.clientX ?? null);
   const onTouchEnd = (e) => {
@@ -153,21 +150,31 @@ function ProductModal({ item, onClose }) {
   return (
     <div
       className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 px-4"
-      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose(); // only close on backdrop click
+      }}
     >
       <div
-        className="bg-white rounded-xl w-full max-w-4xl overflow-hidden shadow-2xl relative"
+        className="rounded-xl w-full max-w-4xl overflow-hidden shadow-2xl relative"
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Close Button */}
         <button
-          onClick={onClose}
-          className="absolute top-3 right-3 h-9 w-9 flex items-center justify-center rounded-full bg-black/80 text-white text-xl hover:bg-black"
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            onClose();
+          }}
+          className="absolute top-3 right-3 h-9 w-9 flex items-center justify-center rounded-full bg-black/80 text-white text-xl hover:bg-black z-50"
         >
           ×
         </button>
 
+        {/* Slider */}
         <div
-          className="relative bg-neutral-50"
+          className="relative"
           onTouchStart={onTouchStart}
           onTouchEnd={onTouchEnd}
         >
@@ -176,20 +183,28 @@ function ProductModal({ item, onClose }) {
               key={images[index]}
               src={images[index]}
               alt={`${item.title} ${index + 1}`}
-              className="max-h-[70vh] w-auto object-contain mx-auto"
+              className="max-h-[70vh] w-auto object-contain mx-auto select-none"
+              draggable={false}
             />
           </div>
 
+          {/* Arrows */}
           {images.length > 1 && (
             <>
               <button
-                onClick={goPrev}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goPrev();
+                }}
                 className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/70 text-white h-10 w-10 rounded-full hover:bg-black"
               >
                 ‹
               </button>
               <button
-                onClick={goNext}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goNext();
+                }}
                 className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/70 text-white h-10 w-10 rounded-full hover:bg-black"
               >
                 ›
@@ -198,12 +213,16 @@ function ProductModal({ item, onClose }) {
           )}
         </div>
 
+        {/* Dots */}
         {images.length > 1 && (
           <div className="px-4 pb-5 flex justify-center gap-2">
             {images.map((_, i) => (
               <button
                 key={i}
-                onClick={() => setIndex(i)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIndex(i);
+                }}
                 className={`h-2.5 w-2.5 rounded-full ${
                   i === index ? "bg-blue-600 scale-110" : "bg-gray-300 hover:bg-gray-400"
                 }`}

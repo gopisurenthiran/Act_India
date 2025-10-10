@@ -19,7 +19,7 @@ const ITEMS = [
     title: "Bulk Pulverizer",
     subtitle: "(18T - 40T)",
     img: "/assets/2.png",
-    gallery: ["/assets/2.png"],
+    gallery: ["/assets/epiroc-p-1.webp"],
     link: "https://www.epiroc.com/en-in/products/excavator-attachments/hydraulic-pulverizers",
   },
   {
@@ -44,7 +44,7 @@ const ITEMS = [
     subtitle: "Carrier Weight – Boom (2T - 65T), Stick (14T - 110T)",
     img: "/assets/5.png",
     gallery: ["/assets/5.png"],
-    link: "/products/steel-shears",
+    link: "#",
   },
   {
     category: "Products",
@@ -73,7 +73,7 @@ const ITEMS = [
   {
     category: "Products",
     title: "Magnet",
-    subtitlebreaker: "(12T - 43T)",
+    subtitle: "(12T - 43T)",
     img: "/assets/9.png",
     gallery: ["/assets/popup-13.png"],
     link: "https://www.epiroc.com/en-in/products/excavator-attachments/excavator-magnet",
@@ -105,9 +105,7 @@ export default function ProductsShowcase() {
                 <button
                   key={c}
                   onClick={() => setActive(c)}
-                  className={`relative py-3 -mb-px transition-colors ${
-                    isActive ? "text-secondary" : "hover:text-secondary"
-                  }`}
+                  className={`relative py-3 -mb-px transition-colors ${isActive ? "text-secondary" : "hover:text-secondary"}`}
                 >
                   {c}
                   {isActive && (
@@ -122,21 +120,13 @@ export default function ProductsShowcase() {
         {/* Supplies: big image */}
         {active === "Supplies" ? (
           <div className="mx-auto p-2">
-            <img
-              src={current[0]?.img}
-              alt="Supplies"
-              className="w-full h-auto object-contain bg-white"
-            />
+            <img src={current[0]?.img} alt="Supplies" className="w-full h-auto object-contain bg-white" />
           </div>
         ) : (
           // Product grid
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {current.map((p, i) => (
-              <ProductCard
-                key={`${p.title}-${i}`}
-                {...p}
-                onClick={() => setSelected(p)}
-              />
+              <ProductCard key={`${p.title ?? "item"}-${i}`} {...p} onClick={() => setSelected(p)} />
             ))}
           </div>
         )}
@@ -155,11 +145,7 @@ function ProductCard({ img, title, subtitle, onClick, link }) {
       className="bg-white ring-1 ring-gray-100 shadow-[0_20px_55px_-25px_rgba(0,0,0,0.35)] overflow-hidden transition hover:shadow-[0_28px_70px_-30px_rgba(0,0,0,0.35)] cursor-pointer"
     >
       <div className="p-4 overflow-hidden" onClick={onClick}>
-        <img
-          src={img}
-          alt={title}
-          className="pt-10 transition-transform duration-300 hover:scale-[1.03]"
-        />
+        <img src={img} alt={title} className="pt-10 transition-transform duration-300 hover:scale-[1.03]" />
       </div>
       <div className="px-5 pb-5">
         <h3 className="uppercase tracking-wide font-extrabold text-[15px] md:text-[16px] text-blue-800">
@@ -172,7 +158,7 @@ function ProductCard({ img, title, subtitle, onClick, link }) {
         )}
 
         {/* Visit Page Button */}
-       {link && (
+        {link && (
           <a
             href={link}
             target="_blank"
@@ -192,11 +178,7 @@ function ProductModal({ item, onClose }) {
   const images = item.gallery?.length ? item.gallery : [item.img];
   const [index, setIndex] = useState(0);
 
-  const clamp = useCallback(
-    (n) => (n + images.length) % images.length,
-    [images.length]
-  );
-
+  const clamp = useCallback((n) => (n + images.length) % images.length, [images.length]);
   const goPrev = useCallback(() => setIndex((i) => clamp(i - 1)), [clamp]);
   const goNext = useCallback(() => setIndex((i) => clamp(i + 1)), [clamp]);
 
@@ -227,32 +209,42 @@ function ProductModal({ item, onClose }) {
   return (
     <div
       className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 px-4"
-      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      // only close if the click target is the overlay itself (prevents accidental close on clicks inside)
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          onClose?.();
+        }
+      }}
     >
       <div
-        className="bg-white rounded-xl w-full max-w-4xl overflow-hidden shadow-2xl relative"
+        className="rounded-xl w-full max-w-4xl overflow-hidden shadow-2xl relative"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
-          onClick={onClose}
-          className="absolute top-3 right-3 h-9 w-9 flex items-center justify-center rounded-full bg-black/80 text-white text-xl hover:bg-black"
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation(); // ensures overlay onClick won't trigger
+            onClose?.();
+          }}
+          aria-label="Close"
+          className="absolute top-3 right-3 h-9 w-9 flex items-center justify-center rounded-full bg-black/80 text-white text-xl hover:bg-black z-50"
         >
           ×
         </button>
 
         {/* Image Slider */}
-        <div
-          className="relative bg-neutral-50"
-          onTouchStart={onTouchStart}
-          onTouchEnd={onTouchEnd}
-        >
-          <div className="aspect-[16/9] flex items-center justify-center">
+        <div className="relative" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
+          <div className="aspect-[16/9] flex items-center justify-center bg-transparent">
             <img
               key={images[index]}
               src={images[index]}
               alt={`${item.title} ${index + 1}`}
-              className="max-h-[70vh] w-auto object-contain mx-auto"
+              className="max-h-[70vh] w-auto object-contain mx-auto select-none"
+              draggable={false}
             />
           </div>
 
@@ -260,14 +252,22 @@ function ProductModal({ item, onClose }) {
           {images.length > 1 && (
             <>
               <button
-                onClick={goPrev}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goPrev();
+                }}
                 className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/70 text-white h-10 w-10 rounded-full hover:bg-black"
+                aria-label="Previous image"
               >
                 ‹
               </button>
               <button
-                onClick={goNext}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goNext();
+                }}
                 className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/70 text-white h-10 w-10 rounded-full hover:bg-black"
+                aria-label="Next image"
               >
                 ›
               </button>
@@ -281,28 +281,14 @@ function ProductModal({ item, onClose }) {
             {images.map((_, i) => (
               <button
                 key={i}
-                onClick={() => setIndex(i)}
-                className={`h-2.5 w-2.5 rounded-full ${
-                  i === index
-                    ? "bg-blue-600 scale-110"
-                    : "bg-gray-300 hover:bg-gray-400"
-                }`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIndex(i);
+                }}
+                className={`h-2.5 w-2.5 rounded-full ${i === index ? "bg-blue-600 scale-110" : "bg-gray-300 hover:bg-gray-400"}`}
+                aria-label={`Go to image ${i + 1}`}
               />
             ))}
-          </div>
-        )}
-
-        {/* Visit Page in Modal */}
-        {item.link && (
-          <div className="pb-6 text-center">
-            <a
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
-            >
-              Visit Product Page
-            </a>
           </div>
         )}
       </div>

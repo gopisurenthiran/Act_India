@@ -1,93 +1,56 @@
 // HomeSection.jsx
 import React from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
 
-// Banner slide data
 const slides = [
-  {
-    id: 1,
-    desktop: "/assets/banner/homepage-web.webp",
-    mobile: "/assets/banner/Homepage-mob.webp",
-   
-  },
-  {
-    id: 2,
-    desktop: "/assets/banner/banner2-web.webp",
-    mobile: "/assets/banner/banner2-mob.webp",
-   
-  },
-  {
-    id: 3,
-    desktop: "/assets/banner/banner3-web.webp",
-    mobile: "/assets/banner/banner3-mob.webp",
-   
-  },
-   {
-    id: 4,
-    desktop: "/assets/banner/banner3-web.webp",
-    mobile: "/assets/banner/banner3-mob.webp",
-   
-  },
-   {
-    id: 5,
-    desktop: "/assets/banner/banner3-web.webp",
-    mobile: "/assets/banner/banner3-mob.webp",
-   
-  },
+  { id: 1, desktop: "/assets/banner/home-banner-web-1.webp", mobile: "/assets/banner/home-banner-mob-1.webp" },
+  { id: 2, desktop: "/assets/banner/home-banner-web-2.webp", mobile: "/assets/banner/home-banner-mob-2.webp" },
+  { id: 3, desktop: "/assets/banner/home-banner-web-3.webp", mobile: "/assets/banner/home-banner-mob-3.webp" },
+  { id: 4, desktop: "/assets/banner/home-banner-web-4.webp", mobile: "/assets/banner/home-banner-mob-4.webp" },
+  { id: 5, desktop: "/assets/banner/home-banner-web-5.webp", mobile: "/assets/banner/home-banner-mob-5.webp" },
 ];
 
 export default function HomeSection() {
   return (
-    <div className="relative h-screen w-full overflow-hidden">
+    <div className="relative w-full overflow-hidden h-[100svh] md:h-screen">
       <Swiper
-        modules={[Autoplay]}
+        modules={[Autoplay, EffectFade]}
         effect="fade"
-        autoplay={{ delay: 1000, disableOnInteraction: false }}
-        speed={1000}
-        loop={true}
+        fadeEffect={{ crossFade: true }}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        speed={800}
+        loop
+        allowTouchMove
         className="h-full w-full"
       >
         {slides.map((slide) => (
-          <SwiperSlide key={slide.id}>
-            <div className="relative h-screen w-full">
-              {/* Background Image - Desktop */}
+          <SwiperSlide key={slide.id} className="!h-[100svh] md:!h-screen">
+            <div className="relative w-full h-[100svh] md:h-screen">
+              {/* Desktop image */}
               <img
                 src={slide.desktop}
-                alt={`Slide ${slide.id}`}
+                alt={`Slide ${slide.id} desktop`}
                 className="hidden md:block absolute inset-0 w-full h-full object-cover"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
 
-              {/* Background Image - Mobile */}
+              {/* Mobile image */}
               <img
                 src={slide.mobile}
-                alt={`Slide ${slide.id}`}
+                alt={`Slide ${slide.id} mobile`}
                 className="block md:hidden absolute inset-0 w-full h-full object-cover"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
 
-              {/* Overlay (optional gradient or tint) */}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
-
-              {/* Button */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.8 }}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                className="
-                  absolute 
-                  bottom-[3.5rem] left-1/2 transform -translate-x-1/2
-                  md:bottom-[10rem] md:left-[23%] md:translate-x-0
-                "
-              >
-              
-              </motion.div>
             </div>
           </SwiperSlide>
         ))}

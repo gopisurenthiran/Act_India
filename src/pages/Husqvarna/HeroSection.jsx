@@ -7,14 +7,14 @@ export default function HeroSection() {
     <div className="relative h-screen w-full overflow-hidden">
       {/* Background Image - Desktop */}
       <img
-        src="/assets/banner/Dealer-1-web.webp"
+        src="/assets/banner/home-banner-web-5.webp"
         alt="Excavator"
         className="hidden md:block absolute inset-0 object-cover"
       />
 
       {/* Background Image - Mobile */}
       <img
-        src="/assets/banner/Dealer-1-mob.webp"
+        src="/assets/banner/home-banner-mob-5.webp"
         alt="Excavator Mobile"
         className="block md:hidden absolute inset-0 w-full h-full object-cover"
       />
@@ -34,14 +34,14 @@ export default function HeroSection() {
             className="
     absolute 
     bottom-[3.5rem] left-[33%] transform -translate-x-1/2   /* 👈 mobile: centered, lower */
-    md:bottom-[10rem] md:left-[23%] md:translate-x-0  /* 👈 desktop: higher, left aligned */
+    md:bottom-[15rem] md:left-[6%] md:translate-x-0  /* 👈 desktop: higher, left aligned */
   "
           >
             <Link
               to="/contact"
               className="px-4 py-2 bg-white text-secondary text-lg shadow-lg transition font-primary"
             >
-              Learn More →
+              know More →
             </Link>
           </motion.div>
         </div>

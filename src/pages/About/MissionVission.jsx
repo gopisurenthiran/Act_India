@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function MissionVision({
-  years = 17,
+  years = 80,
   missionTexts = [
     "We will evolve to attract the best of talent and provide an enabling environment to learn, lead, contribute and grow into future leaders.",
     "We will continuously improve and implement robust business processes that ensures fulfilment of our goals with integrity, speed and accuracy.",

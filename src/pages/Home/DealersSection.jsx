@@ -14,19 +14,19 @@ const dealers = [
   },
   {
     id: 2,
-    logo: "/assets/dealer-2.svg",
+    logo: "/assets/epiroc-final.svg",
     title: "Hydraulic Attachments",  
     link: "/epiroc",
   },
     {
     id: 3,
-    logo: "/assets/dealer-3.svg",
+    logo: "/assets/sdlg.png",
     title: "Construction Equipment",
     link: "/sdlg",
   },
     {
     id: 4,
-    logo: "/assets/dealer-5.svg",
+    logo: "/assets/husqvarna-final.svg",
     title: "Road Machinery",
     link: "/husqvarna",
   },
@@ -73,7 +73,7 @@ export default function DealersSection() {
                 transition={{ duration: 0.8 }}
                 className="text-3xl md:text-4xl font-bold font-primary"
               >
-                Dealers
+                Brand partner 
               </motion.h2>
               <span className="block w-16 border-b-2 border-white mb-4 mt-4" />
               <motion.p

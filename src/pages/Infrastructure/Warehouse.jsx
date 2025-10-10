@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useRef } from "react";
 
 const SLIDES = [
-  { src: "/assets/chennai.png", alt: "Modern warehouse aisles", label: "Chennai" },
+ 
   { src: "/assets/karur.png", alt: "Stockyard forklifts", label: "Karur" },
   { src: "/assets/coimbatore.png", alt: "Loading dock operations", label: "Coimbatore" },
   { src: "/assets/tirunelveli.png", alt: "Inventory scanning", label: "Tirunelveli" },

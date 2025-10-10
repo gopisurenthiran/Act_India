@@ -1,9 +1,9 @@
 import React from "react";
 
 import volvoLogo from "/assets/volvo.svg";
-import epirocLogo from "/assets/Epiroc.svg";
+import epirocLogo from "/assets/epiroc-final.svg";
 import ammannLogo from "/assets/Ammann.svg";
-import husqvarnaLogo from "/assets/Husqvarna.svg";
+import husqvarnaLogo from "/assets/husqvarna-final.svg";
 import sdlgLogo from "/assets/SDLG.svg";
 
 const logos = [

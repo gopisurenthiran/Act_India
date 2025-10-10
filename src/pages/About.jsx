@@ -18,7 +18,7 @@ export default function About() {
    <CountSection />
    <MissionVision />
    <ValuesSection />
-   <TestimonialSlider />
+  
    <ContactSection />
 
    </>

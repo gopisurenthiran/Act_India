@@ -28,6 +28,18 @@ const slides = [
     mobile: "/assets/banner/banner3-mob.webp",
    
   },
+   {
+    id: 4,
+    desktop: "/assets/banner/banner3-web.webp",
+    mobile: "/assets/banner/banner3-mob.webp",
+   
+  },
+   {
+    id: 5,
+    desktop: "/assets/banner/banner3-web.webp",
+    mobile: "/assets/banner/banner3-mob.webp",
+   
+  },
 ];
 
 export default function HomeSection() {

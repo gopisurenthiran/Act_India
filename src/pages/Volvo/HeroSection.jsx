@@ -2,21 +2,21 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-export default function AboutSection() {
+export default function HeroSection() {
   return (
-    <div className="relative h-screen w-full overflow-hidden">
+    <div className="relative w-full overflow-hidden">
       {/* Background Image - Desktop */}
       <img
         src="/assets/banner/home-banner-web-1.webp"
         alt="Excavator"
-        className="hidden md:block absolute inset-0 object-cover"
+        className="hidden md:block w-full h-full object-cover object-center"
       />
 
       {/* Background Image - Mobile */}
       <img
         src="/assets/banner/home-banner-mob-1.webp"
         alt="Excavator Mobile"
-        className="block md:hidden absolute inset-0 w-full h-full object-cover"
+        className="block md:hidden w-full h-full object-cover object-center"
       />
 
       {/* Overlay Gradient */}

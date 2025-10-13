@@ -4,19 +4,19 @@ import { Link } from "react-router-dom";
 
 export default function HeroSection() {
   return (
-    <div className="relative h-screen w-full overflow-hidden">
+    <div className="relative w-full overflow-hidden">
       {/* Background Image - Desktop */}
       <img
         src="/assets/banner/home-banner-web-5.webp"
         alt="Excavator"
-        className="hidden md:block absolute inset-0 object-cover"
+        className="hidden md:block w-full h-full object-cover object-center"
       />
 
       {/* Background Image - Mobile */}
       <img
         src="/assets/banner/home-banner-mob-5.webp"
         alt="Excavator Mobile"
-        className="block md:hidden absolute inset-0 w-full h-full object-cover"
+        className="block md:hidden w-full h-full object-cover object-center"
       />
 
       {/* Overlay Gradient */}
@@ -24,7 +24,7 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 flex items-center justify-center h-full px-2 sm:px-6 lg:px-12">
-        <div className="max-w-4xl text-left md:text-left text-center md:text-left">
+        <div className="max-w-4xl text-left md:text-left text-center md:text-left mt-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

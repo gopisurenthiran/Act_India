@@ -14,7 +14,7 @@ export default function AboutSection() {
 
       {/* Background Image - Mobile */}
       <img
-        src="/assets/banner/home-banner-mob-1.webp"
+        src="/assets/banner/volvo-mobile.webp"
         alt="Excavator Mobile"
         className="block md:hidden w-full h-full object-cover object-center"
       />

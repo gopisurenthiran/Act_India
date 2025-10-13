@@ -14,7 +14,7 @@ export default function HeroSection() {
 
       {/* Background Image - Mobile */}
       <img
-        src="/assets/banner/home-banner-mob-4.webp"
+        src="/assets/banner/epiroc_mobile.webp"
         alt="Excavator Mobile"
         className="block md:hidden w-full h-full object-cover object-center"
       />

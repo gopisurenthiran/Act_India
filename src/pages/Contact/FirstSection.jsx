@@ -15,7 +15,7 @@ export default function FirstSection() {
  
        {/* Background Image - Mobile */}
        <img
-         src="/assets/banner/sdlg-mobile.webp"
+         src="/assets/banner/sdlg_mobile.webp"
          alt="Excavator Mobile"
          className="block md:hidden w-full h-full object-cover object-center"
        />

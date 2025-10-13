@@ -9,7 +9,7 @@ import "swiper/css/navigation";
 
 const slides = [
   { id: 1, desktop: "/assets/banner/volvo_web.webp", mobile: "/assets/banner/volvo_mobile.webp", link: "/volvo" },
-  { id: 2, desktop: "/assets/banner/amman-web.webp", mobile: "/assets/banner/ammann-mobile.webp", link: "/amman" },
+  { id: 2, desktop: "/assets/banner/amman-web.webp", mobile: "/assets/banner/ammann-mobile.webp", link: "/ammann" },
   { id: 3, desktop: "/assets/banner/sdlg-web.webp", mobile: "/assets/banner/sdlg.webp", link: "/sdlg" },
   { id: 4, desktop: "/assets/banner/epiroc-web.webp", mobile: "/assets/banner/epiroc-mobile.webp", link: "/epiroc" },
   { id: 5, desktop: "/assets/banner/husqvarna_web.webp", mobile: "/assets/banner/husqvarna-mobile.webp", link: "/husqvarna" },

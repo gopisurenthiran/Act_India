@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function HeroSection() {
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="relative w-full overflow-hidden mb-12">
       {/* Background Image - Desktop */}
       <img
         src="/assets/banner/home-banner-web-1.webp"

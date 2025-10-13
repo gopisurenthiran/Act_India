@@ -31,7 +31,7 @@ export default function Warehouse() {
   }, [paused]);
 
   return (
-    <section className="w-full bg-white text-neutral-900" id="warehouse">
+    <section className="w-full bg-white text-neutral-900 mt-14" id="warehouse">
       <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-12 min-h-[420px]">
         {/* LEFT: SLIDER */}
         <aside

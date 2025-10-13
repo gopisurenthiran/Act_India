@@ -2,21 +2,22 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Navigation } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 
 const slides = [
-  { id: 1, desktop: "/assets/banner/home-banner-web-1.webp", mobile: "/assets/banner/volvo-mobile.webp" },
-  { id: 2, desktop: "/assets/banner/ammann_web.webp", mobile: "/assets/banner/ammann_mobile.webp" },
-  { id: 3, desktop: "/assets/banner/home-banner-web-3.webp", mobile: "/assets/banner/sdlg_mobile.webp" },
-  { id: 4, desktop: "/assets/banner/home-banner-web-4.webp", mobile: "/assets/banner/husqvarna_mobile.webp" },
-  { id: 5, desktop: "/assets/banner/home-banner-web-5.webp", mobile: "/assets/banner/epiroc_mobile.webp" },
+  { id: 1, desktop: "/assets/banner/volvo_web.webp", mobile: "/assets/banner/volvo_mobile.webp", link: "/volvo" },
+  { id: 2, desktop: "/assets/banner/amman-web.webp", mobile: "/assets/banner/ammann-mobile.webp", link: "/amman" },
+  { id: 3, desktop: "/assets/banner/sdlg-web.webp", mobile: "/assets/banner/sdlg.webp", link: "/sdlg" },
+  { id: 4, desktop: "/assets/banner/epiroc-web.webp", mobile: "/assets/banner/epiroc-mobile.webp", link: "/epiroc" },
+  { id: 5, desktop: "/assets/banner/husqvarna_web.webp", mobile: "/assets/banner/husqvarna-mobile.webp", link: "/husqvarna" },
 ];
 
 export default function HomeSection() {
   return (
-    <section className="relative w-full overflow-hidden">
+    <section className="relative w-full overflow-hidden mb-12">
       <Swiper
         modules={[Autoplay, EffectFade, Navigation]}
         effect="fade"
@@ -33,7 +34,7 @@ export default function HomeSection() {
       >
         {slides.map((slide) => (
           <SwiperSlide key={slide.id} className="!h-full">
-            <div className="relative w-full h-full">
+            <Link to={slide.link} className="block relative w-full h-full">
               {/* Desktop image */}
               <img
                 src={slide.desktop}
@@ -54,13 +55,13 @@ export default function HomeSection() {
                 decoding="async"
               />
 
-              {/* Optional gradient overlay for visibility */}
+              {/* Optional gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent pointer-events-none"></div>
-            </div>
+            </Link>
           </SwiperSlide>
         ))}
 
-        {/* ✅ Navigation Arrows */}
+        {/* Navigation Arrows */}
         <div className="swiper-button-prev-custom absolute left-3 md:left-6 top-1/2 -translate-y-1/2 z-20 cursor-pointer bg-black/30 hover:bg-black/60 backdrop-blur-md p-2 md:p-3 rounded-full transition-all duration-300 shadow-md">
           <ChevronLeft className="text-white w-4 h-4 md:w-6 md:h-6" />
         </div>

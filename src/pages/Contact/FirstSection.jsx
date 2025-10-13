@@ -5,7 +5,7 @@ import { HashLink } from "react-router-hash-link";
 
 export default function FirstSection() {
   return (
-  <div className="relative w-full overflow-hidden">
+  <div className="relative w-full overflow-hidden mb-12">
        {/* Background Image - Desktop */}
        <img
          src="/assets/banner/sdlg-web.webp"

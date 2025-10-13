@@ -58,7 +58,7 @@ export default function Infrastructure() {
       </motion.h2>
 
       <motion.span
-        className="block w-16 border-b-4 border-black sm:text-left lg:mx-0 mb-4 mt-4"
+        className="block w-16 border-b-4 border-secondary sm:text-left lg:mx-0 mb-4 mt-4"
         initial={{ scaleX: 0 }}
         whileInView={{ scaleX: 1 }}
         transition={{ duration: 0.6, delay: 0.2 }}

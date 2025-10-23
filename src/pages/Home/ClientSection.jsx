@@ -1,6 +1,6 @@
 import React from "react";
 
-import volvoLogo from "/assets/volvo.svg";
+import volvoLogo from "/assets/new-logo.png";
 import epirocLogo from "/assets/epiroc-final.svg";
 import ammannLogo from "/assets/Ammann.svg";
 import husqvarnaLogo from "/assets/husqvarna-final.svg";

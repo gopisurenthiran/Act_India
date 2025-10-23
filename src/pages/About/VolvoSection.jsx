@@ -9,7 +9,7 @@ export default function VolvoSection() {
         <div className="flex flex-col items-start space-y-6">
           {/* Logo */}
           <img
-            src="/assets/volvo-logo.png"
+            src="/assets/inner.svg"
             alt="Volvo Logo"
             className="w-32 mb-4"
           />
@@ -26,7 +26,7 @@ export default function VolvoSection() {
           {/* Image with Left-aligned Arrows */}
           <div className="relative w-full justify-start">
             <img
-              src="/assets/volvo.png"
+              src="/assets/volvo.webp"
               alt="Volvo Excavator"
               className="w-full"
             />

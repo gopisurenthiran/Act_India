@@ -9,7 +9,7 @@ export default function VolvoSection() {
         <div className="flex flex-col items-start space-y-6">
           {/* Logo */}
           <img
-            src="/assets/inner.svg"
+            src="/assets/inner-1.svg"
             alt="Volvo Logo"
             className="w-32 mb-4"
           />

@@ -9,7 +9,7 @@ export default {
     extend: {
       colors: {
         primary: "#0071BB",
-        secondary: "#100FBC",
+        secondary: "#0E5DA2",
         accent: "#f59e0b",
         muted: "#f3f4f6",
         danger: "#ef4444",
@@ -23,7 +23,7 @@ export default {
         secondary: ["Inter", "sans-serif"], // 🔹 Secondary
       },
       backgroundImage: {
-        "gradient-primary": "linear-gradient(to right, #0071BB, #100FBC)",
+        "gradient-primary": "linear-gradient(to right, #0071BB, #0E5DA2)",
       },
     },
   },

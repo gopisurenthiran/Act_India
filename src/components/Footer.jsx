@@ -34,14 +34,14 @@ function PdfDocIcon() {
 export default function FooterACT() {
   return (
     <footer className="relative text-white">
-      <div className="bg-gradient-primary">
+      <div className="bg-[#F7F7F7]">
         <div className="mx-auto w-full max-w-6xl px-4 md:px-10 lg:px-12 py-8 md:py-10">
           {/* Logo */}
-          <div className="mb-8">
+          <div className="mb-8 -pl-7">
             <img
-              src="/assets/footer-logo.svg"
+              src="/assets/logo.svg"
               alt="ACT Logo"
-              className="h-12 w-auto  bg-white p-2 shadow-sm"
+              className="h-14 w-auto "
             />
           </div>
 
@@ -49,8 +49,8 @@ export default function FooterACT() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {/* Brand partner */}
             <nav>
-              <h3 className="mb-3 font-semibold text-[15px]">Brand partner</h3>
-              <ul className="space-y-2 text-[14px] text-white/90">
+              <h3 className="mb-3 font-semibold text-[15px] text-black">Brand partner</h3>
+              <ul className="space-y-2 text-[14px] text-black">
                 {[
                   { name: "Volvo", path: "/volvo" },
                   { name: "SDLG", path: "/sdlg" },
@@ -61,7 +61,7 @@ export default function FooterACT() {
                   <li key={name}>
                     <Link
                       to={path}
-                      className="hover:text-white transition-colors"
+                      className=" transition-colors"
                     >
                       {name}
                     </Link>
@@ -72,8 +72,8 @@ export default function FooterACT() {
 
             {/* Service */}
             <nav>
-              <h3 className="mb-3 font-semibold text-[15px]">Service</h3>
-              <ul className="space-y-2 text-[14px] text-white/90">
+              <h3 className="mb-3 font-semibold text-[15px] text-black">Service</h3>
+              <ul className="space-y-2 text-[14px] text-black">
                 {[
                   "Precare",
                   "Auxiliary service solutions",
@@ -83,7 +83,7 @@ export default function FooterACT() {
                   <li key={i}>
                     <Link
                       to="/services"
-                      className="hover:text-white transition-colors"
+                      className=" transition-colors"
                     >
                       {i}
                     </Link>
@@ -94,8 +94,8 @@ export default function FooterACT() {
 
             {/* Infrastructure */}
             <nav>
-              <h3 className="mb-3 font-semibold text-[15px]">Infrastructure</h3>
-              <ul className="space-y-2 text-[14px] text-white/90">
+              <h3 className="mb-3 font-semibold text-[15px] text-black">Infrastructure</h3>
+              <ul className="space-y-2 text-[14px] text-black">
                 {[
                   "Warehouses & Stockyards",
                   "Machine stockyard",
@@ -106,7 +106,7 @@ export default function FooterACT() {
                   <li key={i}>
                     <Link
                       to="/infrastructure"
-                      className="hover:text-white transition-colors"
+                      className=" transition-colors"
                     >
                       {i}
                     </Link>
@@ -117,7 +117,7 @@ export default function FooterACT() {
 
             {/* News */}
             <section>
-              <h3 className="mb-3 font-semibold text-[15px]">News</h3>
+              <h3 className="mb-3 font-semibold text-[15px] text-black">News</h3>
               <ul className="space-y-3">
                 {[
                   {
@@ -137,7 +137,7 @@ export default function FooterACT() {
                     <a
                       href={href}
                       download
-                      className="group flex items-center gap-3 text-[14px] text-white/95 hover:text-white transition-colors"
+                      className="group flex items-center gap-3 text-[14px] text-black transition-colors"
                     >
                       <PdfDocIcon />
                       <span className="decoration-transparent group-hover:decoration-white/70 underline-offset-2">
@@ -151,16 +151,16 @@ export default function FooterACT() {
           </div>
 
           {/* Bottom row */}
-          <div className="mt-8  pt-4 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-xs text-white/85">
+          <div className="mt-8  pt-4 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-xs text-black">
             <p>Copyright © Ayatiworks Technologies LLP. All rights reserved</p>
             <div className="flex items-center gap-5">
-              <Link to="#" aria-label="Instagram" className="hover:text-white">
+              <Link to="#" aria-label="Instagram" className="">
                 <Instagram size={16} />
               </Link>
-              <Link to="#" aria-label="Facebook" className="hover:text-white">
+              <Link to="#" aria-label="Facebook" className="">
                 <Facebook size={16} />
               </Link>
-              <Link to="#" aria-label="X" className="hover:text-white">
+              <Link to="#" aria-label="X" className="">
                 <X size={16} />
               </Link>
             </div>

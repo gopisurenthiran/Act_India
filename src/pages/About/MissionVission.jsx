@@ -107,16 +107,16 @@ function YearsBadge({ years }) {
   return (
     <div className="relative w-48 h-48 md:w-56 md:h-56">
       <img
-        src="/assets/mission.png"
+        src="/assets/round.png"
         alt="Years Badge"
         className="absolute inset-0 w-full h-full object-contain"
       />
       <div className="relative flex items-center justify-center w-full h-full text-white text-center px-4">
         <div>
-          <div className="text-3xl md:text-4xl font-extrabold leading-tight">
+          <div className="text-3xl md:text-4xl text-black font-extrabold leading-tight">
             {years} Years
           </div>
-          <div className="mt-1 text-sm md:text-base font-medium opacity-95">
+          <div className="mt-1 text-sm md:text-base text-black font-medium opacity-95">
             of Successful Work
           </div>
         </div>

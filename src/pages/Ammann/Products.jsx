@@ -29,7 +29,7 @@ export default function AmmannProducts() {
   const current = ITEMS.filter((i) => i.category === active);
 
   return (
-    <section className="bg-white text-black py-10 md:py-16">
+    <section className="bg-[#F5F5F5] text-black py-10 md:py-16">
       <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
         {/* Tabs */}
         <div className="mb-8 flex justify-center">
@@ -40,8 +40,7 @@ export default function AmmannProducts() {
                 <button
                   key={c}
                   onClick={() => setActive(c)}
-                  className={`relative py-3 -mb-px transition-colors ${
-                    isActive ? "text-secondary" : "hover:text-secondary"
+                  className={`relative py-3 -mb-px transition-colors
                   }`}
                 >
                   {c}
@@ -90,28 +89,29 @@ function ProductCard({ img, title, subtitle, link, onImageClick }) {
           />
         </div>
       </div>
-      <div className="px-5 pb-6 text-center">
-        <h3 className="uppercase tracking-wide font-extrabold text-[15px] md:text-[16px] text-blue-800">
-          {title}
-        </h3>
-        {subtitle && (
-          <p className="mt-2 text-[13px] md:text-[14px] text-neutral-600 leading-relaxed">
-            {subtitle}
-          </p>
-        )}
-        {link && (
-          <div className="mt-3">
-            <a
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block mt-4 px-4 py-2 text-sm font-medium bg-blue-700 text-white rounded-full hover:bg-blue-800 transition"
-            >
-              View Details →
-            </a>
-          </div>
-        )}
-      </div>
+    <div className="px-5 pb-6 text-left">
+  <h3 className="uppercase tracking-wide font-extrabold text-[15px] md:text-[16px] text-black">
+    {title}
+  </h3>
+  {subtitle && (
+    <p className="mt-2 text-[13px] md:text-[14px] text-neutral-600 leading-relaxed">
+      {subtitle}
+    </p>
+  )}
+  {link && (
+    <div className="mt-3">
+      <a
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block mt-4 px-4 py-2 text-sm font-medium bg-secondary text-white transition"
+      >
+        View Details →
+      </a>
+    </div>
+  )}
+</div>
+
     </article>
   );
 }

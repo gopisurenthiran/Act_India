@@ -94,7 +94,7 @@ export default function ProductsShowcase() {
   const current = ITEMS.filter((i) => i.category === active);
 
   return (
-    <section className="bg-white text-neutral-900 py-10 md:py-16">
+    <section className="bg-[#F5F5F5] text-neutral-900 py-10 md:py-16">
       <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
         {/* Tabs */}
         <div className="mb-8 flex justify-center">
@@ -105,7 +105,7 @@ export default function ProductsShowcase() {
                 <button
                   key={c}
                   onClick={() => setActive(c)}
-                  className={`relative py-3 -mb-px transition-colors ${isActive ? "text-secondary" : "hover:text-secondary"}`}
+                  className={`relative py-3 -mb-px transition-colors }`}
                 >
                   {c}
                   {isActive && (
@@ -148,7 +148,7 @@ function ProductCard({ img, title, subtitle, onClick, link }) {
         <img src={img} alt={title} className="pt-10 transition-transform duration-300 hover:scale-[1.03]" />
       </div>
       <div className="px-5 pb-5">
-        <h3 className="uppercase tracking-wide font-extrabold text-[15px] md:text-[16px] text-blue-800">
+        <h3 className="uppercase tracking-wide font-extrabold text-[15px] md:text-[16px] text-black">
           {title}
         </h3>
         {subtitle && (
@@ -163,7 +163,7 @@ function ProductCard({ img, title, subtitle, onClick, link }) {
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block mt-4 px-5 py-2 bg-blue-700 text-white text-sm font-medium rounded-full hover:bg-blue-800 transition"
+            className="inline-block mt-4 px-5 py-2 bg-secondary text-white text-sm font-medium transition"
           >
             View Details →
           </a>

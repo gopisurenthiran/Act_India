@@ -6,7 +6,7 @@ import { FaCogs, FaUsers, FaBoxOpen } from "react-icons/fa";
 export default function AboutACT() {
   return (
     <section className="relative text-white">
-      <div className="bg-gradient-primary">
+      <div className="bg-[#F5F5F5]">
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center px-4 sm:px-6 py-10 gap-10">
           {/* Left Content */}
           <motion.div
@@ -16,12 +16,12 @@ export default function AboutACT() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 font-primary">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-3 font-primary">
               About ACT
             </h3>
-            <span className="block w-16 border-b-2 border-white mx-auto lg:mx-0 mb-6"></span>
-            <h4 className="text-lg sm:text-xl md:text-2xl font-semibold mb-4 font-secondary">Our Legacy of Excellence</h4>
-            <p className="text-white text-sm sm:text-base leading-relaxed font-secondary">
+            <span className="block w-16 border-b-2 border-black mx-auto lg:mx-0 mb-6"></span>
+            <h4 className="text-lg sm:text-xl md:text-2xl font-semibold mb-4 font-secondary text-black">Our Legacy of Excellence</h4>
+            <p className="text-black text-sm sm:text-base leading-relaxed font-secondary">
              Advanced Construction Technologies Pvt Ltd stands as a beacon of innovation and reliability in the construction solutions industry. With over 80 years of business legacy, we have empowered more than 2,500 satisfied customers with cutting-edge solutions. Our dedicated team of over 350 passionate professionals ensures exceptional service, maintaining over 4,500 machines under our expert care. As the exclusive dealer for leading global construction equipment brands for over 20 years, we proudly serve Tamil Nadu and Kerala through our expansive network of 16+ branches, with plans for further growth. Our commitment to excellence drives us to redefine industry standards and deliver unparalleled value.
             </p>
                    {/* CTA Button */}

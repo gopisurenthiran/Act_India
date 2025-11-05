@@ -44,7 +44,7 @@ export default function DealersSection() {
 
   return (
     <section className="w-full text-white">
-      <div className="bg-gradient-primary py-12">
+      <div className="bg-[#F5F5F5] py-12">
         <div className="max-w-6xl mx-auto px-4">
           {/* Header */}
           <div className="flex flex-col md:flex-row justify-between items-center md:items-end">
@@ -53,16 +53,16 @@ export default function DealersSection() {
                 initial={{ opacity: 0, y: -30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="text-3xl md:text-4xl font-bold font-primary"
+                className="text-3xl md:text-4xl text-black font-bold font-primary"
               >
                 Brand partner
               </motion.h2>
-              <span className="block w-16 border-b-2 border-white mb-4 mt-4" />
+              <span className="block w-16 border-b-2 border-black mb-4 mt-4" />
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
-                className="mt-2 text-lg md:text-xl font-secondary font-bold"
+                className="mt-2 text-lg md:text-xl text-black font-secondary font-bold"
               >
                 ACT India delivers sustainable <br /> C&amp;D solutions nationwide.
               </motion.p>
@@ -73,14 +73,14 @@ export default function DealersSection() {
               <button
                 onClick={prevSlide}
                 aria-label="Previous"
-                className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition"
+                className="p-2 rounded-full bg-black  transition"
               >
                 <MoveLeft size={34} />
               </button>
               <button
                 onClick={nextSlide}
                 aria-label="Next"
-                className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition"
+                className="p-2 rounded-full bg-black transition"
               >
                 <MoveRight size={34} />
               </button>

@@ -32,6 +32,7 @@ const ITEMS = [
     category: "Products",
     title: "Vibratory Soil Compactor",
     subtitle: "Operating Weight 11T",
+    subtitle1: "SD110",
     img: "/assets/product-4.png",
     gallery: ["/assets/popup-slide-7.png"],
     link: "https://www.volvoce.com/india/en-in/products/compactors/",
@@ -161,7 +162,7 @@ export default function ProductsShowcase() {
   const current = useMemo(() => ITEMS.filter((i) => i.category === active), [active]);
 
   return (
-    <section className="bg-white text-black py-10 md:py-16">
+    <section className="bg-[#F5F5F5] text-black py-10 md:py-16">
       <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
         {/* Tabs */}
         <div className="mb-8 flex justify-center">
@@ -172,7 +173,7 @@ export default function ProductsShowcase() {
                 <button
                   key={c}
                   onClick={() => setActive(c)}
-                  className={`relative py-3 -mb-px transition-colors ${isActive ? "text-secondary" : " hover:text-secondary"}`}
+                  className={`relative py-3 -mb-px transition-colors}`}
                 >
                   {c}
                   {isActive && (
@@ -207,19 +208,43 @@ export default function ProductsShowcase() {
 }
 
 /* -------------------- Product Card -------------------- */
-function ProductCard({ img, title, subtitle, link, onClick }) {
+function ProductCard({ img, title, subtitle, subtitle1, link, onClick }) {
   return (
     <article className="bg-white ring-1 ring-gray-100 shadow-[0_8px_55px_-25px_rgba(0,0,0,0.35)] overflow-hidden transition hover:shadow-[0_28px_70px_-30px_rgba(0,0,0,0.35)] cursor-pointer">
       <div className="p-4" onClick={onClick}>
         <div className="overflow-hidden">
-          <img src={img} alt={title} className="pt-10 transition-transform duration-300 hover:scale-[1.03]" />
+          <img
+            src={img}
+            alt={title}
+            className="pt-10 transition-transform duration-300 hover:scale-[1.03]"
+          />
         </div>
       </div>
       <div className="px-5 pb-5">
-        <h3 className="uppercase tracking-wide font-extrabold text-[15px] md:text-[16px] text-blue-800">{title}</h3>
-        {subtitle && <p className="mt-2 text-[13px] md:text-[14px] text-neutral-600 leading-relaxed">{subtitle}</p>}
+        <h3 className="uppercase tracking-wide font-extrabold text-[15px] md:text-[16px] text-black">
+          {title}
+        </h3>
+{subtitle1 && (
+          <p className="text-[13px] md:text-lg font-bold text-black leading-relaxed mt-2">
+            {subtitle1}
+          </p>
+        )}
+        {subtitle && (
+          <p className="mt-2 text-[13px] md:text-[14px] text-neutral-600 leading-relaxed">
+            {subtitle}
+          </p>
+        )}
+
+        {/* ✅ Added subtitle1 support */}
+        
+
         {link && (
-          <a href={link} target="_blank" rel="noopener noreferrer" className="inline-block mt-4 px-5 py-2 bg-blue-700 text-white text-sm font-medium rounded-full hover:bg-blue-800 transition">
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-4 px-5 py-2 bg-secondary text-white text-sm font-medium transition"
+          >
             View Details →
           </a>
         )}
@@ -227,6 +252,7 @@ function ProductCard({ img, title, subtitle, link, onClick }) {
     </article>
   );
 }
+
 
 /* -------------------- Modal -------------------- */
 function ProductModal({ item, onClose }) {

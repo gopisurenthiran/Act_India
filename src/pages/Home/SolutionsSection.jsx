@@ -28,7 +28,7 @@ export default function SolutionsSection() {
   >
     Learn More
   </Link>
-</motion.div>
+      </motion.div>
 
 
      

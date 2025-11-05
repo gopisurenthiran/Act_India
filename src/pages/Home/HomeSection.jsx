@@ -8,11 +8,11 @@ import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 
 const slides = [
-  { id: 1, desktop: "/assets/banner/volvo_web.webp", mobile: "/assets/banner/volvo_mobile.webp", link: "/volvo" },
-  { id: 2, desktop: "/assets/banner/ammann_web.webp", mobile: "/assets/banner/ammann-mobile.webp", link: "/ammann" },
-  { id: 3, desktop: "/assets/banner/sdlg_web.webp", mobile: "/assets/banner/sdlg.webp", link: "/sdlg" },
-  { id: 4, desktop: "/assets/banner/epiroc_web.webp", mobile: "/assets/banner/epiroc-mobile.webp", link: "/epiroc" },
-  { id: 5, desktop: "/assets/banner/husqvarna_web.webp", mobile: "/assets/banner/husqvarna-mobile.webp", link: "/husqvarna" },
+  { id: 1, desktop: "/assets/banner/final-1.jpg", mobile: "/assets/banner/final-1-mob.jpg", link: "/volvo" },
+  { id: 2, desktop: "/assets/banner/final-2.jpg", mobile: "/assets/banner/final-2-mob.jpg", link: "/epiroc"},
+  { id: 3, desktop: "/assets/banner/final-3.jpg", mobile: "/assets/banner/final-3-mob.jpg", link: "/sdlg" },
+  { id: 4, desktop: "/assets/banner/final-4.jpg", mobile: "/assets/banner/final-4-mob.jpg", link: "/husqvarna" },
+  { id: 5, desktop: "/assets/banner/final-5.jpg", mobile: "/assets/banner/final-5-mob.jpg", link: "/ammann" },
 ];
 
 export default function HomeSection() {
@@ -35,37 +35,43 @@ export default function HomeSection() {
         {slides.map((slide) => (
           <SwiperSlide key={slide.id} className="!h-full">
             <Link to={slide.link} className="block relative w-full h-full">
-              {/* Desktop image */}
+              
+              {/* Desktop Image */}
               <img
                 src={slide.desktop}
                 alt={`Slide ${slide.id} desktop`}
                 className="hidden md:block w-full h-full object-cover object-center"
                 loading="eager"
-                fetchPriority="high"
-                decoding="async"
               />
 
-              {/* Mobile image */}
+              {/* Mobile Image */}
               <img
                 src={slide.mobile}
                 alt={`Slide ${slide.id} mobile`}
                 className="block md:hidden w-full h-full object-cover object-center"
                 loading="eager"
-                fetchPriority="high"
-                decoding="async"
               />
 
-              {/* Optional gradient overlay */}
+              {/* Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent pointer-events-none"></div>
+
+              {/* ✅ Know More Button */}
+              <button
+                className="absolute bottom-20 right-10  border border-white text-white px-5 py-2  text-sm md:text-base font-medium backdrop-blur-sm hover:bg-white hover:text-black transition-all duration-300"
+              >
+                Know More
+              </button>
+
             </Link>
           </SwiperSlide>
         ))}
 
-        {/* Navigation Arrows */}
+        {/* Prev Button */}
         <div className="swiper-button-prev-custom absolute left-3 md:left-6 top-1/2 -translate-y-1/2 z-20 cursor-pointer bg-black/30 hover:bg-black/60 backdrop-blur-md p-2 md:p-3 rounded-full transition-all duration-300 shadow-md">
           <ChevronLeft className="text-white w-4 h-4 md:w-6 md:h-6" />
         </div>
 
+        {/* Next Button */}
         <div className="swiper-button-next-custom absolute right-3 md:right-6 top-1/2 -translate-y-1/2 z-20 cursor-pointer bg-black/30 hover:bg-black/60 backdrop-blur-md p-2 md:p-3 rounded-full transition-all duration-300 shadow-md">
           <ChevronRight className="text-white w-4 h-4 md:w-6 md:h-6" />
         </div>

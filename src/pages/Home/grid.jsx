@@ -4,9 +4,9 @@ export default function GridPage() {
   return (
     <section className="w-full px-4 md:px-6 lg:px-8 py-6 bg-white mb-12">
       <div className="mt-4 mb-10">
-        <h2 className="text-4xl text-secondary text-center">
+        <h2 className="text-3xl text-secondary text-center">
           Awards that Inspire: <br />
-          <span className="text-2xl text-black">
+          <span className="text-xl text-black">
             Redefining Construction Standards for Over 80 Years
           </span>
         </h2>

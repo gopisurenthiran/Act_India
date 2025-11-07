@@ -36,23 +36,29 @@ const logos = [
 
 export default function ClientSection() {
   return (
-    <section className="mt-4 mb-4 bg-white">
+    <section className="mt-6 bg-white mb-12">
       <div className="max-w-5xl mx-auto px-6">
         <div className="flex flex-wrap justify-center gap-6">
           {logos.map((logo, index) => (
-            <a
-              key={index}
-              href={logo.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center w-28 h-16 sm:w-32 sm:h-20 md:w-36 md:h-20 lg:w-[8rem] lg:h-[3rem] transition hover:scale-105"
-            >
-              <img
-                src={logo.image}
-                alt={logo.name}
-                className="max-h-full max-w-full object-contain"
-              />
-            </a>
+            <React.Fragment key={index}>
+              <a
+                href={logo.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-28 h-16 sm:w-32 sm:h-20 md:w-36 md:h-20 lg:w-[8rem] lg:h-[3rem] transition hover:scale-105"
+              >
+                <img
+                  src={logo.image}
+                  alt={logo.name}
+                  className="max-h-full max-w-full object-contain"
+                />
+              </a>
+
+              {/* Divider line between logos (not after last one) */}
+              {index !== logos.length - 1 && (
+                <div className="w-px h-10 bg-gray-300 hidden sm:block"></div>
+              )}
+            </React.Fragment>
           ))}
         </div>
       </div>

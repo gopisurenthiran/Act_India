@@ -22,12 +22,7 @@ export default function ServiceBanner() {
       {/* Optional Overlay Gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent"></div>
 
-      {/* Content layer */}
-      <div className="relative z-10 flex items-center justify-center h-full px-2 sm:px-6 lg:px-12">
-        <div className="max-w-4xl text-center md:text-left mt-10">
-          {/* You can place text or heading here if needed */}
-        </div>
-      </div>
+   
 
       {/* ✅ Know More Button – Bottom Right */}
       <motion.div

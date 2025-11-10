@@ -3,30 +3,25 @@ import React, { useState, useEffect } from "react";
 import CountUp from "react-countup";
 import { ArrowUpRight } from "lucide-react";
 
-export default function StatsSlidder() {
+export default function StatsSection() {
   const stats = [
     { value: 2500, suffix: "+", label: "Satisfied\nCustomers" },
     { value: 4500, suffix: "+", label: "Guarded\nMachines" },
     { value: 350, suffix: "+", label: "Drivers\nAchievers" },
     { value: 16, suffix: "+", label: "Expanding\nTamil Nadu, Kerala" },
     { value: 80, suffix: "+", label: "Business Legacy\nSpan" },
-      { value: 20, suffix: "+", label: "Regional Brand\nDominance" },
     { value: 2500, suffix: "+", label: "Satisfied\nCustomers" },
     { value: 4500, suffix: "+", label: "Guarded\nMachines" },
     { value: 350, suffix: "+", label: "Drivers\nAchievers" },
     { value: 16, suffix: "+", label: "Expanding\nTamil Nadu, Kerala" },
     { value: 80, suffix: "+", label: "Business Legacy\nSpan" },
-      { value: 20, suffix: "+", label: "Regional Brand\nDominance" },
       { value: 2500, suffix: "+", label: "Satisfied\nCustomers" },
     { value: 4500, suffix: "+", label: "Guarded\nMachines" },
     { value: 350, suffix: "+", label: "Drivers\nAchievers" },
     { value: 16, suffix: "+", label: "Expanding\nTamil Nadu, Kerala" },
     { value: 80, suffix: "+", label: "Business Legacy\nSpan" },
-      { value: 20, suffix: "+", label: "Regional Brand\nDominance" },
-       { value: 2500, suffix: "+", label: "Satisfied\nCustomers" },
-    { value: 4500, suffix: "+", label: "Guarded\nMachines" },
-
-  ]; 
+          { value: 2500, suffix: "+", label: "Satisfied\nCustomers" },
+  ];
 
   const [index, setIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);

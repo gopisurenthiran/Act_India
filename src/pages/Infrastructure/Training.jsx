@@ -96,7 +96,7 @@ export default function Training() {
 
           {/* Floating pill (dynamic label) */}
           <div className="absolute left-4 top-4">
-            <span className="select-none rounded-md bg-gradient-to-b from-blue-500 to-indigo-600 px-3 py-1.5 text-xs font-semibold text-white shadow-lg shadow-blue-500/20 transition-all duration-500">
+            <span className="select-none rounded-md bg-secondary px-3 py-1.5 text-xs font-semibold text-white shadow-lg shadow-blue-500/20 transition-all duration-500">
               {SLIDES[idx].label}
             </span>
           </div>
@@ -110,7 +110,7 @@ export default function Training() {
                 aria-label={`Go to slide ${i + 1}`}
                 className={[
                   "h-2 w-2 rounded-full transition-all",
-                  i === idx ? "bg-neutral-800 w-3" : "bg-neutral-300",
+                  i === idx ? "bg-secondary w-3" : "bg-neutral-300",
                 ].join(" ")}
               />
             ))}

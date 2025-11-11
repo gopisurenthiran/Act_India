@@ -24,7 +24,7 @@ export default function ContactStamp() {
             href="tel:+919884757350"
             className="inline-flex items-center gap-2 text-neutral-800 hover:text-neutral-900"
           >
-            <span className="inline-flex h-7 w-7 items-center justify-center rounded-md border border-[#2B6BFF] text-[#2B6BFF]">
+            <span className="inline-flex h-7 w-7 items-center justify-center rounded-md border border-secondary text-secondary">
               <Phone size={16} />
             </span>
             <span className="tracking-wide">+91 98847 57350</span>
@@ -35,7 +35,7 @@ export default function ContactStamp() {
             href="mailto:info@actcind.com"
             className="inline-flex items-center gap-2 text-neutral-800 hover:text-neutral-900"
           >
-            <span className="inline-flex h-7 w-7 items-center justify-center rounded-md border border-[#2B6BFF] text-[#2B6BFF]">
+            <span className="inline-flex h-7 w-7 items-center justify-center rounded-md border border-secondary text-secondary">
               <Mail size={16} />
             </span>
             <span className="tracking-wide">info@actcind.com</span>

@@ -105,14 +105,14 @@ export default function ContactSection() {
           {/* Contact Info */}
           <div className="space-y-4 pt-4">
             <div className="flex items-center gap-3">
-              <Mail className="text-blue-600" size={22} />
+              <Mail className="text-secondary" size={22} />
               <p className="text-gray-700">
                 <span className="block font-medium">E-mail</span>
                 actindia@gmail.com
               </p>
             </div>
             <div className="flex items-center gap-3">
-              <Phone className="text-blue-600" size={22} />
+              <Phone className="text-secondary" size={22} />
               <p className="text-gray-700">
                 <span className="block font-medium">Phone Number</span>
                 +91 95952 22292
@@ -264,13 +264,13 @@ export default function ContactSection() {
             whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
             type="submit"
             disabled={isSubmitting}
-            className={`inline-flex items-center gap-2 font-semibold px-5 py-3 rounded-md text-white
+            className={`inline-flex items-center gap-2 font-semibold px-5 py-3  text-white
               ${isSubmitting ? "bg-gray-400 cursor-not-allowed" : "bg-gradient-primary hover:opacity-90"}
             `}
           >
             {isSubmitting ? (
               <>
-                <span className="h-4 w-4 rounded-full border-2 border-white border-b-transparent animate-spin" />
+                <span className="h-4 w-4 border-2 border-white border-b-transparent animate-spin" />
                 Sending…
               </>
             ) : (

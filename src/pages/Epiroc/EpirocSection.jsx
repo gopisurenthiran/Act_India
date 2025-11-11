@@ -16,13 +16,12 @@ export default function EpirocSection() {
 
           {/* Tagline */}
           <h3 className="text-2xl font-bold leading-snug">
-             Innovation,<span className="font-light"><br/>Precision,</span> <br />
+             Innovation,<span className="font-light"> Precision,</span> <br />
             <span className="font-semibold">Performance.</span>
           </h3>
 
           {/* Divider */}
-          <div className="h-0.5 w-20 bg-gradient-primary"></div>
-
+          
           {/* Image with Left-aligned Arrows */}
           <div className="relative w-[400px] justify-start">
             <img
@@ -45,8 +44,7 @@ export default function EpirocSection() {
           </h2>
 
           {/* Divider */}
-          <div className="h-0.5 w-20 bg-gradient-primary"></div>
-
+         
           {/* Description */}
           <p className="text-gray-700 text-base leading-relaxed">
             Epiroc is a global technology leader and trusted productivity partner for the mining and infrastructure industries. With a legacy dating back to 1873, Epiroc delivers cutting-edge equipment, consumables, and services for surface and underground mining, civil construction, and well drilling. Born from the legacy of Atlas Copco, Epiroc has been driving progress as a stand-alone brand since 2018 delivering innovation where it matters most.

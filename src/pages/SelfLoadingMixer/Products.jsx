@@ -1,42 +1,51 @@
 // ProductsShowcase.jsx
 import React, { useState, useEffect, useCallback } from "react";
 
-const CATEGORIES = ["Products", "Supplies"];
+const CATEGORIES = ["Products"];
 
 const ITEMS = [
   {
     category: "Products",
-    title: "Crawler Excavator",
-    subtitle: "Operating Weight: 8T - 14T",
-    img: "/assets/sdlg-1.png",
-    gallery: ["/assets/sdlg-p-1.jpg", "/assets/sdlg-p-2.jpg", "/assets/sdlg-p-3.jpg"],
-    link: "https://sdlgindia.com/products/#excavators",
+    title: "SLM BEE 2.1",
+    subtitle: "Compact size, perfect for small-to-medium projects",
+    img: "/assets/sch-1.png",
+    gallery: ["/assets/BEE-2.1.png"],
+    link: "https://www.schwingstetterindia.com/products/self-loading-mixer/slm-bee-21",
   },
   {
     category: "Products",
-    title: "Wheel Loaders",
-    subtitle: "Rated Load (kg) 1.6T - 8T",
-    img: "/assets/sdlg-2.png",
-    gallery: ["/assets/sdlg-p-4.png", "/assets/sdlg-p-5.png", "/assets/sdlg-p-6.jpg", "/assets/sdlg-p-7.jpg", "/assets/sdlg-p-8.png"],
-    link: "https://sdlgindia.com/products/#wheel-loaders",
+    title: "SLM 2100",
+    subtitle: "Compact size, perfect for small-to-medium projects",
+    img: "/assets/sch-2.png",
+    gallery: ["/assets/2100.png"],
+    link: "https://www.schwingstetterindia.com/products/self-loading-mixer/slm-2100",
   },
   {
     category: "Products",
-    title: "Motor Grader",
-    subtitle: "Rated Power (kw) 105 - 211",
-    img: "/assets/sdlg-3.png",
-    gallery: ["/assets/sdlg-p-9.jpg", "/assets/sdlg-p-10.jpg", "/assets/sdlg-p-11.jpg"  ],
-    link: "https://sdlgindia.com/products/#graders",
+    title: "SLM 2600",
+    subtitle: "2.4 m³ capacity – balanced for speed & efficiency",
+    img: "/assets/sch-3.png",
+    gallery: ["/assets/2600.png"],
+    link: "https://www.schwingstetterindia.com/products/self-loading-mixer/slm-2600",
   },
   {
     category: "Products",
-    title: "Hydraulic Breakers",
-    subtitle: "Suitable carrier 7T - 34T",
-    img: "/assets/sdlg-4.png",
-    gallery: ["/assets/popup-18.png"],
-    link: "#",
+    title: "SLM 4300",
+    subtitle: "4.3 m³ capacity – handles bigger volumes",
+    img: "/assets/sch-4.png",
+    gallery: ["/assets/4300.png"],
+    link: "https://www.schwingstetterindia.com/products/concrete-machinery/self-loading-mixer/slm-4300",
   },
-  { category: "Supplies", img: "/assets/supplies-3.png" },
+    {
+    category: "Products",
+    title: "SLM 4600",
+    subtitle: "Massive 4.6 m³ output – most powerful in the SLM range",
+    img: "/assets/sch-5.png",
+    gallery: ["/assets/4600.png"],
+    link: "https://www.schwingstetterindia.com/products/self-loading-mixer/slm-4600",
+  },
+
+
 ];
 
 export default function ProductsShowcase() {

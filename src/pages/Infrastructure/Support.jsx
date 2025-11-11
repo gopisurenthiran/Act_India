@@ -134,7 +134,7 @@ function ImageSlider({ slides, pillText, autoplayMs = 4000 }) {
       ))}
 
       {/* Pill (overlay, on top) */}
-      <div className="absolute left-3 top-3 sm:left-4 sm:top-4 z-20 max-w-[70%] select-none rounded-md bg-gradient-to-b from-blue-500 to-indigo-600 px-2.5 py-[6px] sm:px-3 sm:py-1 text-[10px] sm:text-[11px] font-semibold text-white">
+      <div className="absolute left-3 top-3 sm:left-4 sm:top-4 z-20 max-w-[70%] select-none rounded-md bg-secondary px-2.5 py-[6px] sm:px-3 sm:py-1 text-[10px] sm:text-[11px] font-semibold text-white">
         <span className="block truncate">{pillText}</span>
       </div>
 

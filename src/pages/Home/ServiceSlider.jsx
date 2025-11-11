@@ -58,12 +58,13 @@ export default function ServiceSlider() {
 
   return (
     <div className="max-w-7xl mx-auto py-10 relative px-4">
-      {/* Header + Nav Arrows (like Dealer) */}
+      {/* Header + Nav Arrows */}
       <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-6">
-        
+        {/* Title or empty left space (if needed later) */}
+        <div></div>
 
-        {/* Arrows same as Dealer section */}
-        <div className="flex gap-6 mt-6 md:mt-0">
+        {/* Right-aligned Arrows */}
+        <div className="flex gap-4 md:gap-6 mt-4 md:mt-0 ml-auto">
           <button
             ref={prevRef}
             className="p-3 rounded-full bg-white shadow-md hover:bg-gray-100 transition"
@@ -93,7 +94,7 @@ export default function ServiceSlider() {
           prevEl: prevRef.current,
           nextEl: nextRef.current,
         }}
-        allowTouchMove={false} // no swipe
+        allowTouchMove={false}
         spaceBetween={30}
         slidesPerView={2}
         slidesPerGroup={2}
@@ -109,10 +110,8 @@ export default function ServiceSlider() {
             <div className="h-[300px] bg-white shadow-md rounded-lg overflow-hidden flex border">
               {/* Left */}
               <div className="w-[60%] p-6 flex flex-col">
-                <h3 className="font-bold text-lg mb-2 capitalize">
-                  {item.title}
-                </h3>
-                <span className="block w-16 border-b-2 border-secondary mb-2 mt-1"></span>
+                <h3 className="font-bold text-lg mb-2 capitalize">{item.title}</h3>
+
 
                 <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-4">
                   {item.desc}

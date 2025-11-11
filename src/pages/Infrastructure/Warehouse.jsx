@@ -56,7 +56,7 @@ export default function Warehouse() {
 
           {/* Floating pill (dynamic city name) */}
           <div className="absolute left-4 top-4">
-            <span className="select-none rounded-md bg-gradient-to-b from-blue-500 to-indigo-600 px-3 py-1.5 text-xs font-semibold text-white shadow-lg shadow-blue-500/20 transition-all duration-500">
+            <span className="select-none rounded-md bg-secondary px-3 py-1.5 text-xs font-semibold text-white shadow-lg shadow-blue-500/20 transition-all duration-500">
               {SLIDES[idx].label}
             </span>
           </div>

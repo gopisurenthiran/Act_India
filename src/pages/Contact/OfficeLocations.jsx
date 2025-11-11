@@ -39,7 +39,7 @@ const locations = [
   {
     city: "Madurai",
     address:
-      "Flat No:15, Sowbhagya Nagar, 4th Street, SeethakathiNagar, Thirupparankundram, Madurai - 625006.",
+      "Flat No:15, Sowbhagya Nagar, 4th Street, Seethakathi Nagar, Thirupparankundram, Madurai - 625006.",
   },
   {
     city: "Kozhikode",
@@ -65,7 +65,7 @@ export default function OfficeLocations() {
         <div className="w-full h-[500px]">
           <iframe
             title="office-map"
-            className="w-full h-full shadow-lg border"
+            className="w-full h-full shadow-lg border rounded-md"
             src="https://www.google.com/maps?q=13.0827,80.2707&z=12&output=embed" // Chennai center
             allowFullScreen
             loading="lazy"
@@ -78,16 +78,22 @@ export default function OfficeLocations() {
           {locations.map((loc, index) => (
             <div
               key={index}
-              className="bg-white border border-gray-200  shadow-md p-5 transition-transform hover:scale-105 hover:shadow-xl"
+              className="bg-white border border-gray-200 shadow-md p-5 rounded-lg transition-transform hover:scale-105 hover:shadow-xl"
             >
-              <div className="flex items-start gap-3">
-                <MapPin className="text-blue-600 w-6 h-6 mt-1" />
+              <div className="flex items-center gap-4">
+                {/* Icon container */}
+                <div className="flex items-center justify-center w-6 h-6 shrink-0">
+                  <MapPin className="text-secondary w-8 h-8" />
+                </div>
+
+                {/* Text section */}
                 <div>
-                  <h3 className="text-lg font-semibold text-blue-800">
+                  <h3 className="text-lg font-semibold text-secondary">
                     {loc.city}
                   </h3>
-                  <p className="text-sm text-gray-600 mt-1">{loc.address}</p>
-             
+                  <p className="text-sm text-gray-600 mt-1 leading-relaxed">
+                    {loc.address}
+                  </p>
                 </div>
               </div>
             </div>

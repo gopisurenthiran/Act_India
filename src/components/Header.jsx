@@ -24,7 +24,7 @@ export default function Header() {
       { name: "SDLG", path: "/sdlg" },
       { name: "Ammann", path: "/ammann" },
       { name: "Husqvarna", path: "/husqvarna" },
-      { name: "Self Loading Mixer", path: "/self-loading-mixer" },
+      { name: "Schwing Stetter", path: "/self-loading-mixer" },
     ],
   };
 

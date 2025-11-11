@@ -16,12 +16,12 @@ export default function HusqvarnaSection() {
 
           {/* Tagline */}
           <h3 className="text-2xl font-bold leading-snug">
-            Precision,<span className="font-light">Innovation,</span> <br />
+            Precision,<span className="font-light"> Innovation,</span> <br />
             <span className="font-semibold">Trust.</span>
           </h3>
 
           {/* Divider */}
-          <div className="h-0.5 w-20 bg-gradient-primary"></div>
+         
 
           {/* Image with Left-aligned Arrows */}
           <div className="relative w-[400px] justify-start">
@@ -45,7 +45,7 @@ export default function HusqvarnaSection() {
           </h2>
 
           {/* Divider */}
-          <div className="h-0.5 w-20 bg-gradient-primary"></div>
+         
 
           {/* Description */}
           <p className="text-gray-700 text-base leading-relaxed">

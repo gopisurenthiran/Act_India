@@ -21,7 +21,7 @@ export default function VolvoSection() {
           </h3>
 
           {/* Divider */}
-          <div className="h-0.5 w-20 bg-gradient-primary"></div>
+         
 
           {/* Image with Left-aligned Arrows */}
           <div className="relative w-full justify-start">
@@ -45,7 +45,7 @@ export default function VolvoSection() {
           </h2>
 
           {/* Divider */}
-          <div className="h-0.5 w-20 bg-gradient-primary"></div>
+         
 
           {/* Description */}
           <p className="text-gray-700 text-base leading-relaxed">

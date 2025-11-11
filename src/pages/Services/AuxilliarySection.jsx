@@ -125,7 +125,7 @@ function Card({ id, title }) {
       "
       style={{ marginBottom: "12px" }}  // ⬅ spacing below card
     >
-      <div className="text-[13px] font-extrabold tracking-wide text-[#1e5ad7]">
+      <div className="text-[13px] font-extrabold tracking-wide text-secondary">
         {id}
       </div>
       <p className="mt-2 text-[14px] md:text-[15px] leading-relaxed text-neutral-800">

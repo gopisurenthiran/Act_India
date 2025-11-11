@@ -8,7 +8,7 @@ const GROUPS = [
     company: { name: "Pact Machine (P) Ltd.", logo: "/assets/pact.png" },
     cols: 1,
     partners: [
-      { name: "VOLVO", logo: "/assets/v.png" },
+      { name: "VOLVO", logo: "/assets/volvo-slider.png" },
       { name: "AMMANN", logo: "/assets/amman.png" },
       { name: "SDLG", logo: "/assets/sdlg.png" },
     ],
@@ -79,7 +79,7 @@ export default function GroupOfCompaniesSlider() {
         <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 text-center">
           Group of Companies 
         </h2>
-        <div className="mt-2 h-1 w-16 mx-auto align-left bg-secondary" />
+        
       </div>
 
       {/* Slider Frame */}
@@ -90,7 +90,7 @@ export default function GroupOfCompaniesSlider() {
           aria-label="Previous"
           className="
             absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8
-            p-1 md:p-2 text-blue-600 hover:scale-110 active:scale-95
+            p-1 md:p-4 text-blue-600 hover:scale-110 active:scale-95
             transition transform
           "
         >
@@ -103,7 +103,7 @@ export default function GroupOfCompaniesSlider() {
           aria-label="Next"
           className="
             absolute right-0 top-1/2 -translate-y-1/2 translate-x-8
-            p-1 md:p-2 text-blue-600 hover:scale-110 active:scale-95
+            p-1 md:p-4 text-blue-600 hover:scale-110 active:scale-95
             transition transform
           "
         >

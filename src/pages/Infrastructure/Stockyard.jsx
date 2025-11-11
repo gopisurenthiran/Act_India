@@ -43,7 +43,7 @@ function Card({ city, img, alt }) {
       {/* Card */}
       <div className="relative  overflow-hidden bg-white shadow-[0_15px_35px_-15px_rgba(99,102,241,0.35)] ring-1 ring-indigo-100">
         {/* Badge */}
-        <span className="absolute left-3 top-3 z-10 rounded-md bg-gradient-to-b from-blue-500 to-indigo-600 px-2.5 py-1 text-[11px] font-semibold text-white shadow-sm">
+        <span className="absolute left-3 top-3 z-10 rounded-md bg-secondary px-2.5 py-1 text-[11px] font-semibold text-white shadow-sm">
           {city}
         </span>
 

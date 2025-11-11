@@ -48,7 +48,7 @@ export default function Infrastructure() {
     <section className="max-w-7xl mx-auto py-12 px-4 md:px-8">
       {/* Section Heading */}
       <motion.h2
-        className="text-xl font-semibold mb-2"
+        className="text-xl font-semibold mb-4"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -57,13 +57,7 @@ export default function Infrastructure() {
         Infrastructure
       </motion.h2>
 
-      <motion.span
-        className="block w-16 border-b-4 border-secondary sm:text-left lg:mx-0 mb-4 mt-4"
-        initial={{ scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        viewport={{ once: true }}
-      />
+    
 
       <motion.p
         className="text-gray-600 mb-8"
@@ -109,7 +103,7 @@ export default function Infrastructure() {
                 <h3 className="font-semibold text-gray-900 mb-1 capitalize">
                   {item.title}
                 </h3>
-                <span className="block w-16 border-b-2 border-secondary text-left lg:mx-0 mb-2 mt-1"></span>
+                
 
                 <p className="text-gray-600 text-sm mb-2">{item.desc}</p>
                 <Link

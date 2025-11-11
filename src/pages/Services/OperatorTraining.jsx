@@ -71,7 +71,7 @@ export default function OperatorTrainingCertSection() {
                 "Efficiency and Productivity",
               ].map((b) => (
                 <li key={b} className="flex items-center gap-3">
-                  <span className="inline-block h-1 w-1 rounded-full bg-neutral-700" />
+                  <span className="inline-block h-1 w-1 rounded-full bg-secondary" />
                   <span className="whitespace-nowrap">{b}</span>
                 </li>
               ))}
@@ -85,7 +85,7 @@ export default function OperatorTrainingCertSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.35 }}
-                className="mt-6 inline-block rounded-xl bg-white px-5 py-4 ring-1 ring-gray-200 shadow-[0_16px_30px_-14px_rgba(0,0,0,0.25)]"
+                className="mt-6 inline-block rounded-xl bg-white px-5 py-4 ring-1 ring-gray-200 "
               >
                 <p className="font-semibold text-[15px] leading-snug">{s.caption}</p>
               </motion.div>
@@ -103,7 +103,7 @@ export default function OperatorTrainingCertSection() {
                     aria-label={`Go to slide ${i + 1}`}
                     className={`h-2.5 w-2.5 rounded-full transition
                       ${i === idx
-                        ? "bg-blue-600 shadow-[0_0_0_3px_rgba(59,130,246,0.25)]"
+                        ? "bg-secondary "
                         : "bg-gray-300 hover:bg-gray-400"}`}
                   />
                 ))}

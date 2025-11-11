@@ -81,7 +81,7 @@ export default function PrecareSection() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 8 }}
                     transition={{ duration: 0.35, ease: "easeOut" }}
-                    className="inline-block bg-gradient-primary text-white text-xs md:text-sm font-medium px-4 py-2 rounded-md shadow-[0_10px_18px_rgba(0,0,0,0.14)]"
+                    className="inline-block bg-secondary text-white text-xs md:text-sm font-medium px-4 py-2 rounded-md"
                   >
                     {current.label}
                   </motion.span>

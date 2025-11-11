@@ -9,24 +9,23 @@ export default function SelfLoadingMixerSection() {
         <div className="flex flex-col items-start space-y-6">
           {/* Logo */}
           <img
-            src="/assets/sdlg.png"
-            alt="Epiroc Logo"
+            src="/logos/schwing-stetter-web.svg"
+            alt="Schwing Stetter Logo"
             className="w-32 mb-4"
           />
 
           {/* Tagline */}
           <h3 className="text-2xl font-bold leading-snug">
-             Reliable,<span className="font-light">Afford,</span> <br />
-            <span className="font-semibold">Efficient.</span>
+            Innovation,<span className="font-light">Quality,</span> <br />
+            <span className="font-semibold">Precision.</span>
           </h3>
 
           {/* Divider */}
-          <div className="h-0.5 w-20 bg-gradient-primary"></div>
-
+          
           {/* Image with Left-aligned Arrows */}
           <div className="relative w-[400px] justify-start">
             <img
-              src="/assets/sdlg-img.png"
+              src="/assets/schwin-stetter.png"
               alt="Volvo Excavator"
               className="w-full"
             />
@@ -38,18 +37,18 @@ export default function SelfLoadingMixerSection() {
         {/* Right Column */}
         <div className="space-y-6">
           <h2 className="text-3xl font-bold leading-snug">
-            <span className="font-extrabold">SDLG</span>{" "}
+            <span className="font-extrabold">SCHWING</span>{" "}
             <span className="font-normal">
-             Powering Global Construction with Reliability
+             Construction Solutions Backed by ACT Expertise
             </span>
           </h2>
 
           {/* Divider */}
-          <div className="h-0.5 w-20 bg-gradient-primary"></div>
+         
 
           {/* Description */}
           <p className="text-gray-700 text-base leading-relaxed">
-            SDLG (Shandong Lingong Construction Machinery) is a trusted global brand known for delivering reliable and cost-effective construction machinery since 1972. Backed by Volvo CE since 2007, SDLG combines robust engineering with global standards to serve infrastructure and construction needs worldwide. Its value-driven machines are designed for performance, durability, and easy maintenance making them ideal for high-demand environments. 
+            As a global leader in construction equipment, SCHWING STETTER is synonymous with Innovation, Efficiency, and Superior Performance. ACT, through its group company PACT Machines Pvt. Ltd., proudly serves as the authorized dealer for SCHWING STETTER Construction Equipment across Tamil Nadu and Kerala. Together, we empower infrastructure growth with world-class machinery, reliable support, and unmatched concrete mixing standards.
           </p>
 
          

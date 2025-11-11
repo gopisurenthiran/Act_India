@@ -1,43 +1,50 @@
 import React from "react";
 
-import volvoLogo from "/assets/new-logo.png";
 import epirocLogo from "/assets/epiroc-final.svg";
 import ammannLogo from "/assets/Ammann.svg";
 import husqvarnaLogo from "/assets/husqvarna-final.svg";
-import sdlgLogo from "/assets/SDLG.svg";
 
 const logos = [
   {
+    name: "SDLG",
+    image : "/logos/sdlg-web.svg",
+    link: "https://www.sdlgindia.com/",
+  },
+    {
+    name: "Husqvarna",
+    image: "/logos/husqvarna-web.svg",
+    link: "https://www.husqvarna.com/in/",
+  },
+    {
+    name: "Epiroc",
+    image: "/logos/epiroc-web.svg",
+    link: "https://www.epiroc.com/en-in",
+  },
+    {
+    name: "Schwing Stetter",
+    image: "/logos/schwing-stetter-web.svg",
+    link: "https://www.schwingstetterindia.com/products/concrete-machinery/self-loading-mixer", // ✅ add link here
+  },
+    {
     name: "Volvo",
-    image: volvoLogo,
+    image: "/logos/volvo-web.svg",
     link: "https://www.volvoce.com/india/en-in/", // ✅ add link here
   },
   {
-    name: "Epiroc",
-    image: epirocLogo,
-    link: "https://www.epiroc.com/en-in",
-  },
-  {
     name: "Ammann",
-    image: ammannLogo,
+    image: "/logos/ammann-web.svg",
     link: "https://www.ammann.com/en-IN/",
   },
-  {
-    name: "Husqvarna",
-    image: husqvarnaLogo,
-    link: "https://www.husqvarna.com/in/",
-  },
-  {
-    name: "SDLG",
-    image: sdlgLogo,
-    link: "https://www.sdlgindia.com/",
-  },
+
+
+
+  
 ];
 
 export default function ClientSection() {
   return (
     <section className="mt-6 bg-white mb-12">
-      <div className="max-w-5xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-wrap justify-center gap-6">
           {logos.map((logo, index) => (
             <React.Fragment key={index}>

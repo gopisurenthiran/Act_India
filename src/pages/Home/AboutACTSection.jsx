@@ -19,7 +19,7 @@ export default function AboutACT() {
             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-3 font-primary">
               About ACT
             </h3>
-            <span className="block w-16 border-b-2 border-black mx-auto lg:mx-0 mb-6"></span>
+          
             <h4 className="text-lg sm:text-xl md:text-2xl font-semibold mb-4 font-secondary text-black">Our Legacy of Excellence</h4>
             <p className="text-black text-sm sm:text-base leading-relaxed font-secondary">
              Advanced Construction Technologies Pvt Ltd stands as a beacon of innovation and reliability in the construction solutions industry. With over 80 years of business legacy, we have empowered more than 2,500 satisfied customers with cutting-edge solutions. Our dedicated team of over 350 passionate professionals ensures exceptional service, maintaining over 4,500 machines under our expert care. As the exclusive dealer for leading global construction equipment brands for over 20 years, we proudly serve Tamil Nadu and Kerala through our expansive network of 16+ branches, with plans for further growth. Our commitment to excellence drives us to redefine industry standards and deliver unparalleled value.
@@ -30,7 +30,7 @@ export default function AboutACT() {
           >
             <Link
               to="/about"
-              className="mt-6 inline-block px-4 bg-white text-secondary text-lg shadow-lg transition font-primary"
+              className="mt-6 inline-block px-4 bg-secondary text-white text-lg shadow-lg transition font-primary"
             >
               Learn More →
             </Link>

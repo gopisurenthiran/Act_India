@@ -18,7 +18,7 @@ export default function Workshop({
       <div className="mx-auto max-w-7xl px-6 sm:px-10 py-10">
         {/* Heading */}
         <h2 className="text-[28px] sm:text-[36px] leading-tight tracking-wide mb-6">
-          Trusted <span className="font-extrabold">Volvo Accredited</span>
+          Trusted <span className="font-extrabold ">Volvo Accredited</span>
           <br /> Service Center
         </h2>
 
@@ -26,7 +26,7 @@ export default function Workshop({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
           {/* LEFT: slider */}
           <div className="lg:col-span-5">
-            <div className="relative border border-neutral-200 bg-neutral-50 shadow-sm overflow-hidden h-[300px] sm:h-[300px]">
+            <div className="relative bg-secondary overflow-hidden h-[300px] sm:h-[300px]">
               <LeftSlider slides={slides} autoplayMs={autoplayMs} pillText={pillText} />
             </div>
           </div>
@@ -83,7 +83,7 @@ function LeftSlider({ slides, autoplayMs = 4000, pillText }) {
       ))}
 
       {/* pill */}
-      <span className="absolute left-4 top-4 select-none rounded-md bg-gradient-to-b from-blue-500 to-indigo-600 px-3 py-1.5 text-xs font-semibold text-white shadow-lg shadow-blue-500/20">
+      <span className="absolute left-4 top-4 select-none rounded-md bg-secondary px-3 py-1.5 text-xs font-semibold text-white shadow-lg shadow-blue-500/20">
         {pillText}
       </span>
     </div>
@@ -102,7 +102,7 @@ function VerticalDots({ slides }) {
           onClick={() => setActive(i)}
           aria-label={`Go to slide ${i + 1}`}
           className={`h-2 w-2 rounded-full transition-all ${
-            i === active ? "bg-blue-600 scale-110" : "bg-neutral-300 hover:bg-neutral-400"
+            i === active ? "bg-secondary scale-110" : "bg-neutral-300 hover:bg-neutral-400"
           }`}
         />
       ))}

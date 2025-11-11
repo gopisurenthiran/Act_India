@@ -10,10 +10,11 @@ import "swiper/css/navigation";
 
 const slides = [
   { id: 1, desktop: "/assets/banner/final-1.jpg", mobile: "/assets/banner/final-1-mob.jpg", link: "/volvo" },
-  { id: 2, desktop: "/assets/banner/final-2.jpg", mobile: "/assets/banner/final-2-mob.jpg", link: "/epiroc" },
+  { id: 2, desktop: "/assets/banner/Epiroc.jpg", mobile: "/assets/banner/Epiroc-mob.jpg", link: "/epiroc" },
   { id: 3, desktop: "/assets/banner/final-3.jpg", mobile: "/assets/banner/final-3-mob.jpg", link: "/sdlg" },
   { id: 4, desktop: "/assets/banner/final-4.jpg", mobile: "/assets/banner/final-4-mob.jpg", link: "/husqvarna" },
   { id: 5, desktop: "/assets/banner/final-5.jpg", mobile: "/assets/banner/final-5-mob.jpg", link: "/ammann" },
+  { id: 6, desktop: "/assets/banner/schwin-banner.jpg", mobile: "/assets/banner/schwin-mob.jpg", link: "/self-loading-mixer" },
 ];
 
 export default function HomeSection() {

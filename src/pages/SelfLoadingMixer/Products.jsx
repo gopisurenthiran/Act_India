@@ -45,6 +45,39 @@ const ITEMS = [
     link: "https://www.schwingstetterindia.com/products/self-loading-mixer/slm-4600",
   },
 
+      {
+    category: "Products",
+    title: "BATCHING PLANTS",
+    subtitle: "PLANTSM25Z, M3OZ, M45Z &M1",
+    img: "/assets/sch-6.png",
+    gallery: ["/assets/CP-18.jpg"],
+    link: "https://www.schwingstetterindia.com/products/batching-plant/less-30-cumhour/cp-18",
+  },
+      {
+    category: "Products",
+    title: "BATCHING PLANTS",
+    subtitle: "CP18C3 &CP18TM",
+    img: "/assets/sch-7.png",
+    gallery: ["/assets/30-60.jpg"],
+    link: "https://www.schwingstetterindia.com/products/mobile-batching-plants/m-30-z",
+  },
+      {
+    category: "Products",
+    title: "STATIONARY PUMP",
+    subtitle: "Ranging from 30Cum to 50 cum/hr",
+    img: "/assets/sch-8.png",
+    gallery: ["/assets/Stationary-Pump.jpg"],
+    link: "https://www.schwingstetterindia.com/products/stationary-pump/sp-1200",
+  },
+      {
+    category: "Products",
+    title: "TRUCK MOUNTED CONCRETE PUMP",
+    subtitle: "Massive 4.6 m³ output – most powerful in the SLM range",
+    img: "/assets/sch-9.png",
+    gallery: ["/assets/S36.jpg"],
+    link: "https://www.schwingstetterindia.com/products/truck-mounted-concrete-pump/s36x",
+  },
+
 
 ];
 
